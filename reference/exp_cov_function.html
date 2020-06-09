@@ -110,7 +110,12 @@ of values:
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/astamm/roahd/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -125,7 +130,7 @@ of values:
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Exponential covariance function over a grid</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/astamm/roahd/blob/master/R/simulation.R'><code>R/simulation.R</code></a></small>
     <div class="hidden name"><code>exp_cov_function.Rd</code></div>
     </div>
 
@@ -170,8 +175,7 @@ of values:
 <span class='no'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>
 <span class='no'>beta</span> <span class='kw'>=</span> <span class='fl'>0.3</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span>( <span class='fu'>exp_cov_function</span>( <span class='no'>grid</span>, <span class='no'>alpha</span>, <span class='no'>beta</span> ),
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots64.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span>( <span class='fu'>exp_cov_function</span>( <span class='no'>grid</span>, <span class='no'>alpha</span>, <span class='no'>beta</span> ),
        <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Exponential covariance function'</span>,
        <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'grid'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'grid'</span>)</div></pre>
   </div>

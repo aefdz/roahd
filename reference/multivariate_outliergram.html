@@ -104,7 +104,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/astamm/roahd/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Outliergram for multivariate functional datasets</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/astamm/roahd/blob/master/R/outliergram.R'><code>R/outliergram.R</code></a></small>
     <div class="hidden name"><code>multivariate_outliergram.Rd</code></div>
     </div>
 
@@ -252,7 +257,7 @@ trials of the outliergram and manually select the best value.</p>
 <span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
 
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots22.pdf")</span></div><div class='input'><span class='no'>out</span> <span class='kw'>=</span> <span class='fu'>multivariate_outliergram</span>(<span class='no'>mfD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.</span>, <span class='kw'>shift</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='input'><span class='no'>col_non_outlying</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='https://scales.r-lib.org//reference/hue_pal.html'>hue_pal</a></span>( <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>180</span>, <span class='fl'>270</span> ),
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots86.pdf")</span></div><div class='input'><span class='no'>out</span> <span class='kw'>=</span> <span class='fu'>multivariate_outliergram</span>(<span class='no'>mfD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.</span>, <span class='kw'>shift</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: no non-missing arguments to max; returning -Inf</span></div><div class='input'><span class='no'>col_non_outlying</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='https://scales.r-lib.org//reference/hue_pal.html'>hue_pal</a></span>( <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>180</span>, <span class='fl'>270</span> ),
                                     <span class='kw'>l</span> <span class='kw'>=</span> <span class='fl'>60</span> )( <span class='no'>N</span> - <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>( <span class='no'>out</span>$<span class='no'>ID_outliers</span> ) )
 <span class='no'>col_non_outlying</span> <span class='kw'>=</span> <span class='fu'><a href='set_alpha.html'>set_alpha</a></span>( <span class='no'>col_non_outlying</span>, <span class='fl'>0.5</span> )
 <span class='no'>col_outlying</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='https://scales.r-lib.org//reference/hue_pal.html'>hue_pal</a></span>( <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( - <span class='fl'>90</span>, <span class='fl'>180</span>  ),
@@ -264,7 +269,7 @@ trials of the outliergram and manually select the best value.</p>
 <span class='no'>lwd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>, <span class='no'>N</span>)
 <span class='no'>lwd</span>[<span class='no'>out</span>$<span class='no'>ID_outliers</span>] <span class='kw'>=</span> <span class='fl'>2</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots23.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>mfD</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='no'>colors</span>, <span class='kw'>lwd</span><span class='kw'>=</span><span class='no'>lwd</span>)</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots87.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>mfD</span>, <span class='kw'>col</span><span class='kw'>=</span><span class='no'>colors</span>, <span class='kw'>lwd</span><span class='kw'>=</span><span class='no'>lwd</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
