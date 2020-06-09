@@ -98,7 +98,7 @@
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># Grid representing the dependent variable</span>
 <span class="no">grid</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>( <span class="fl">0</span>, <span class="fl">1</span>, <span class="kw">length.out</span> <span class="kw">=</span> <span class="fl">100</span> )
 
-<span class="co"># Pointwise-measurements of the functional dataset</span>
+<span class="co"># Pointwise measurements of the functional dataset</span>
 <span class="no">Data</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>( <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>( <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span>( <span class="fl">2</span> * <span class="no">pi</span> * <span class="no">grid</span> ),
                   <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span> ( <span class="fl">2</span> * <span class="no">pi</span> * <span class="no">grid</span> ),
                   <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span>( <span class="fl">2</span> * <span class="no">pi</span> * <span class="no">grid</span> + <span class="no">pi</span> / <span class="fl">4</span> ) ), <span class="kw">ncol</span> <span class="kw">=</span> <span class="fl">100</span>, <span class="kw">byrow</span> <span class="kw">=</span> <span class="fl">TRUE</span> )
@@ -133,15 +133,15 @@ plot( fD[ 2:3, :] )</pre></div>
 <div id="robust-methods-for-functional-data-analysis" class="section level2">
 <h2 class="hasAnchor">
 <a href="#robust-methods-for-functional-data-analysis" class="anchor"></a>Robust methods for functional data analysis</h2>
-<p>A part of the package is specifically devoted to the computation of depths and other statistical indexes for functional data:</p>
+<p>A part of the package is specifically devoted to the computation of depths and other statistical indices for functional data:</p>
 <ul>
-<li>Band Dephts and Modified Band Depths,</li>
+<li>Band depths and modified band depths,</li>
 <li>Modified band depths for multivariate functional data,</li>
-<li>Epigraph and Hypograph indexes,</li>
-<li>Spearman and Kendall’s correlation indexes for functional data.</li>
-<li>Confidence intervals and tests on Spearman’s correlation coefficients for univariate andmultivariate functional data.</li>
+<li>Epigraph and hypograph indexes,</li>
+<li>Spearman and Kendall’s correlation indexes for functional data,</li>
+<li>Confidence intervals and tests on Spearman’s correlation coefficients for univariate and multivariate functional data.</li>
 </ul>
-<p>These also are the core of the visualization/robustification tools like functional boxplot (<code>fbplot</code>) and outliergram (<code>outliergram</code>), allowing the visualization and identification of amplitude/shape outliers.</p>
+<p>These also are the core of the visualization/robustification tools like functional boxplot (<code>fbplot</code>) and outliergram (<code>outliergram</code>), allowing the visualization and identification of amplitude and shape outliers.</p>
 <p>Thanks to the functions for the simulation of synthetic functional datasets, both <code>fbplot</code> and <code>outliergram</code> procedures can be auto-tuned to the dataset at hand, in order to control the true positive outliers rate.</p>
 </div>
 </div>
