@@ -188,32 +188,32 @@ adjusted for the dataset provided in <code>fData</code>.</p></td>
 inflation factor, \(F = 1.5\), to be used, or a list specifying the
 parameters required by the adjustment.</p><ul>
 <li><p>"<code>N_trials</code>": the number of repetitions of the adjustment
- procedure based on the simulation of a gaussian population of functional
- data, each one producing an adjusted value of \(F\), which will lead
- to the averaged adjusted value \(\bar{F}\). Default is 20;</p></li>
+procedure based on the simulation of a gaussian population of functional
+data, each one producing an adjusted value of \(F\), which will lead
+to the averaged adjusted value \(\bar{F}\). Default is 20;</p></li>
 <li><p>"<code>trial_size</code>": the number of elements in the gaussian
- population of functional data that will be simulated at each repetition of
- the adjustment procedure. Default is <code>5 * fData$N</code>;</p></li>
+population of functional data that will be simulated at each repetition of
+the adjustment procedure. Default is <code>5 * fData$N</code>;</p></li>
 <li><p>"<code>TPR</code>": the True Positive Rate of outliers, i.e. the proportion
- of observations in a dataset without shape outliers that have to be considered
- outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</p></li>
+of observations in a dataset without shape outliers that have to be considered
+outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</p></li>
 <li><p>"<code>F_min</code>": the minimum value of \(F\), defining the left
- boundary for the optimization problem aimed at finding, for a given dataset
- of simulated gaussian data associated to <code>fData</code>, the optimal value of
- \(F\). Default is 0.5;</p></li>
+boundary for the optimization problem aimed at finding, for a given dataset
+of simulated gaussian data associated to <code>fData</code>, the optimal value of
+\(F\). Default is 0.5;</p></li>
 <li><p>"<code>F_max</code>": the maximum value of \(F\), defining the right
- boundary for the optimization problem aimed at finding, for a given dataset
- of simulated gaussian data associated to <code>fData</code>, the optimal value of
- \(F\). Default is 20;</p></li>
+boundary for the optimization problem aimed at finding, for a given dataset
+of simulated gaussian data associated to <code>fData</code>, the optimal value of
+\(F\). Default is 20;</p></li>
 <li><p>"<code>tol</code>": the tolerance to be used in the optimization problem
- aimed at finding, for a given dataset of simulated gaussian data associated
- to <code>fData</code>, the optimal value of \(F\). Default is <code>1e-3</code>;</p></li>
+aimed at finding, for a given dataset of simulated gaussian data associated
+to <code>fData</code>, the optimal value of \(F\). Default is <code>1e-3</code>;</p></li>
 <li><p>"<code>maxiter</code>": the maximum number of iterations to solve the
- optimization problem aimed at finding, for a given dataset of simulated
- gaussian data associated to <code>fData</code>, the optimal value of \(F\).
- Default is <code>100</code>;</p></li>
+optimization problem aimed at finding, for a given dataset of simulated
+gaussian data associated to <code>fData</code>, the optimal value of \(F\).
+Default is <code>100</code>;</p></li>
 <li><p>"<code>VERBOSE</code>": a parameter controlling the verbosity of the
- adjustment process;</p></li>
+adjustment process;</p></li>
 </ul></td>
     </tr>
     <tr>
