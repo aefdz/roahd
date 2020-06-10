@@ -187,29 +187,29 @@ adjusted for the dataset provided in <code>fData</code>.</p></td>
       <td><p>either <code>FALSE</code> if you would like the default value for the
 inflation factor, \(F = 1.5\), to be used, or a list specifying the
 parameters required by the adjustment.</p><ul>
-<li><p>"<code>N_trials</code>": the number of repetitions of the adujustment
- procedure based on the simulation of a gaussisan population of functional
+<li><p>"<code>N_trials</code>": the number of repetitions of the adjustment
+ procedure based on the simulation of a gaussian population of functional
  data, each one producing an adjusted value of \(F\), which will lead
  to the averaged adjusted value \(\bar{F}\). Default is 20;</p></li>
 <li><p>"<code>trial_size</code>": the number of elements in the gaussian
  population of functional data that will be simulated at each repetition of
  the adjustment procedure. Default is <code>5 * fData$N</code>;</p></li>
-<li><p>"<code>TPR</code>": the True Positive Rate of outleirs, i.e. the proportion
+<li><p>"<code>TPR</code>": the True Positive Rate of outliers, i.e. the proportion
  of observations in a dataset without shape outliers that have to be considered
  outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</p></li>
 <li><p>"<code>F_min</code>": the minimum value of \(F\), defining the left
- boundary for the optimisation problem aimed at finding, for a given dataset
+ boundary for the optimization problem aimed at finding, for a given dataset
  of simulated gaussian data associated to <code>fData</code>, the optimal value of
  \(F\). Default is 0.5;</p></li>
 <li><p>"<code>F_max</code>": the maximum value of \(F\), defining the right
- boundary for the optimisation problem aimed at finding, for a given dataset
+ boundary for the optimization problem aimed at finding, for a given dataset
  of simulated gaussian data associated to <code>fData</code>, the optimal value of
  \(F\). Default is 20;</p></li>
-<li><p>"<code>tol</code>": the tolerance to be used in the optimisation problem
+<li><p>"<code>tol</code>": the tolerance to be used in the optimization problem
  aimed at finding, for a given dataset of simulated gaussian data associated
  to <code>fData</code>, the optimal value of \(F\). Default is <code>1e-3</code>;</p></li>
 <li><p>"<code>maxiter</code>": the maximum number of iterations to solve the
- optimisation problem aimed at finding, for a given dataset of simulated
+ optimization problem aimed at finding, for a given dataset of simulated
  gaussian data associated to <code>fData</code>, the optimal value of \(F\).
  Default is <code>100</code>;</p></li>
 <li><p>"<code>VERBOSE</code>": a parameter controlling the verbosity of the
@@ -218,7 +218,7 @@ parameters required by the adjustment.</p><ul>
     </tr>
     <tr>
       <th>display</th>
-      <td><p>either a logical value indicating wether you want the
+      <td><p>either a logical value indicating whether you want the
 outliergram to be displayed, or the number of the graphical device
 where you want the outliergram to be displayed.</p></td>
     </tr>
@@ -259,15 +259,15 @@ list containing:</p><ul>
     
 
 
-<p>When the adjustment option is selected, the value of \(F\) is optimised for
+<p>When the adjustment option is selected, the value of \(F\) is optimized for
 the univariate functional dataset provided with <code>fData</code>. In practice,
 a number <code>adjust$N_trials</code> of times a synthetic population
 (of size <code>adjust$trial_size</code> with the same covariance (robustly
 estimated from data) and centerline as <code>fData</code> is simulated without
-outliers and each time an optimised value \(F_i\) is computed so that a
+outliers and each time an optimized value \(F_i\) is computed so that a
 given proportion (<code>adjust$TPR</code>) of observations is flagged as outliers.
 The final value of <code>F</code> for the outliergram is determined as an average
-of \(F_1, F_2, \ldots, F_{N_{trials}}\). At each time step the optimisation
+of \(F_1, F_2, \ldots, F_{N_{trials}}\). At each time step the optimization
 problem is solved using <code><a href='https://rdrr.io/r/stats/uniroot.html'>stats::uniroot</a></code> (Brent's method).</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 

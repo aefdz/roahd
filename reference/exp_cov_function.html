@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Exponential covariance function over a grid — exp_cov_function" />
-<meta property="og:description" content="This function computes the discretisation of an exponential
+<meta property="og:description" content="This function computes the discretization of an exponential
 covariance function of the form:
  $$C( s, t ) = \alpha e^{ - \beta | s - t | }$$
 over a 1D grid \([t_0, t_1, \ldots, t_{P-1}]\), thus obtaining the
@@ -135,7 +135,7 @@ of values:
     </div>
 
     <div class="ref-description">
-    <p>This function computes the discretisation of an exponential
+    <p>This function computes the discretization of an exponential
 covariance function of the form:
  $$C( s, t ) = \alpha e^{ - \beta | s - t | }$$
 over a 1D grid \([t_0, t_1, \ldots, t_{P-1}]\), thus obtaining the
@@ -175,7 +175,7 @@ of values:
 <span class='no'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>
 <span class='no'>beta</span> <span class='kw'>=</span> <span class='fl'>0.3</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots320.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span>( <span class='fu'>exp_cov_function</span>( <span class='no'>grid</span>, <span class='no'>alpha</span>, <span class='no'>beta</span> ),
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots384.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span>( <span class='fu'>exp_cov_function</span>( <span class='no'>grid</span>, <span class='no'>alpha</span>, <span class='no'>beta</span> ),
        <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Exponential covariance function'</span>,
        <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'grid'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'grid'</span>)</div></pre>
   </div>

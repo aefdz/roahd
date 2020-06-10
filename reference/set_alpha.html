@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to setup alpha value for a set of colours — set_alpha • roahd</title>
+<title>Function to setup alpha value for a set of colors — set_alpha • roahd</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Function to setup alpha value for a set of colours — set_alpha" />
-<meta property="og:description" content="set_alpha manipulates a vector of colour representations in order
+<meta property="og:title" content="Function to setup alpha value for a set of colors — set_alpha" />
+<meta property="og:description" content="set_alpha manipulates a vector of color representations in order
 to setup the alpha value, and get the desired transparency level." />
 
 
@@ -124,13 +124,13 @@ to setup the alpha value, and get the desired transparency level." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to setup alpha value for a set of colours</h1>
+    <h1>Function to setup alpha value for a set of colors</h1>
     <small class="dont-index">Source: <a href='https://github.com/astamm/roahd/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
     <div class="hidden name"><code>set_alpha.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>set_alpha</code> manipulates a vector of colour representations in order
+    <p><code>set_alpha</code> manipulates a vector of color representations in order
 to setup the alpha value, and get the desired transparency level.</p>
     </div>
 
@@ -141,7 +141,7 @@ to setup the alpha value, and get the desired transparency level.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>col</th>
-      <td><p>a vector of colours</p></td>
+      <td><p>a vector of colors</p></td>
     </tr>
     <tr>
       <th>alpha</th>
@@ -161,21 +161,21 @@ to setup the alpha value, and get the desired transparency level.</p>
 
 <span class='no'>alpha_col</span> <span class='kw'>=</span> <span class='fu'>set_alpha</span>( <span class='no'>original_col</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span> ) )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots350.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>2</span> ) )
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots414.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>2</span> ) )
 
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span>( <span class='no'>original_col</span> ),
       <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span>( <span class='no'>original_col</span> ),
       <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>original_col</span>,
       <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>16</span>,
       <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-      <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Original colours'</span> )
+      <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Original colors'</span> )
 
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span>( <span class='no'>alpha_col</span> ),
       <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span>( <span class='no'>alpha_col</span> ),
       <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>alpha_col</span>,
       <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>16</span>,
       <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-      <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Alpha colours'</span> )</div></pre>
+      <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Alpha colors'</span> )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

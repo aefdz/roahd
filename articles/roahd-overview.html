@@ -183,7 +183,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] 0.997 0.988 0.597 -0.393 0.777 ...
+##   .. ..$ values: num [1:10, 1:100] 0.983 0.975 0.621 0.208 -0.176 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##   ..$ :List of 6
 ##   .. ..$ t0    : num 0
@@ -191,7 +191,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] 0.849 1.021 -0.863 1.108 0.861 ...
+##   .. ..$ values: num [1:10, 1:100] 0.423 0.557 0.55 0.944 0.949 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##  - attr(*, "class")= chr "mfData"</code></pre>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># Each component of the mfData object is an fData object </span>
@@ -200,7 +200,7 @@
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">mfD</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">'Multivariate FD'</span>,
       <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">'time'</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'Values 1'</span>, <span class="st">'Values 2'</span> ))</pre></body></html></div>
 <p><img src="roahd-overview_files/figure-html/mfData-1.png" width="672" style="display: block; margin: auto;"></p>
-<p>The fact that <code>mfData</code> components are <code>fData</code> obejcts is indeed conceptually very natural, but also allows for a seamless application of <code>S3</code> methods meant for <code>fData</code> on multivariate functional data components, making the exploration and manipulation of multivariate datasets rather easy:</p>
+<p>The fact that <code>mfData</code> components are <code>fData</code> objects is indeed conceptually very natural, but also allows for a seamless application of <code>S3</code> methods meant for <code>fData</code> on multivariate functional data components, making the exploration and manipulation of multivariate datasets rather easy:</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">mfD</span>$<span class="no">fDList</span><span class="kw">[[</span> <span class="fl">1</span> ]], <span class="kw">main</span> <span class="kw">=</span> <span class="st">'First component'</span>,
       <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">'time'</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">'Values'</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">2</span> )</pre></body></html></div>
 <p>Moreover, <code>mfData</code> objects can be obtained also from a set of homogeneous <code>fData</code> objects, i.e. of equal sample size and defined on the same grid:</p>
@@ -225,7 +225,7 @@
 
 <span class="no">fD</span>[ , <span class="fl">10</span>, <span class="kw">as_fData</span> <span class="kw">=</span> <span class="fl">FALSE</span> ]
 
-<span class="co"># As default behaviour the subset is returned in fData form</span>
+<span class="co"># As default behavior the subset is returned in fData form</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>( <span class="kw">mfrow</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">2</span>) )
 <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">fD</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">'Original dataset'</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">2</span> )
 <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">fD</span>[ , <span class="fl">1</span> : <span class="fl">20</span> ], <span class="kw">main</span> <span class="kw">=</span> <span class="st">'Zooming in'</span>, <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">2</span> )</pre></body></html></div>
@@ -233,7 +233,7 @@
 <div id="algebra" class="section level2">
 <h2 class="hasAnchor">
 <a href="#algebra" class="anchor"></a>Algebra</h2>
-<p>An algebra of <code>fData</code> obejcts is also implemented, making it easy to sum, subtract, multiply and divide these objects by meaningful and compliant structures.</p>
+<p>An algebra of <code>fData</code> objects is also implemented, making it easy to sum, subtract, multiply and divide these objects by meaningful and compliant structures.</p>
 <p><strong>Sums</strong> and <strong>subtractions</strong>, available through <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> and <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> operators (see help at <code>+-.fData</code>), allow to sum an <code>fData</code> on the left hand side and a compliant structure on the right hand side. This can be either another <code>fData</code> of the same sample size and defined over the same grid, or a 1D/2D data structure with a number of columns equal <code>fData</code>’s grid length (i.e. <code>P</code>), and number of rows equal to <code>fData</code>’s sample size (i.e. <code>N</code>) or equal to one (in this case the only observation available is recycled <code>N</code> times). The operations are then performed element-wise between the lhs and rhs.</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">fD</span> + <span class="no">fD</span>
 
@@ -254,8 +254,8 @@
 <div id="visualization" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualization" class="anchor"></a>Visualization</h2>
-<p><code>fData</code> and <code>mfData</code> objects can be visualised thanks to specific <code>S3</code> plotting methods, <code>plot.fData</code> and <code>plot.mfData</code>.</p>
-<p>The graphical parameters of these functions have been suitably customised in order to enhance the visualization of functions. In particular, elements are plotted by default with continuous lines and an ad-hoc palette that helps differentiating them. As default x- and y-axis labels, as well as titles, are dropped so that plot’s arguments calls are not displayed when no value is provided.</p>
+<p><code>fData</code> and <code>mfData</code> objects can be visualized thanks to specific <code>S3</code> plotting methods, <code>plot.fData</code> and <code>plot.mfData</code>.</p>
+<p>The graphical parameters of these functions have been suitably customized in order to enhance the visualization of functions. In particular, elements are plotted by default with continuous lines and an ad-hoc palette that helps differentiating them. As default x- and y-axis labels, as well as titles, are dropped so that plot’s arguments calls are not displayed when no value is provided.</p>
 <p>In case of <code>mfData</code> the graphical window is split into a rectangular lattice to plot single dimensions. The rectangular frame has <code><a href="https://rdrr.io/r/base/Round.html">floor( sqrt( L ) )</a></code> rows and <code><a href="https://rdrr.io/r/base/Round.html">ceiling( x$L / floor( sqrt( x$L ) ) )</a></code> columns. If custom labels/titles are desired, they must be provided in the following way: since the grid is the same for all the dimensions, just one string is expected for x-axis (e.g. <code>xlab = 'grid'</code>), while either a single string or a list of <code>L</code> strings (one for each dimension) is expected for both the y-axis label(s) and title(s). In case just one string is passed to <code>plot.mfData</code>, the same value is used for all the dimensions.</p>
 </div>
 </div>
@@ -266,7 +266,7 @@
 <h2 class="hasAnchor">
 <a href="#depths" class="anchor"></a>Depths</h2>
 <p><code>roahd</code> provides a number of depth definitions, that are exploited by the visualization functions but can also be used by themselves. These are based on the notion of <strong>Band Depth</strong> <span class="citation">(López-Pintado and Romo 2007, 2009)</span>.</p>
-<p><strong>Band Depth</strong> and <strong>Modified Band Depth</strong> are implemented in the functions <code>BD</code> and <code>MBD</code>. Both of them can work with either an <code>fData</code> object, specifying the univariate functional dataset whose depths must be computed, or a matrix of data values (e.g. in the form of <code>fData$values</code> output). <code>MBD</code> can be called with the additional parameters <code>manage_ties</code> (defaulting to <code>FALSE</code>), specifying whether a check for the presence of tied data must be made prior to computing depths, and therefore a suitable computing strategy must be used. The implementation of <code>MBD</code> exploits the recommendations of <span class="citation">(Sun, Genton, and Nychka 2012)</span>, but extends them in order to accomodate for the possible presence of ties.</p>
+<p><strong>Band Depth</strong> and <strong>Modified Band Depth</strong> are implemented in the functions <code>BD</code> and <code>MBD</code>. Both of them can work with either an <code>fData</code> object, specifying the univariate functional dataset whose depths must be computed, or a matrix of data values (e.g. in the form of <code>fData$values</code> output). <code>MBD</code> can be called with the additional parameters <code>manage_ties</code> (defaulting to <code>FALSE</code>), specifying whether a check for the presence of tied data must be made prior to computing depths, and therefore a suitable computing strategy must be used. The implementation of <code>MBD</code> exploits the recommendations of <span class="citation">(Sun, Genton, and Nychka 2012)</span>, but extends them in order to accommodate for the possible presence of ties.</p>
 <div class="sourceCode" id="cb14"><html><body><pre class="r">  <span class="fu"><a href="../reference/BD.html">BD</a></span>( <span class="no">fD</span> )
   <span class="fu"><a href="../reference/BD.html">BD</a></span>( <span class="no">fD</span>$<span class="no">values</span> )
 
@@ -281,7 +281,7 @@
 
 <span class="fu"><a href="../reference/MHRD.html">MHRD</a></span>( <span class="no">fD</span> )
 <span class="fu"><a href="../reference/MHRD.html">MHRD</a></span>( <span class="no">fD</span>$<span class="no">values</span> )</pre></body></html></div>
-<p>A generalisation of MBD to multivariate functional data, implementing the ideas of <span class="citation">Ieva and Paganoni (2013)</span>, is also available through the functions <code>multiBD</code> and <code>multiMBD</code>. These functions accept either a <code>mfData</code> object, specifying the multivariate functional dataset whose depths have to be computed, or a list of matrices of data values (see example below).</p>
+<p>A generalization of MBD to multivariate functional data, implementing the ideas of <span class="citation">Ieva and Paganoni (2013)</span>, is also available through the functions <code>multiBD</code> and <code>multiMBD</code>. These functions accept either a <code>mfData</code> object, specifying the multivariate functional dataset whose depths have to be computed, or a list of matrices of data values (see example below).</p>
 <p>The function computes the BD or MBD for each component of the multivariate functional dataset and then averages them according to a set of weights. These can be specified in two ways: either with the flag <code>uniform</code>, that is turned into <code><a href="https://rdrr.io/r/base/rep.html">rep( 1/L, L )</a></code> (where <code>L</code> stands for the number of components in the multivariate dataset), or by providing the actual set of weights to be used. The latter option allows to use ad-hoc set of weights, like in <span class="citation">(Tarabelloni et al. 2015)</span>.</p>
 <div class="sourceCode" id="cb16"><html><body><pre class="r">  <span class="fu"><a href="../reference/multiMBD.html">multiBD</a></span>( <span class="no">mfD</span>, <span class="kw">weights</span> <span class="kw">=</span> <span class="st">'uniform'</span> )
   <span class="fu"><a href="../reference/multiMBD.html">multiMBD</a></span>( <span class="no">mfD</span>, <span class="kw">weights</span> <span class="kw">=</span> <span class="st">'uniform'</span>, <span class="kw">manage_ties</span> <span class="kw">=</span> <span class="fl">FALSE</span> )
@@ -331,7 +331,7 @@
 <p>The computation of covariance functions and cross-covariance functions for univariate and multivariate functional datasets is provided through the function <code><a href="../reference/cov_fun.html">cov_fun( X, Y = NULL )</a></code>.</p>
 <p>Given a univariate functional dataset, <span class="math inline">\(X_1, X_2, \ldots, X_N\)</span>, defined over the grid <span class="math inline">\([t_0, t_1, \ldots, t_P] \subset I\)</span>, its covariance function (evaluated over the grid) is <span class="math inline">\(C(t_i,t_j) = Cov(X(t_i),X(t_j))\)</span> for <span class="math inline">\(i,j=1,\ldots,P\)</span>. Given another univariate functional dataset <span class="math inline">\(Y_1, Y_2, \ldots, Y_N\)</span>, the cross-covariance function is <span class="math inline">\(C_{X,Y}(t_i,t_j) = Cov(X(t_i),Y(t_j))\)</span>.</p>
 <p>Given a multivariate functional dataset with observations of <span class="math inline">\(L\)</span> components, <span class="math inline">\(X_1, X_2,\ldots, X_N\)</span>, the covariance function has the following block structure: <span class="math inline">\(C^{k,l} = [ Cov(X_k(t_i),X_l(t_j))]_{i,j=1}^{P}\)</span>, for <span class="math inline">\(k,l = 1, \ldots, L\)</span>. Of course, it is <span class="math inline">\(C^{k,l} = [C^{l,k}]^T\)</span>. Analogously, the cross-covariance between two multivariate datasets is given by the cross covariances of the components.</p>
-<p>When <code>X</code> is a univariate functional dataset, and if <code>Y</code> is <code>NULL</code>, <code>cov_fun</code> returns the sample covariance function of the functional dataset, defined over the tensorised grid where <code>X</code> is defined. If <code>Y</code> is a univariate functional dataset (in form of <code>fData</code> object), the method returns the cross-covariance function of <code>X</code> and <code>Y</code>.</p>
+<p>When <code>X</code> is a univariate functional dataset, and if <code>Y</code> is <code>NULL</code>, <code>cov_fun</code> returns the sample covariance function of the functional dataset, defined over the tensorized grid where <code>X</code> is defined. If <code>Y</code> is a univariate functional dataset (in form of <code>fData</code> object), the method returns the cross-covariance function of <code>X</code> and <code>Y</code>.</p>
 <p>When <code>X</code> is a multivariate dataset, <code>Y</code> can be <code>NULL</code>, an <code>fData</code> or a <code>mfData</code> object. In the first case the method returns the covariance function of <code>X</code>, in form of a list of <em>only</em> the upper-triangular blocks. The blocks are sorted in the list by row, therefore the first is the covariance of the first component, then the cross-covariance of the first component with the second, etc. In the second case, the method returns the list of cross-covariances between <code>X</code>’s components and <code>Y</code>. In the third case, the method returns the list of upper-triangular blocks of cross-covariances between <code>X</code>’s and <code>Y</code>’s components.</p>
 <div class="sourceCode" id="cb18"><html><body><pre class="r">    <span class="co"># Simple covariance function</span>
     <span class="no">C1</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_fun.html">cov_fun</a></span>( <span class="no">fD</span> )
@@ -341,15 +341,15 @@
 
     <span class="co"># Block-covariance function of mfD</span>
     <span class="no">BC</span> <span class="kw">=</span> <span class="fu"><a href="../reference/cov_fun.html">cov_fun</a></span>( <span class="no">mfD</span> )</pre></body></html></div>
-<p>Each covariance function estimate (the elements of the list in the multivariate case, too) is returned as an istance of the <code>S3</code> class <code>Cov</code>, that stores the values of the covariance matrix as well as the grid parameters.</p>
-<p><code>plot.Cov</code>, an <code>S3</code> specialisation of <code>plot</code> is available as plotting method for <code>Cov</code> objects. It is built around <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code>, hence all the additional parameters of <code>image</code> can be used to customise it.</p>
+<p>Each covariance function estimate (the elements of the list in the multivariate case, too) is returned as an instance of the <code>S3</code> class <code>Cov</code>, that stores the values of the covariance matrix as well as the grid parameters.</p>
+<p><code>plot.Cov</code>, an <code>S3</code> specialization of <code>plot</code> is available as plotting method for <code>Cov</code> objects. It is built around <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code>, hence all the additional parameters of <code>image</code> can be used to customize it.</p>
 <div class="sourceCode" id="cb19"><html><body><pre class="r">  <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">C1</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">'Covariance function'</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">'time'</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">'time'</span> )</pre></body></html></div>
 </div>
 <div id="indexes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#indexes" class="anchor"></a>Indexes</h2>
-<p><code>roahd</code> collects the implementation of some useful indexes that can be used to describe and summarise functional datasets.</p>
-<p><code>EI</code> and <code>MEI</code> implement the <strong>Epigraph Index</strong> and the <strong>Modified Epigraph Index</strong>, while <code>HI</code> and <code>MHI</code> implement the <strong>Hypograph Index</strong> and the <strong>Modified Hypograph Index</strong> <span class="citation">(see López-Pintado and Romo 2011; Arribas-Gil and Romo 2014)</span>. These indexes can be used to sort data in a top-down and bottom-up fashion, and are used to define the HRD/MHRD and to build the outliegram.</p>
+<p><code>roahd</code> collects the implementation of some useful indexes that can be used to describe and summarize functional datasets.</p>
+<p><code>EI</code> and <code>MEI</code> implement the <strong>Epigraph Index</strong> and the <strong>Modified Epigraph Index</strong>, while <code>HI</code> and <code>MHI</code> implement the <strong>Hypograph Index</strong> and the <strong>Modified Hypograph Index</strong> <span class="citation">(see López-Pintado and Romo 2011; Arribas-Gil and Romo 2014)</span>. These indexes can be used to sort data in a top-down and bottom-up fashion, and are used to define the HRD/MHRD and to build the outliergram.</p>
 <p>These <code>S3</code> methods can be called on univariate functional datasets, provided either in form of a <code>fData</code> object or a 2D matrix of values.</p>
 <div class="sourceCode" id="cb20"><html><body><pre class="r">  <span class="co"># Calling on fData objects</span>
   <span class="fu"><a href="../reference/EI.html">EI</a></span>( <span class="no">fD</span> )
@@ -365,8 +365,8 @@
 <div id="correlation-coefficients" class="section level2">
 <h2 class="hasAnchor">
 <a href="#correlation-coefficients" class="anchor"></a>Correlation coefficients</h2>
-<p>When dealing with multivariate functional data, in particular in case of <strong>bivariate</strong> data, it is possible to compute correlation coefficients between data components that generalise the Kendall’s tau and Spearman’s coefficients <span class="citation">(Valencia, Romo, and Lillo 2015a, 2015b)</span>.</p>
-<p>The function <code><a href="../reference/cor_kendall.html">cor_kendall( mfD, ordering = 'max' )</a></code> allows to compute the Kendall’s tau correlation coefficient between components of a bivariate dataset. The function accepts a <code>mfData</code> object and a criterion to perform the ordering of functional data (this ordering is used to determine the concordances and discordacnes between pairs in the definition of the coefficient).</p>
+<p>When dealing with multivariate functional data, in particular in case of <strong>bivariate</strong> data, it is possible to compute correlation coefficients between data components that generalize the Kendall’s tau and Spearman’s coefficients <span class="citation">(Valencia, Romo, and Lillo 2015a, 2015b)</span>.</p>
+<p>The function <code><a href="../reference/cor_kendall.html">cor_kendall( mfD, ordering = 'max' )</a></code> allows to compute the Kendall’s tau correlation coefficient between components of a bivariate dataset. The function accepts a <code>mfData</code> object and a criterion to perform the ordering of functional data (this ordering is used to determine the concordances and discordances between pairs in the definition of the coefficient).</p>
 <p>Two criteria are available so far, that directly reflect those proposed in the reference paper: <code>max</code>, for the ordering between maxima of functions, and <code>area</code>, for the ordering between area-under-the-curve of functions.</p>
 <div class="sourceCode" id="cb21"><html><body><pre class="r">  <span class="no">N</span> <span class="kw">=</span> <span class="fl">10</span>
   <span class="no">P</span> <span class="kw">=</span> <span class="fl">1e3</span>
@@ -387,7 +387,7 @@
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode" id="cb24"><html><body><pre class="r">  <span class="fu"><a href="../reference/cor_kendall.html">cor_kendall</a></span>( <span class="no">mfD</span>, <span class="kw">ordering</span> <span class="kw">=</span> <span class="st">'area'</span> )</pre></body></html></div>
 <pre><code>## [1] 1</code></pre>
-<p>The function <code><a href="../reference/cor_spearman.html">cor_spearman( mfD, ordering = 'MEI', ... )</a></code> can be used to compute the Spearman correlation coefficient for a bivariate <code>mfData</code> object, uning the ordering policy specified by <code>ordering</code> (defaulting to <code>MEI</code>) to rank univariate components and then compute the correlation coefficient. Besides <code>MEI</code>, also <code>MHI</code> can be used to rank univariate components.</p>
+<p>The function <code><a href="../reference/cor_spearman.html">cor_spearman( mfD, ordering = 'MEI', ... )</a></code> can be used to compute the Spearman correlation coefficient for a bivariate <code>mfData</code> object, tuning the ordering policy specified by <code>ordering</code> (defaulting to <code>MEI</code>) to rank univariate components and then compute the correlation coefficient. Besides <code>MEI</code>, also <code>MHI</code> can be used to rank univariate components.</p>
 <div class="sourceCode" id="cb26"><html><body><pre class="r"><span class="co"># Spearman correlation of monotonically dependent data is exactly 1</span>
   <span class="fu"><a href="../reference/cor_spearman.html">cor_spearman</a></span>( <span class="no">mfD</span>, <span class="kw">ordering</span> <span class="kw">=</span> <span class="st">'MEI'</span> )
 <span class="co">## [1] 1</span>
@@ -398,13 +398,13 @@
 <div id="simulation-of-functional-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#simulation-of-functional-data" class="anchor"></a>Simulation of functional data</h1>
-<p><code>roahd</code> contains also some functions that can be used to simulate artificial data sets of functional data, both univariate and multivariate. These are used in the adjustment procedure of the outliegram and functional boxplot, but can also be used to help the development of new methodologies and help their testing.</p>
-<p>Artificial univariate data are obtained simulating realisations of a gaussian process over a discrete grid with a specific covariance function and center (e.g. mean or median). Given a covariance function, <span class="math inline">\(C(s,t)\)</span> and a centerline <span class="math inline">\(m(t)\)</span>, the model generating data is: <span class="math display">\[X_i(t) = m(t) + \epsilon(t), \quad Cov(\epsilon(s),\epsilon(t)) = C(s,t), \quad i = 1, \ldots, N.\]</span></p>
+<p><code>roahd</code> contains also some functions that can be used to simulate artificial data sets of functional data, both univariate and multivariate. These are used in the adjustment procedure of the outliergram and functional boxplot, but can also be used to help the development of new methodologies and help their testing.</p>
+<p>Artificial univariate data are obtained simulating realizations of a gaussian process over a discrete grid with a specific covariance function and center (e.g. mean or median). Given a covariance function, <span class="math inline">\(C(s,t)\)</span> and a centerline <span class="math inline">\(m(t)\)</span>, the model generating data is: <span class="math display">\[X_i(t) = m(t) + \epsilon(t), \quad Cov(\epsilon(s),\epsilon(t)) = C(s,t), \quad i = 1, \ldots, N.\]</span></p>
 <div id="univariate-functional-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#univariate-functional-data" class="anchor"></a>Univariate functional data</h2>
 <p>The function <code><a href="../reference/generate_gauss_fdata.html">generate_gauss_fdata(N, centerline, Cov = NULL, CholCov = NULL)</a></code> can be used to simulate a population of such gaussian functional data. The required arguments are: <code>N</code> the number of elements to be generated; <code>centerline</code>, the center of the distribution (mean or median); <code>Cov</code>, a matrix representation of the desired covariance function, intended as the measurements of such function over a tensor grid whose marginal must be the grid where the functional data will be defined (i.e. the argument <code>grid</code> in <code>fData</code>); <code>CholCov</code> the Cholesky factor of the discrete representation of the covariance function over the tensor grid (optional and alternative to the argument <code>Cov</code>). The inner procedure to generate the synthetic population of gaussian functional data makes use of the Cholesky factor of <code>Cov</code>, hence by providing its Cholesky factor, if already present in the caller’s scope, can save computing time.</p>
-<p>A built-in function can be used to generate exponential-like covariance functions, namely <code><a href="../reference/exp_cov_function.html">exp_cov_function( grid, alpha, beta )</a></code>, generating the discretised version of a covariance of the form <span class="math inline">\(C(s,t) = \alpha e^{-\beta | s - t | }\)</span> over a lattice given by the tensorisation of grid in <code>grid</code>.</p>
+<p>A built-in function can be used to generate exponential-like covariance functions, namely <code><a href="../reference/exp_cov_function.html">exp_cov_function( grid, alpha, beta )</a></code>, generating the discretized version of a covariance of the form <span class="math inline">\(C(s,t) = \alpha e^{-\beta | s - t | }\)</span> over a lattice given by the tensorization of grid in <code>grid</code>.</p>
 <p>A comprehensive example is the following:</p>
 <div class="sourceCode" id="cb27"><html><body><pre class="r">  <span class="no">N</span> <span class="kw">=</span> <span class="fl">50</span>
   <span class="no">P</span> <span class="kw">=</span> <span class="fl">1e3</span>
@@ -427,7 +427,7 @@
 <p><span class="math display">\[ X_{i,k} = m_k(t) + \epsilon_k(t), \quad Cov(\epsilon_k(s),\epsilon_k(t))=C(s,t), \quad
 \forall i = 1, \ldots, N, \quad \forall k = 1, \ldots, L,\]</span></p>
 <p>where <span class="math inline">\(Cor( \epsilon_j(t),\epsilon_l(t))=\rho_{j,l}\)</span> specifies a (<em>synchronous</em>) correlation structure among the components of the functional dataset.</p>
-<p>In order to use the function one should provide: <code>N</code>, the number of elements to simulate; <code>L</code>, the number of components of the multivariate functional data; <code>centerline</code>, a matrix containing (by rows) the centerline for each component; <code>correlations</code>, a vector of length <code>1/2 * L * ( L - 1 )</code>, containing all the correlation coefficients among the components; either <code>listCov</code> or <code>listCholCov</code>, a list containing either the discretised covariance functions over the tensorised grid where functional data will be defined), or their Cholesky factor.</p>
+<p>In order to use the function one should provide: <code>N</code>, the number of elements to simulate; <code>L</code>, the number of components of the multivariate functional data; <code>centerline</code>, a matrix containing (by rows) the centerline for each component; <code>correlations</code>, a vector of length <code>1/2 * L * ( L - 1 )</code>, containing all the correlation coefficients among the components; either <code>listCov</code> or <code>listCholCov</code>, a list containing either the discretized covariance functions over the tensorized grid where functional data will be defined), or their Cholesky factor.</p>
 <p>A comprehensive example is the following:</p>
 <div class="sourceCode" id="cb28"><html><body><pre class="r">  <span class="no">N</span> <span class="kw">=</span> <span class="fl">10</span>
   <span class="no">P</span> <span class="kw">=</span> <span class="fl">1e3</span>
@@ -455,9 +455,9 @@
 <h2 class="hasAnchor">
 <a href="#functional-boxplot" class="anchor"></a>Functional boxplot</h2>
 <p>An implementation of the functional boxplot, through the <code>S3</code> method <code>fbplot</code>, allows for the detection of <em>amplitude</em> outliers in univariate and multivariate functional datasets <span class="citation">(see Sun and Genton 2011)</span>.</p>
-<p><code>fbplot</code> can be used to compute the set of indices of observations marking outlying signals. If used in graphical way (default behaviour), it also plots the functional boxplot of the dataset under study</p>
+<p><code>fbplot</code> can be used to compute the set of indices of observations marking outlying signals. If used in graphical way (default behavior), it also plots the functional boxplot of the dataset under study</p>
 <p>The functional boxplot is obtained by ranking functions from the center of the distribution outwards thanks to a depth definition, computing the region of 50% most central functions and inflating such region by a factor <code>F</code>. Any function crossing these boundaries is flagged as outlier. The default value for <code>F</code> is <code>1.5</code>, otherwise it can be set with the argument <code>Fvalue</code>.</p>
-<p>The argument <code>Depths</code> can take either the name of the function to call in order to compute the depths (default is <code>MBD</code>), or a vector containing the dephts values for the provided dataset.</p>
+<p>The argument <code>Depths</code> can take either the name of the function to call in order to compute the depths (default is <code>MBD</code>), or a vector containing the depth values for the provided dataset.</p>
 <p>An example is:</p>
 <div class="sourceCode" id="cb29"><html><body><pre class="r">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1618</span>)
 
@@ -485,23 +485,23 @@
 <p>The parameters to control the adjustment procedure can be passed through the argument <code>adjust</code>, whose default is <code>FALSE</code> and otherwise is a list with (some of) the fields:</p>
 <ul>
 <li>
-<code>N_trials</code>: the number of repetitions of the adujustment procedure based on the simulation of a gaussisan population of functional data, each one producing an adjusted value of F, which will lead to the averaged adjusted value <code>Fvalue</code>. Default is 20;</li>
+<code>N_trials</code>: the number of repetitions of the adjustment procedure based on the simulation of a gaussian population of functional data, each one producing an adjusted value of F, which will lead to the averaged adjusted value <code>Fvalue</code>. Default is 20;</li>
 <li>
 <code>trial_size</code>: the number of elements in the gaussian population of functional data that will be simulated at each repetition of the adjustment procedure. Default is 8 * <code>Data$N</code>;</li>
 <li>
 <code>TPR</code>: the True Positive Rate of outliers, i.e. the proportion of observations in a dataset without amplitude outliers that have to be considered outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</li>
 <li>
-<code>F_min</code>: the minimum value of <code>Fvalue</code>, defining the left boundary for the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>0.5</code>;</li>
+<code>F_min</code>: the minimum value of <code>Fvalue</code>, defining the left boundary for the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>0.5</code>;</li>
 <li>
-<code>F_max</code>: the maximum value of <code>Fvalue</code>, defining the right boundary for the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>5</code>;</li>
+<code>F_max</code>: the maximum value of <code>Fvalue</code>, defining the right boundary for the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>5</code>;</li>
 <li>
-<code>tol</code>: the tolerance to be used in the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>1e-3</code>;</li>
+<code>tol</code>: the tolerance to be used in the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to Data, the optimal value of <code>Fvalue</code>. Default is <code>1e-3</code>;</li>
 <li>
-<code>maxiter</code>: the maximum number of iterations to solve the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>Data</code>, the optimal value of <code>Fvalue</code>. Default is <code>100</code>;</li>
+<code>maxiter</code>: the maximum number of iterations to solve the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>Data</code>, the optimal value of <code>Fvalue</code>. Default is <code>100</code>;</li>
 <li>
 <code>VERBOSE</code>: a parameter controlling the verbosity of the adjustment process;</li>
 </ul>
-<p><em>Suggestion</em>: Try and select a sufficiently high value for <code>adjust$trial_size</code>, in fact too small values (the default is <code>8 * adjust$N</code>) will result in the impossibility to carry out the optimisation since the TPR percentage is too small compared to the sample size.</p>
+<p><em>Suggestion</em>: Try and select a sufficiently high value for <code>adjust$trial_size</code>, in fact too small values (the default is <code>8 * adjust$N</code>) will result in the impossibility to carry out the optimization since the TPR percentage is too small compared to the sample size.</p>
 <div class="sourceCode" id="cb31"><html><body><pre class="r">  <span class="fu"><a href="../reference/fbplot.html">fbplot</a></span>( <span class="no">fD</span>, <span class="kw">adjust</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="kw">N_trials</span> <span class="kw">=</span> <span class="fl">20</span>, <span class="kw">trial_size</span> <span class="kw">=</span> <span class="no">N</span>, <span class="kw">TPR</span> <span class="kw">=</span> <span class="fl">0.007</span>, <span class="kw">F_min</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">F_max</span> <span class="kw">=</span> <span class="fl">20</span> ), <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">'grid'</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">'values'</span>, <span class="kw">main</span> <span class="kw">=</span> <span class="st">'Adjusted functional boxplot'</span> )</pre></body></html></div>
 <p><img src="roahd-overview_files/figure-html/fbplot_fData_adjust-1.png" width="672" style="display: block; margin: auto;"></p>
 <pre><code>## $Depth
@@ -618,22 +618,22 @@
 ## 
 ## $ID_outliers
 ## [1]  56 101 102 103 104</code></pre>
-<p>Similarly to the functional boxplot, also the outliergram makes use of an <code>Fvalue</code> constant controlling the check by which observations are flagged as outliers <span class="citation">(see Arribas-Gil and Romo 2014 for more details)</span>. Such value can be provided as an argument (default is <code>1.5</code>), or can be determined by the function itself, through an adjustment procedure similar to that of <code>fbplot.fData</code>. In particolar, whenever <code>adjust</code> is not <code>FALSE</code>, <code>adjust</code> should be a list containing the fields controlling the adjustment:</p>
+<p>Similarly to the functional boxplot, also the outliergram makes use of an <code>Fvalue</code> constant controlling the check by which observations are flagged as outliers <span class="citation">(see Arribas-Gil and Romo 2014 for more details)</span>. Such value can be provided as an argument (default is <code>1.5</code>), or can be determined by the function itself, through an adjustment procedure similar to that of <code>fbplot.fData</code>. In particular, whenever <code>adjust</code> is not <code>FALSE</code>, <code>adjust</code> should be a list containing the fields controlling the adjustment:</p>
 <ul>
 <li>
-<code>N_trials</code> the number of repetitions of the adujustment procedure based on the simulation of a gaussisan population of functional data, each one producing an adjusted value of <code>Fvalue</code>, which will lead to the averaged adjusted value. Default is <code>20</code>;</li>
+<code>N_trials</code> the number of repetitions of the adjustment procedure based on the simulation of a gaussian population of functional data, each one producing an adjusted value of <code>Fvalue</code>, which will lead to the averaged adjusted value. Default is <code>20</code>;</li>
 <li>
 <code>trial_size</code> the number of elements in the gaussian population of functional data that will be simulated at each repetition of the adjustment procedure. Default is <code>5 * fData$N</code>;</li>
 <li>
-<code>TPR</code> the True Positive Rate of outleirs, i.e. the proportion of observations in a dataset without shape outliers that have to be considered outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</li>
+<code>TPR</code> the True Positive Rate of outliers, i.e. the proportion of observations in a dataset without shape outliers that have to be considered outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</li>
 <li>
-<code>F_min</code> the minimum value of <code>Fvalue</code>, defining the left boundary for the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>0.5</code>;</li>
+<code>F_min</code> the minimum value of <code>Fvalue</code>, defining the left boundary for the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>0.5</code>;</li>
 <li>
-<code>F_max</code> the maximum value of <code>Fvalue</code>, defining the right boundary for the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>20</code>;}</li>
+<code>F_max</code> the maximum value of <code>Fvalue</code>, defining the right boundary for the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>20</code>;}</li>
 <li>
-<code>tol</code> the tolerance to be used in the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>1e-3</code>;</li>
+<code>tol</code> the tolerance to be used in the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>1e-3</code>;</li>
 <li>
-<code>maxiter</code> the maximum number of iterations to solve the optimisation problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>100</code>;</li>
+<code>maxiter</code> the maximum number of iterations to solve the optimization problem aimed at finding, for a given dataset of simulated gaussian data associated to <code>fData</code>, the optimal value of <code>Fvalue</code>. Default is <code>100</code>;</li>
 <li>
 <code>VERBOSE</code> a parameter controlling the verbosity of the adjustment process;</li>
 </ul>

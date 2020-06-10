@@ -141,7 +141,7 @@ observations unfolding their values and turning them into monotone functions.</p
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>fData</th>
-      <td><p>the unvariate functional dataset in form of <code>fData</code> object.</p></td>
+      <td><p>the univariate functional dataset in form of <code>fData</code> object.</p></td>
     </tr>
     </table>
 
@@ -152,7 +152,7 @@ the unfolded version of the corresponding observations in the argument
 <code>fData</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Each function of the <code>fData</code> object is transformed into a nonmonotone
+    <p>Each function of the <code>fData</code> object is transformed into a non-monotone
 function into a monotone function by ``unfolding'' it at any of its maxima.
 For more details about the definition of the transform, see the reference.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -179,7 +179,7 @@ in the time warping model, <em>Biostatistics</em>, 13 (3), 398--414.</p>
 <span class='co'># Unfolded version</span>
 <span class='no'>fD_unfold</span> <span class='kw'>=</span> <span class='fu'>unfold</span>( <span class='no'>fD</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots358.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>2</span> ) )
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots422.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>2</span> ) )
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Original data'</span> )
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD_unfold</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Unfolded data'</span> )</div></pre>
   </div>

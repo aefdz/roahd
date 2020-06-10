@@ -205,8 +205,8 @@ in the caller's environment.</p></td>
 inflation factor, \(F = 1.5\), to be used, or (for now <b>only in the
 univariate functional case</b>) a list specifying the parameters required by
 the adjustment:</p><ul>
-<li><p>"<code>N_trials</code>": the number of repetitions of the adujustment
- procedure based on the simulation of a gaussisan population of functional
+<li><p>"<code>N_trials</code>": the number of repetitions of the adjustment
+ procedure based on the simulation of a gaussian population of functional
  data, each one producing an adjusted value of \(F\), which will lead
  to the averaged adjusted value \(\bar{F}\). Default is 20;</p></li>
 <li><p>"<code>trial_size</code>": the number of elements in the gaussian
@@ -216,18 +216,18 @@ the adjustment:</p><ul>
  of observations in a dataset without amplitude outliers that have to be
  considered outliers. Default is <code>2 * pnorm( 4 * qnorm( 0.25 ) )</code>;</p></li>
 <li><p>"<code>F_min</code>": the minimum value of \(F\), defining the left
- boundary for the optimisation problem aimed at finding, for a given dataset
+ boundary for the optimization problem aimed at finding, for a given dataset
  of simulated gaussian data associated to <code>Data</code>, the optimal value of
  \(F\). Default is 0.5;</p></li>
 <li><p>"<code>F_max</code>": the maximum value of \(F\), defining the right
- boundary for the optimisation problem aimed at finding, for a given dataset
+ boundary for the optimization problem aimed at finding, for a given dataset
  of simulated gaussian data associated to <code>Data</code>, the optimal value of
  \(F\). Default is 5;</p></li>
-<li><p>"<code>tol</code>": the tolerance to be used in the optimisation problem
+<li><p>"<code>tol</code>": the tolerance to be used in the optimization problem
  aimed at finding, for a given dataset of simulated gaussian data associated
  to <code>Data</code>, the optimal value of \(F\). Default is <code>1e-3</code>;</p></li>
 <li><p>"<code>maxiter</code>": the maximum number of iterations to solve the
- optimisation problem aimed at finding, for a given dataset of simulated
+ optimization problem aimed at finding, for a given dataset of simulated
  gaussian data associated to <code>Data</code>, the optimal value of \(F\).
  Default is <code>100</code>;</p></li>
 <li><p>"<code>VERBOSE</code>": a parameter controlling the verbosity of the
@@ -236,7 +236,7 @@ the adjustment:</p><ul>
     </tr>
     <tr>
       <th>display</th>
-      <td><p>either a logical value indicating wether you want the
+      <td><p>either a logical value indicating whether you want the
 outliergram to be displayed, or the number of the graphical device
 where you want the outliergram to be displayed.</p></td>
     </tr>
@@ -267,30 +267,31 @@ case) to be used when displaying the functional boxplot.</p></td>
 returns a list of three elements: the first, <code>Depths</code>, contains the depths
 of each element of the functional dataset; the second, <code>Fvalue</code>, is the
 value of F used to obtain the outliers, and the third, <code>ID_out</code>, contains
-the vector of indices of dataset's elements flagged as outliers (if any).</p>
+the vector of indices of dataset elements flagged as outliers (if any).</p>
     <h2 class="hasAnchor" id="adjustment"><a class="anchor" href="#adjustment"></a>Adjustment</h2>
 
     
 
 
 <p>In the <b>univariate functional case</b>, when the adjustment option is selected,
-the value of \(F\) is optimised for the univariate functional dataset
+the value of \(F\) is optimized for the univariate functional dataset
 provided with <code>Data</code>.</p>
 <p>In practice, a number <code>adjust$N_trials</code> of times a synthetic population
 (of size <code>adjust$tiral_size</code> with the same covariance (robustly
 estimated from data) and centerline as <code>fData</code> is simulated without
-outliers and each time an optimised value \(F_i\) is computed so that a
+outliers and each time an optimized value \(F_i\) is computed so that a
 given proportion (<code>adjust$TPR</code>) of observations is flagged as outliers.
 The final value of <code>F</code> for the functional boxplot is determined as an
 average of \(F_1, F_2, \ldots, F_{N_{trials}}\).
-At each time step the optimisation problem is solved using
+At each time step the optimization problem is solved using
 <code><a href='https://rdrr.io/r/stats/uniroot.html'>stats::uniroot</a></code> (Brent's method.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Sun, Y., &amp; Genton, M. G. (2012). Functional boxplots. Journal of
 Computational and Graphical Statistics.</p>
-<p>Sun, Y., &amp; Genton, M. G. (2012). Adjusted functional boxplots for spatio-
-temporal data visualization and outlier detection. Environmetrics, 23(1), 54-64.</p>
+<p>Sun, Y., &amp; Genton, M. G. (2012). Adjusted functional boxplots for
+spatio-temporal data visualization and outlier detection. Environmetrics,
+23(1), 54-64.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='fData.html'>fData</a></code>, <code><a href='MBD.html'>MBD</a></code>, <code><a href='BD.html'>BD</a></code>,
@@ -317,7 +318,7 @@ temporal data visualization and outlier detection. Environmetrics, 23(1), 54-64.
 
 <span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>D</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots325.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>) )
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots389.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>) )
 <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Functional dataset'</span>,
       <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'values'</span> )
 
@@ -382,7 +383,7 @@ temporal data visualization and outlier detection. Environmetrics, 23(1), 54-64.
                                                      <span class='kw'>beta</span>  <span class='kw'>=</span> <span class='fl'>0.4</span> ) )
 <span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots326.pdf")</span></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots390.pdf")</span></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'>fbplot</span>( <span class='no'>fD</span>, <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>N_trials</span> <span class='kw'>=</span> <span class='fl'>10</span>,
                            <span class='kw'>trial_size</span> <span class='kw'>=</span> <span class='fl'>5</span> * <span class='no'>N</span>,
                            <span class='kw'>VERBOSE</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> ),
@@ -414,7 +415,7 @@ temporal data visualization and outlier detection. Environmetrics, 23(1), 54-64.
 
 <span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots327.pdf")</span></div><div class='input'><span class='fu'>fbplot</span>( <span class='no'>mfD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'Values 1'</span>,
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots391.pdf")</span></div><div class='input'><span class='fu'>fbplot</span>( <span class='no'>mfD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'Values 1'</span>,
                                                        <span class='st'>'Values 2'</span> ),
         <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'First component'</span>, <span class='st'>'Second component'</span> ) )</div><div class='output co'>#&gt; $Depth
 #&gt;   [1] 0.43254949 0.39116364 0.35335556 0.39053131 0.08351313 0.16953131
