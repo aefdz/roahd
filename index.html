@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roahd</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.2</span>
       </span>
     </div>
 
@@ -88,13 +88,21 @@
 <a href="#roahd" class="anchor"></a>roahd</h1></div>
 <!-- badges: start -->
 
-<p>Package <strong>roahd</strong> (<em>Robust Analysis of High-dimensional Data</em>) allows to use a set of statistical tools for the <em>exploration</em> and <em>robustification</em> of univariate and multivariate <strong>functional datasets</strong> through the use of depth-based statistical methods.</p>
-<p>In the implementation of functions special attention was put to their efficiency, so that they can be profitably used also for the analysis of high-dimensional datasets.</p>
-<p>(<em>For a full-featured description of the package, please turn to the Vignette</em>)</p>
+<p>The <strong>roahd</strong> (<em>Robust Analysis of High-dimensional Data</em>) package allows to use a set of statistical tools for the <em>exploration</em> and <em>robustification</em> of univariate and multivariate <strong>functional datasets</strong> through the use of depth-based statistical methods.</p>
+<p>In the implementation of functions, special attention was put to their efficiency, so that they can be profitably used also for the analysis of high-dimensional datasets.</p>
+<p>For a full-featured description of the package, please take a look at the <a href="https://astamm.github.io/roahd/articles/roahd.html">roahd</a> vignette.</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p>Install the released version of <strong>roahd</strong> from CRAN:</p>
+<p><code>{r, eval = FALSE} install.packages("roahd")</code></p>
+<p>Or install the development version from GitHub with:</p>
+<p><code>{r, eval = FALSE} # install.packages("remotes") remotes::install_github("astamm/roahd")</code></p>
+</div>
 <div id="fdata-and-mfdata-objects" class="section level2">
 <h2 class="hasAnchor">
-<a href="#fdata-and-mfdata-objects" class="anchor"></a><code>fData</code> and <code>mfData</code> objects</h2>
-<p>A simple <code>S3</code> representation of functional data object, <code>fData</code>, allows to encapsulate the important features of univariate functional datasets (like the grid of the dependent variable, the pointwise observations etc.):</p>
+<a href="#fdata-and-mfdata-objects" class="anchor"></a><a href="https://astamm.github.io/roahd/reference/fData.html"><code>fData</code></a> and <a href="https://astamm.github.io/roahd/reference/mfData.html"><code>mfData</code></a> objects</h2>
+<p>A simple <code>S3</code> representation of functional data object, <a href="https://astamm.github.io/roahd/reference/fData.html"><code>fData</code></a>, allows to encapsulate the important features of univariate functional datasets (like the grid of the dependent variable, the pointwise observations, etc.):</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># Grid representing the dependent variable</span>
 <span class="no">grid</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>( <span class="fl">0</span>, <span class="fl">1</span>, <span class="kw">length.out</span> <span class="kw">=</span> <span class="fl">100</span> )
 
@@ -108,7 +116,7 @@
 
 <span class="co"># S3 representation of a multivariate functional dataset</span>
 <span class="no">mfD</span> <span class="kw">=</span> <span class="fu"><a href="reference/mfData.html">mfData</a></span>( <span class="no">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'comp1'</span> <span class="kw">=</span> <span class="no">Data</span>, <span class="st">'comp2'</span> <span class="kw">=</span> <span class="no">Data</span> ) )</pre></div>
-<p>Also, this allows to exploit simple calls to customised functions which simplify the exploratory analysis:</p>
+<p>Also, this allows to exploit simple calls to customised functions which simplifies the exploratory analysis:</p>
 <div class="sourceCode" id="cb2"><pre class="r"># Algebra of fData objects
 fD + 1 : 100
 fD * 4
@@ -119,7 +127,7 @@ fD_1 + fD_2
 fD[ 1, ]
 fD[ 1, 2 : 4]
 
-# Smaple mean and (depth-based) median(s)
+# Sample mean and (depth-based) median(s)
 mean( fD )
 mean( fD[ 1, 10 : 20 ] )
 median_fData( fD, type = 'MBD' )
@@ -141,8 +149,8 @@ plot( fD[ 2:3, :] )</pre></div>
 <li>Spearman and Kendall’s correlation indexes for functional data,</li>
 <li>Confidence intervals and tests on Spearman’s correlation coefficients for univariate and multivariate functional data.</li>
 </ul>
-<p>These also are the core of the visualization/robustification tools like functional boxplot (<code>fbplot</code>) and outliergram (<code>outliergram</code>), allowing the visualization and identification of amplitude and shape outliers.</p>
-<p>Thanks to the functions for the simulation of synthetic functional datasets, both <code>fbplot</code> and <code>outliergram</code> procedures can be auto-tuned to the dataset at hand, in order to control the true positive outliers rate.</p>
+<p>These also are the core of the visualization / robustification tools like functional boxplot (<a href="https://astamm.github.io/roahd/reference/fbplot.html"><code>fbplot</code></a>) and outliergram (<a href="https://astamm.github.io/roahd/reference/outliergram.html"><code>outliergram</code></a>), allowing the visualization and identification of amplitude and shape outliers.</p>
+<p>Thanks to the functions for the simulation of synthetic functional datasets, both <a href="https://astamm.github.io/roahd/reference/fbplot.html"><code>fbplot</code></a> and <a href="https://astamm.github.io/roahd/reference/outliergram.html"><code>outliergram</code></a> procedures can be auto-tuned to the dataset at hand, in order to control the true positive outliers rate.</p>
 </div>
 </div>
   </div>
@@ -155,6 +163,8 @@ plot( fD[ 2:3, :] )</pre></div>
 </li>
 <li>Browse source code at <br><a href="https://github.com/astamm/roahd/">https://​github.com/​astamm/​roahd/​</a>
 </li>
+<li>Report a bug at <br><a href="https://github.com/astamm/roahd/issues">https://​github.com/​astamm/​roahd/​issues</a>
+</li>
 </ul>
 </div>
 <div class="license">
@@ -166,11 +176,12 @@ plot( fD[ 2:3, :] )</pre></div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Nicholas Tarabelloni <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Nicholas Tarabelloni <br><small class="roles"> Author </small>  </li>
 <li>Ana Arribas-Gil <br><small class="roles"> Author </small>  </li>
 <li>Francesca Ieva <br><small class="roles"> Author </small>  </li>
 <li>Anna Maria Paganoni <br><small class="roles"> Author </small>  </li>
 <li>Juan Romo <br><small class="roles"> Author </small>  </li>
+<li>Aymeric Stamm <br><small class="roles"> Contributor, maintainer </small> <a href="https://orcid.org/0000-0002-8725-3654" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -182,6 +193,7 @@ plot( fD[ 2:3, :] )</pre></div>
 <li><a href="https://github.com/astamm/roahd/actions"><img src="https://github.com/astamm/roahd/workflows/test-coverage/badge.svg" alt="test-coverage"></a></li>
 <li><a href="https://codecov.io/gh/astamm/roahd"><img src="https://codecov.io/gh/astamm/roahd/branch/master/graph/badge.svg" alt="codecov"></a></li>
 <li><a href="https://github.com/astamm/roahd/actions"><img src="https://github.com/astamm/roahd/workflows/pkgdown/badge.svg" alt="pkgdown"></a></li>
+<li><a href="https://CRAN.R-project.org/package=roahd"><img src="https://www.r-pkg.org/badges/version/roahd" alt="CRAN status"></a></li>
 </ul>
 </div>
 </div>
@@ -189,7 +201,7 @@ plot( fD[ 2:3, :] )</pre></div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Nicholas Tarabelloni, Ana Arribas-Gil, Francesca Ieva, Anna Maria Paganoni, Juan Romo.</p>
+  <p>Developed by Nicholas Tarabelloni, Ana Arribas-Gil, Francesca Ieva, Anna Maria Paganoni, Juan Romo, Aymeric Stamm.</p>
 </div>
 
 <div class="pkgdown">
