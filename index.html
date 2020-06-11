@@ -14,7 +14,9 @@
 <script src="pkgdown.js"></script><meta property="og:title" content="Robust Analysis of High Dimensional Data">
 <meta property="og:description" content="A collection of methods for the robust analysis of univariate and
     multivariate functional data, possibly in high-dimensional cases, and hence
-    with attention to computational efficiency and simplicity of use.">
+    with attention to computational efficiency and simplicity of use. See the R 
+    Journal publication of Ieva et al. (2019) &lt;doi:10.32614/RJ-2019-032&gt; for an 
+    in-depth presentation of the roahd package.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -95,15 +97,18 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install the released version of <strong>roahd</strong> from CRAN:</p>
-<p><code>{r cran-install, eval=FALSE} install.packages("roahd")</code></p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"roahd"</span>)</pre></div>
 <p>Or install the development version from GitHub with:</p>
-<p><code>{r github-install, eval=FALSE} # install.packages("remotes") remotes::install_github("astamm/roahd")</code></p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("remotes")</span>
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"astamm/roahd"</span>)</pre></div>
 </div>
 <div id="fdata-and-mfdata-objects" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fdata-and-mfdata-objects" class="anchor"></a><a href="https://astamm.github.io/roahd/reference/fData.html"><code>fData</code></a> and <a href="https://astamm.github.io/roahd/reference/mfData.html"><code>mfData</code></a> objects</h2>
 <p>A simple <code>S3</code> representation of functional data object, <a href="https://astamm.github.io/roahd/reference/fData.html"><code>fData</code></a>, allows to encapsulate the important features of univariate functional datasets (like the grid of the dependent variable, the pointwise observations, etc.):</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># Grid representing the dependent variable</span>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">roahd</span>)
+
+<span class="co"># Grid representing the dependent variable</span>
 <span class="no">grid</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>( <span class="fl">0</span>, <span class="fl">1</span>, <span class="kw">length.out</span> <span class="kw">=</span> <span class="fl">100</span> )
 
 <span class="co"># Pointwise measurements of the functional dataset</span>
@@ -117,26 +122,27 @@
 <span class="co"># S3 representation of a multivariate functional dataset</span>
 <span class="no">mfD</span> <span class="kw">=</span> <span class="fu"><a href="reference/mfData.html">mfData</a></span>( <span class="no">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'comp1'</span> <span class="kw">=</span> <span class="no">Data</span>, <span class="st">'comp2'</span> <span class="kw">=</span> <span class="no">Data</span> ) )</pre></div>
 <p>Also, this allows to exploit simple calls to customized functions which simplifies the exploratory analysis:</p>
-<div class="sourceCode" id="cb2"><pre class="r"># Algebra of fData objects
-fD + 1 : 100
-fD * 4
+<div class="sourceCode" id="cb4"><pre class="r"><span class="co"># Algebra of fData objects</span>
+<span class="no">fD</span> + <span class="fl">1</span> : <span class="fl">100</span>
+<span class="no">fD</span> * <span class="fl">4</span>
 
-fD_1 + fD_2
+<span class="no">fD</span> + <span class="no">fD</span>
 
-# Subsetting fData objects (providing other fData objects)
-fD[ 1, ]
-fD[ 1, 2 : 4]
+<span class="co"># Subsetting fData objects (providing other fData objects)</span>
+<span class="no">fD</span>[ <span class="fl">1</span>, ]
+<span class="no">fD</span>[ <span class="fl">1</span>, <span class="fl">2</span> : <span class="fl">4</span>]
 
-# Sample mean and (depth-based) median(s)
-mean( fD )
-mean( fD[ 1, 10 : 20 ] )
-median_fData( fD, type = 'MBD' )
-
-# Plotting functions
-plot( fD )
-plot( mean( fD ), add = TRUE )
-
-plot( fD[ 2:3, :] )</pre></div>
+<span class="co"># Sample mean and (depth-based) median(s)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>( <span class="no">fD</span> )
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>( <span class="no">fD</span>[ <span class="fl">1</span>, <span class="fl">10</span> : <span class="fl">20</span> ] )
+<span class="fu"><a href="reference/median_fData.html">median_fData</a></span>( <span class="no">fD</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">'MBD'</span> )</pre></div>
+<div class="sourceCode" id="cb5"><pre class="r"><span class="co"># Plotting functions</span>
+<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">fD</span> )
+<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>( <span class="no">fD</span> ), <span class="kw">lwd</span> <span class="kw">=</span> <span class="fl">4</span>, <span class="kw">add</span> <span class="kw">=</span> <span class="fl">TRUE</span> )</pre></div>
+<p><img src="reference/figures/README-fData-plot-1.png" width="100%"></p>
+<div class="sourceCode" id="cb6"><pre class="r">
+<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>( <span class="no">fD</span>[ <span class="fl">2</span>:<span class="fl">3</span>, ] )</pre></div>
+<p><img src="reference/figures/README-fData-plot-2.png" width="100%"></p>
 </div>
 <div id="robust-methods-for-functional-data-analysis" class="section level2">
 <h2 class="hasAnchor">
@@ -151,6 +157,30 @@ plot( fD[ 2:3, :] )</pre></div>
 </ul>
 <p>These also are the core of the visualization / robustification tools like functional boxplot (<a href="https://astamm.github.io/roahd/reference/fbplot.html"><code>fbplot</code></a>) and outliergram (<a href="https://astamm.github.io/roahd/reference/outliergram.html"><code>outliergram</code></a>), allowing the visualization and identification of amplitude and shape outliers.</p>
 <p>Thanks to the functions for the simulation of synthetic functional datasets, both <a href="https://astamm.github.io/roahd/reference/fbplot.html"><code>fbplot</code></a> and <a href="https://astamm.github.io/roahd/reference/outliergram.html"><code>outliergram</code></a> procedures can be auto-tuned to the dataset at hand, in order to control the true positive outliers rate.</p>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
+<p>If you use this package for your own research, please cite the corresponding R Journal article:</p>
+<pre><code>
+To cite roahd in publications use:
+
+  Ieva, F., Paganoni, A. M., Romo, J., &amp; Tarabelloni, N. (2019). roahd
+  Package: Robust Analysis of High Dimensional Data. The R Journal,
+  11(2), pp. 291-307.
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {{roahd Package: Robust Analysis of High Dimensional Data}},
+    author = {Francesca Ieva and Anna Maria Paganoni and Juan Romo and Nicholas Tarabelloni},
+    journal = {{The R Journal}},
+    year = {2019},
+    volume = {11},
+    number = {2},
+    pages = {291--307},
+    url = {https://doi.org/10.32614/RJ-2019-032},
+  }</code></pre>
 </div>
 </div>
   </div>
@@ -171,6 +201,12 @@ plot( fD[ 2:3, :] )</pre></div>
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
+</ul>
+</div>
+<div class="citation">
+<h2>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html">Citing roahd</a></li>
 </ul>
 </div>
 <div class="developers">

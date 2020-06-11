@@ -85,7 +85,7 @@
       <h1 data-toc-skip>roahd</h1>
                         <h4 class="author">Nicholas Tarabelloni</h4>
             
-            <h4 class="date">2020-06-10</h4>
+            <h4 class="date">2020-06-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/astamm/roahd/blob/master/vignettes/roahd-overview.Rmd"><code>vignettes/roahd-overview.Rmd</code></a></small>
       <div class="hidden name"><code>roahd-overview.Rmd</code></div>
@@ -97,7 +97,7 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>Package <strong>roahd</strong> (<strong>RO</strong>bust <strong>A</strong>nalysis of <strong>H</strong>igh dimensional <strong>D</strong>ata) is an <code>R</code> package meant to gather recently proposed statistical methods to deal with the robust analysis of functional data.</p>
+<p>Package <strong>roahd</strong> (<strong>RO</strong>bust <strong>A</strong>nalysis of <strong>H</strong>igh dimensional <strong>D</strong>ata) is an <code>R</code> package meant to gather recently proposed statistical methods to deal with the robust analysis of functional data <span class="citation">(Ieva et al. 2019)</span>.</p>
 <p>The package contains an implementation of quantitative methods, based on functional depths and indices, on top of which are built some graphical methods (functional boxplot and outliergram) useful to carry out an explorative analysis of a functional dataset and to robustify it by discarding shape and magnitude outliers.</p>
 <p>Both univariate and multivariate functional data are supported in the package, whose functions have been implemented with a particular emphasis on computational efficiency, in order to allow the processing of high-dimensional dataset.</p>
 </div>
@@ -183,7 +183,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] 0.6572 0.9818 -0.7343 0.3789 0.0951 ...
+##   .. ..$ values: num [1:10, 1:100] 0.9999 -0.0251 0.2506 0.5641 -0.4994 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##   ..$ :List of 6
 ##   .. ..$ t0    : num 0
@@ -191,7 +191,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] 0.533 0.333 1.018 0.208 1.37 ...
+##   .. ..$ values: num [1:10, 1:100] 0.426 0.979 1.164 1.312 1.261 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##  - attr(*, "class")= chr "mfData"</code></pre>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># Each component of the mfData object is an fData object </span>
@@ -678,6 +678,9 @@
 </div>
 <div id="ref-ieva_paganoni_2013">
 <p>Ieva, F., and A. M. Paganoni. 2013. “Depth Measures for Multivariate Functional Data.” <em>Communication in Statistics - Theory and Methods</em> 42 (7): 1265–76.</p>
+</div>
+<div id="ref-Ieva2019">
+<p>Ieva, Francesca, Anna Maria Paganoni, Juan Romo, and Nicholas Tarabelloni. 2019. “roahd Package: Robust Analysis of High Dimensional Data.” <em>The R Journal</em> 11 (2): 291–307. <a href="https://doi.org/10.32614/RJ-2019-032">https://doi.org/10.32614/RJ-2019-032</a>.</p>
 </div>
 <div id="ref-lopezpintado_romo_2007">
 <p>López-Pintado, S., and J. Romo. 2007. “Depth-Based Inference for Functional Data.” <em>Computational Statistics &amp; Data Analysis</em> 51 (10): 4957–68.</p>
