@@ -172,43 +172,43 @@ required subset ( both in terms  of observations and measurement points ) of
 the univariate functional dataset.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='fData.html'>fData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>20</span>
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
+<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>20</span>
+<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
 
 <span class='co'># One dimensional grid</span>
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
 
 <span class='co'># Generating an exponential covariance function (see related help for more</span>
 <span class='co'># information )</span>
-<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
+<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
 
 <span class='co'># Generating a synthetic dataset with a gaussian distribution and</span>
 <span class='co'># required mean and covariance function:</span>
-<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>,
-            <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>,
-                                  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ),
-                                  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> ) )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>,
+            <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
+                                  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
+                                  Cov = <span class='kw'>C</span> ) )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots544.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>2</span>, <span class='fl'>2</span> ) )
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots608.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( mfrow = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>2</span>, <span class='fl'>2</span> ) )
 
 <span class='co'># Original data</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span> )
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span> )
 
 <span class='co'># Subsetting observations</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>[ <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>), , <span class='kw'>as_fData</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> ] )
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span>[ <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>), , as_fData = <span class='fl'>TRUE</span> ] )
 
 <span class='co'># Subsetting measurements</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>[ , <span class='fl'>1</span> : <span class='fl'>30</span> ] )
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span>[ , <span class='fl'>1</span> <span class='op'>:</span> <span class='fl'>30</span> ] )
 
 <span class='co'># Subsetting both observations and measurements</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>[ <span class='fl'>1</span> : <span class='fl'>10</span>, <span class='fl'>50</span> : <span class='no'>P</span> ] )
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span>[ <span class='fl'>1</span> <span class='op'>:</span> <span class='fl'>10</span>, <span class='fl'>50</span> <span class='op'>:</span> <span class='kw'>P</span> ] )
 
 <span class='co'># Subsetting both observations and measurements but returning a matrix</span>
-<span class='no'>fD</span>[ <span class='fl'>1</span> : <span class='fl'>10</span>, <span class='fl'>50</span> : <span class='no'>P</span>, <span class='kw'>as_fData</span> <span class='kw'>=</span> <span class='fl'>FALSE</span> ]</div><div class='output co'>#&gt;              [,1]        [,2]       [,3]        [,4]         [,5]        [,6]
+<span class='kw'>fD</span>[ <span class='fl'>1</span> <span class='op'>:</span> <span class='fl'>10</span>, <span class='fl'>50</span> <span class='op'>:</span> <span class='kw'>P</span>, as_fData = <span class='fl'>FALSE</span> ]</div><div class='output co'>#&gt;              [,1]        [,2]       [,3]        [,4]         [,5]        [,6]
 #&gt;  [1,]  0.45163975  0.37063823  0.3100477  0.25947100  0.271919508  0.20443659
 #&gt;  [2,]  0.54942378  0.41994339  0.2835319  0.26769686  0.160754007  0.07296820
 #&gt;  [3,]  0.39471768  0.33572992  0.2721208  0.15278804  0.114013670  0.08602316
@@ -306,8 +306,7 @@ the univariate functional dataset.</p>
 #&gt;  [7,] -0.67770455 -0.68924916 -0.5918591
 #&gt;  [8,]  0.07101560  0.08741209  0.1732172
 #&gt;  [9,]  0.21801535  0.28933953  0.3007920
-#&gt; [10,]  0.16318451  0.26102026  0.3623919</div><div class='input'>
-</div></pre>
+#&gt; [10,]  0.16318451  0.26102026  0.3623919</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -136,18 +136,18 @@ possibly with an adjustment of the true positive rate of outliers discovered
 under assumption of gaussianity.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>outliergram</span>(
-  <span class='no'>fData</span>,
-  <span class='kw'>MBD_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>MEI_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>p_check</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>(
+  <span class='kw'>fData</span>,
+  MBD_data = <span class='kw'>NULL</span>,
+  MEI_data = <span class='kw'>NULL</span>,
+  p_check = <span class='fl'>0.05</span>,
+  Fvalue = <span class='fl'>1.5</span>,
+  adjust = <span class='fl'>FALSE</span>,
+  display = <span class='fl'>TRUE</span>,
+  xlab = <span class='kw'>NULL</span>,
+  ylab = <span class='kw'>NULL</span>,
+  main = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -275,48 +275,48 @@ problem is solved using <code><a href='https://rdrr.io/r/stats/uniroot.html'>sta
 for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='fData.html'>fData</a></code>, <code><a href='MEI.html'>MEI</a></code>, <code><a href='MBD.html'>MBD</a></code>,
-<code><a href='fbplot.html'>fbplot</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MBD.html'>MBD</a></code>,
+<code><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>( <span class='fl'>1618</span> )
 
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>200</span>
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>200</span>
-<span class='no'>N_extra</span> <span class='kw'>=</span> <span class='fl'>4</span>
+<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>200</span>
+<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>200</span>
+<span class='kw'>N_extra</span> <span class='op'>=</span> <span class='fl'>4</span>
 
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
 
-<span class='no'>Cov</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.8</span> )
+<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
 
-<span class='no'>Data</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>,
-                             <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ),
-                             <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
+                             centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
+                             Cov = <span class='kw'>Cov</span> )
 
-<span class='no'>Data_extra</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='no'>N_extra</span>, <span class='no'>P</span> ) )
+<span class='kw'>Data_extra</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, dim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='kw'>N_extra</span>, <span class='kw'>P</span> ) )
 
-<span class='no'>Data_extra</span>[ <span class='fl'>1</span>, ] <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> + <span class='no'>pi</span> / <span class='fl'>2</span> ),
-                                         <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='kw'>Data_extra</span>[ <span class='fl'>1</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
+                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span> ),
+                                         Cov = <span class='kw'>Cov</span> )
 
-<span class='no'>Data_extra</span>[ <span class='fl'>2</span>, ] <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> - <span class='no'>pi</span> / <span class='fl'>2</span> ),
-                                         <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='kw'>Data_extra</span>[ <span class='fl'>2</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
+                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span> ),
+                                         Cov = <span class='kw'>Cov</span> )
 
-<span class='no'>Data_extra</span>[ <span class='fl'>3</span>, ] <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> + <span class='no'>pi</span>/ <span class='fl'>3</span> ),
-                                         <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='kw'>Data_extra</span>[ <span class='fl'>3</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
+                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span><span class='op'>/</span> <span class='fl'>3</span> ),
+                                         Cov = <span class='kw'>Cov</span> )
 
-<span class='no'>Data_extra</span>[ <span class='fl'>4</span>, ] <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> - <span class='no'>pi</span> / <span class='fl'>3</span>),
-                                         <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
-<span class='no'>Data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>( <span class='no'>Data</span>, <span class='no'>Data_extra</span> )
+<span class='kw'>Data_extra</span>[ <span class='fl'>4</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
+                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>3</span>),
+                                         Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>( <span class='kw'>Data</span>, <span class='kw'>Data_extra</span> )
 
-<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
 
-<span class='fu'>outliergram</span>( <span class='no'>fD</span>, <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>, display = <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 1.5
 #&gt; 
 #&gt; $d
@@ -365,7 +365,7 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; $ID_outliers
 #&gt;  [1]  31  78 117 122 152 183 201 202 203 204
 #&gt; </div><div class='input'>
-<span class='fu'>outliergram</span>( <span class='no'>fD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>, Fvalue = <span class='fl'>2.5</span>, display = <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 2.5
 #&gt; 
 #&gt; $d
@@ -413,14 +413,15 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; 
 #&gt; $ID_outliers
 #&gt; [1]  78 117 183 201 202 203 204
-#&gt; </div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>outliergram</span>( <span class='no'>fD</span>,
-             <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>N_trials</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-                            <span class='kw'>trial_size</span> <span class='kw'>=</span> <span class='fl'>5</span> * <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>( <span class='no'>Data</span> ),
-                            <span class='kw'>TPR</span> <span class='kw'>=</span> <span class='fl'>0.01</span>,
-                            <span class='kw'>VERBOSE</span> <span class='kw'>=</span> <span class='fl'>FALSE</span> ),
-             <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )
-}</div></pre>
+#&gt; </div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>,
+             adjust = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( N_trials = <span class='fl'>10</span>,
+                            trial_size = <span class='fl'>5</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>( <span class='kw'>Data</span> ),
+                            TPR = <span class='fl'>0.01</span>,
+                            VERBOSE = <span class='fl'>FALSE</span> ),
+             display = <span class='fl'>TRUE</span> )
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
