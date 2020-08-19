@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Specialized method to plot fData objects — plot.fData • roahd</title>
+<title>Specialized method to plot <code>fData</code> objects — plot.fData • roahd</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Specialized method to plot fData objects — plot.fData" />
+<meta property="og:title" content="Specialized method to plot <code>fData</code> objects — plot.fData" />
 <meta property="og:description" content="This function performs the plot of a functional univariate dataset stored in
 an object of class fData. It is able to accept all the usual
 customizable graphical parameters, otherwise it will use the default ones." />
@@ -137,7 +137,7 @@ customizable graphical parameters, otherwise it will use the default ones.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for fData</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>x</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,25 +158,26 @@ customizable graphical parameters, otherwise it will use the default ones.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>20</span>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>20</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
 
 <span class='co'># One dimensional grid</span>
-<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
 <span class='co'># Generating an exponential covariance function (see related help for more</span>
 <span class='co'># information )</span>
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
 
 <span class='co'># Generating a synthetic dataset with a gaussian distribution and</span>
 <span class='co'># required mean and covariance function:</span>
-<span class='kw'>values</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
-                               centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
-                               Cov = <span class='kw'>C</span> )
+<span class='no'>values</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>,
+                               <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ),
+                               <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> )
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>values</span> )
+<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>values</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span> )</div><div class='img'><img src='plot.fData-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span> )</div><div class='img'><img src='plot.fData-1.png' alt='' width='700' height='433' /></div><div class='input'>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -193,7 +194,7 @@ customizable graphical parameters, otherwise it will use the default ones.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

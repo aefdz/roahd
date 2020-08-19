@@ -135,10 +135,10 @@ the Spearman's correlation coefficient for a multivariate functional dataset.</p
     </div>
 
     <pre class="usage"><span class='fu'>cor_spearman_accuracy</span>(
-  <span class='kw'>mfD</span>,
-  ordering = <span class='st'>"MEI"</span>,
-  bootstrap_iterations = <span class='fl'>1000</span>,
-  verbose = <span class='fl'>FALSE</span>
+  <span class='no'>mfD</span>,
+  <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"MEI"</span>,
+  <span class='kw'>bootstrap_iterations</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -189,34 +189,34 @@ are updated with on-line formulas).</p>
     <div class='dont-index'><p><code><a href='cor_spearman.html'>cor_spearman</a></code>, <code><a href='mfData.html'>mfData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>N</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
-<span class='kw'>P</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>
+    <pre class="examples"><div class='input'><span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
+<span class='no'>P</span> <span class='kw'>&lt;-</span> <span class='fl'>100</span>
 
-<span class='kw'>grid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span>)
+<span class='no'>grid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span>)
 
 <span class='co'># Creating an exponential covariance function to simulate Gaussian data</span>
-<span class='kw'>Cov</span> <span class='op'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>(<span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span>)
+<span class='no'>Cov</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>(<span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span>)
 
 <span class='co'># Simulating (independent) Gaussian functional data with given center and covariance function</span>
 
-<span class='kw'>Data_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  N = <span class='kw'>N</span>,
-  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span>),
-  Cov = <span class='kw'>Cov</span>
+<span class='no'>Data_1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
+  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
+  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
 )
 
-<span class='kw'>Data_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  N = <span class='kw'>N</span>,
-  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span>),
-  Cov = <span class='kw'>Cov</span>
+<span class='no'>Data_2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
+  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
+  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
 )
 
 <span class='co'># Using the simulated data as (independent) components of a bivariate functional dataset</span>
-<span class='kw'>mfD</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mfData.html'>mfData</a></span>(<span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>Data_1</span>, <span class='kw'>Data_2</span>))
+<span class='no'>mfD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mfData.html'>mfData</a></span>(<span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>Data_1</span>, <span class='no'>Data_2</span>))
 
 <span class='co'># \donttest{</span>
 <span class='co'># Computes bootstrap estimate of Spearman correlation</span>
-<span class='fu'>cor_spearman_accuracy</span>(<span class='kw'>mfD</span>, ordering = <span class='st'>"MEI"</span>)</div><div class='output co'>#&gt; $mean
+<span class='fu'>cor_spearman_accuracy</span>(<span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"MEI"</span>)</div><div class='output co'>#&gt; $mean
 #&gt; [1] -0.07173426
 #&gt; 
 #&gt; $bias
@@ -224,7 +224,7 @@ are updated with on-line formulas).</p>
 #&gt; 
 #&gt; $sd
 #&gt; [1] 0.07591705
-#&gt; </div><div class='input'><span class='fu'>cor_spearman_accuracy</span>(<span class='kw'>mfD</span>, ordering = <span class='st'>"MHI"</span>)</div><div class='output co'>#&gt; $mean
+#&gt; </div><div class='input'><span class='fu'>cor_spearman_accuracy</span>(<span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"MHI"</span>)</div><div class='output co'>#&gt; $mean
 #&gt; [1] -0.07254222
 #&gt; 
 #&gt; $bias
@@ -232,7 +232,8 @@ are updated with on-line formulas).</p>
 #&gt; 
 #&gt; $sd
 #&gt; [1] 0.07660277
-#&gt; </div><div class='input'><span class='co'># }</span>
+#&gt; </div><div class='input'># }
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -249,7 +250,7 @@ are updated with on-line formulas).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

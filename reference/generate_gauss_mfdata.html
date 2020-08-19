@@ -137,12 +137,12 @@ desired correlation structure among components.</p>
     </div>
 
     <pre class="usage"><span class='fu'>generate_gauss_mfdata</span>(
-  <span class='kw'>N</span>,
-  <span class='kw'>L</span>,
-  <span class='kw'>centerline</span>,
-  <span class='kw'>correlations</span>,
-  listCov = <span class='kw'>NULL</span>,
-  listCholCov = <span class='kw'>NULL</span>
+  <span class='no'>N</span>,
+  <span class='no'>L</span>,
+  <span class='no'>centerline</span>,
+  <span class='no'>correlations</span>,
+  <span class='kw'>listCov</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>listCholCov</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -223,25 +223,25 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>30</span>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
-<span class='kw'>L</span> <span class='op'>=</span> <span class='fl'>3</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>30</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
+<span class='no'>L</span> <span class='kw'>=</span> <span class='fl'>3</span>
 
-<span class='kw'>time_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>time_grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
-<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
-<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.5</span> )
-<span class='kw'>C3</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>1</span> )
+<span class='no'>C1</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.2</span> )
+<span class='no'>C2</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.5</span> )
+<span class='no'>C3</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>1</span> )
 
 
-<span class='kw'>centerline</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ),
-                        <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='kw'>time_grid</span> ),
-                        <span class='fl'>10</span> <span class='op'>*</span> ( <span class='kw'>time_grid</span> <span class='op'>-</span> <span class='fl'>0.5</span> ) <span class='op'>*</span> <span class='kw'>time_grid</span> ),
-                     nrow = <span class='fl'>3</span>, byrow = <span class='fl'>TRUE</span> )
+<span class='no'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> ),
+                        <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>time_grid</span> ),
+                        <span class='fl'>10</span> * ( <span class='no'>time_grid</span> - <span class='fl'>0.5</span> ) * <span class='no'>time_grid</span> ),
+                     <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )
 
-<span class='fu'>generate_gauss_mfdata</span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
-                       correlations = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
-                       listCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>C1</span>, <span class='kw'>C2</span>, <span class='kw'>C3</span> ) )</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>generate_gauss_mfdata</span>( <span class='no'>N</span>, <span class='no'>L</span>, <span class='no'>centerline</span>,
+                       <span class='kw'>correlations</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
+                       <span class='kw'>listCov</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>C1</span>, <span class='no'>C2</span>, <span class='no'>C3</span> ) )</div><div class='output co'>#&gt; [[1]]
 #&gt;               [,1]         [,2]        [,3]        [,4]        [,5]
 #&gt;  [1,] -0.006154044  0.093448946  0.16910606  0.23475584  0.29462217
 #&gt;  [2,]  0.342336785  0.402785402  0.45123735  0.53073336  0.57726224
@@ -1797,13 +1797,13 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 #&gt; [29,] 4.124098 4.262345 4.402316 4.555944 4.685483
 #&gt; [30,] 3.914939 4.066142 4.217121 4.575750 4.581449
 #&gt; </div><div class='input'>
-<span class='kw'>CholC1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C1</span> )
-<span class='kw'>CholC2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C2</span> )
-<span class='kw'>CholC3</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C3</span> )
+<span class='no'>CholC1</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='no'>C1</span> )
+<span class='no'>CholC2</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='no'>C2</span> )
+<span class='no'>CholC3</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='no'>C3</span> )
 
-<span class='fu'>generate_gauss_mfdata</span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
-                       correlations = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
-                      listCholCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>CholC1</span>, <span class='kw'>CholC2</span>, <span class='kw'>CholC3</span> ) )</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>generate_gauss_mfdata</span>( <span class='no'>N</span>, <span class='no'>L</span>, <span class='no'>centerline</span>,
+                       <span class='kw'>correlations</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
+                      <span class='kw'>listCholCov</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>CholC1</span>, <span class='no'>CholC2</span>, <span class='no'>CholC3</span> ) )</div><div class='output co'>#&gt; [[1]]
 #&gt;               [,1]        [,2]          [,3]        [,4]         [,5]
 #&gt;  [1,]  0.162535488  0.23048984  0.3325792624  0.40266778  0.471205627
 #&gt;  [2,] -0.191179658 -0.14344768 -0.0367493756  0.04099641  0.087232343
@@ -3358,7 +3358,8 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 #&gt; [28,] 2.951734 3.110413 3.346426 3.520726 3.731443 3.811485 3.856915 3.988026
 #&gt; [29,] 3.756816 3.875675 4.053310 4.146967 4.199742 4.352943 4.569901 4.744171
 #&gt; [30,] 3.997699 4.052752 4.307849 4.441646 4.522344 4.679029 4.905886 5.019222
-#&gt; </div><div class='input'></div></pre>
+#&gt; </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -3374,7 +3375,7 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

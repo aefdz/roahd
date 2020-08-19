@@ -136,7 +136,7 @@ bivariate functional dataset, with either a max or area-under-curve order
 order relation between univariate functional elements (components).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cor_kendall</span>(<span class='kw'>mfD</span>, ordering = <span class='st'>"max"</span>)</pre>
+    <pre class="usage"><span class='fu'>cor_kendall</span>(<span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"max"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,39 +181,40 @@ technical report</em>,
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>#### TOTALLY INDEPENDENT COMPONENTS</span>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>2e2</span>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e3</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>2e2</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e3</span>
 
-<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
 <span class='co'># Creating an exponential covariance function to simulate guassian data</span>
-<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='no'>Cov</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
 
 <span class='co'># Simulating (independent) gaussian functional data with given center and</span>
 <span class='co'># covariance function</span>
-<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>Cov</span> )
-<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='no'>Data_1</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='no'>Data_2</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
 
 <span class='co'># Using the simulated data as (independent) components of a bivariate functional</span>
 <span class='co'># dataset</span>
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )
+<span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>Data_1</span>, <span class='no'>Data_2</span> ) )
 
 <span class='co'># Correlation approx. zero (components were created independently)</span>
-<span class='fu'>cor_kendall</span>( <span class='kw'>mfD</span>, ordering = <span class='st'>'max'</span> )</div><div class='output co'>#&gt; [1] -0.04251256</div><div class='input'>
+<span class='fu'>cor_kendall</span>( <span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>'max'</span> )</div><div class='output co'>#&gt; [1] -0.04251256</div><div class='input'>
 <span class='co'># Correlation approx. zero (components were created independently)</span>
-<span class='fu'>cor_kendall</span>( <span class='kw'>mfD</span>, ordering = <span class='st'>'area'</span> )</div><div class='output co'>#&gt; [1] -0.004020101</div><div class='input'>
+<span class='fu'>cor_kendall</span>( <span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>'area'</span> )</div><div class='output co'>#&gt; [1] -0.004020101</div><div class='input'>
 <span class='co'>#### TOTALLY DEPENDENT COMPONENTS</span>
 
 <span class='co'># Nonlinear transform of first component</span>
-<span class='kw'>Data_3</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>( <span class='kw'>Data_1</span>, <span class='fl'>1</span>, <span class='kw'>exp</span> ) )
+<span class='no'>Data_3</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>( <span class='no'>Data_1</span>, <span class='fl'>1</span>, <span class='no'>exp</span> ) )
 
 <span class='co'># Creating bivariate dataset starting from nonlinearly-dependent components</span>
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_3</span> ) )
+<span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>Data_1</span>, <span class='no'>Data_3</span> ) )
 
 <span class='co'># Correlation very high (components are nonlinearly dependent)</span>
-<span class='fu'>cor_kendall</span>( <span class='kw'>mfD</span>, ordering = <span class='st'>'max'</span> )</div><div class='output co'>#&gt; [1] 1</div><div class='input'>
+<span class='fu'>cor_kendall</span>( <span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>'max'</span> )</div><div class='output co'>#&gt; [1] 1</div><div class='input'>
 <span class='co'># Correlation very high (components are nonlinearly dependent)</span>
-<span class='fu'>cor_kendall</span>( <span class='kw'>mfD</span>, ordering = <span class='st'>'area'</span> )</div><div class='output co'>#&gt; [1] 0.9072362</div><div class='input'></div></pre>
+<span class='fu'>cor_kendall</span>( <span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>'area'</span> )</div><div class='output co'>#&gt; [1] 0.9072362</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -229,7 +230,7 @@ technical report</em>,
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

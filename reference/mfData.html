@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>S3 class for multivariate functional datasets — mfData • roahd</title>
+<title><code>S3</code> class for multivariate functional datasets — mfData • roahd</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="S3 class for multivariate functional datasets — mfData" />
+<meta property="og:title" content="<code>S3</code> class for multivariate functional datasets — mfData" />
 <meta property="og:description" content="This function implements a constructor for elements of S3 class
 mfData, aimed at implementing a representation of a multivariate
 functional dataset." />
@@ -136,7 +136,7 @@ functional dataset." />
 functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mfData</span>(<span class='kw'>grid</span>, <span class='kw'>Data_list</span>)</pre>
+    <pre class="usage"><span class='fu'>mfData</span>(<span class='no'>grid</span>, <span class='no'>Data_list</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -182,27 +182,27 @@ elements (<code>N</code>).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Defining parameters</span>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
 
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e3</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e3</span>
 
-<span class='kw'>t0</span> <span class='op'>=</span> <span class='fl'>0</span>
-<span class='kw'>t1</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='no'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>
+<span class='no'>t1</span> <span class='kw'>=</span> <span class='fl'>1</span>
 
 <span class='co'># Defining the measurement grid</span>
-<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='kw'>t0</span>, <span class='kw'>t1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='no'>t0</span>, <span class='no'>t1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
 <span class='co'># Generating an exponential covariance matrix to be used in the simulation of</span>
 <span class='co'># the functional datasets (see the related help for details)</span>
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
 
 <span class='co'># Simulating the measurements of two univariate functional datasets with</span>
 <span class='co'># required center and covariance function</span>
-<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
-<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
+<span class='no'>Data_1</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> )
+<span class='no'>Data_2</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> )
 
 <span class='co'># Building the mfData object</span>
-<span class='fu'>mfData</span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )</div><div class='output co'>#&gt; $N
+<span class='fu'>mfData</span>( <span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>Data_1</span>, <span class='no'>Data_2</span> ) )</div><div class='output co'>#&gt; $N
 #&gt; [1] 100
 #&gt; 
 #&gt; $L
@@ -37964,7 +37964,8 @@ elements (<code>N</code>).</p>
 #&gt; 
 #&gt; 
 #&gt; attr(,"class")
-#&gt; [1] "mfData"</div><div class='input'></div></pre>
+#&gt; [1] "mfData"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -37980,7 +37981,7 @@ elements (<code>N</code>).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -134,13 +134,13 @@ functions for a set of functional data." />
 functions for a set of functional data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cov_fun</span>(<span class='kw'>X</span>, Y = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>cov_fun</span>(<span class='no'>X</span>, <span class='kw'>Y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for fData</span>
-<span class='fu'>cov_fun</span>(<span class='kw'>X</span>, Y = <span class='kw'>NULL</span>)
+<span class='fu'>cov_fun</span>(<span class='no'>X</span>, <span class='kw'>Y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'>cov_fun</span>(<span class='kw'>X</span>, Y = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>cov_fun</span>(<span class='no'>X</span>, <span class='kw'>Y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -212,26 +212,26 @@ correct implementation of the method.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Generating a univariate functional dataset</span>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
 
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
-<span class='kw'>t0</span> <span class='op'>=</span> <span class='fl'>0</span>
-<span class='kw'>t1</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
+<span class='no'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>
+<span class='no'>t1</span> <span class='kw'>=</span> <span class='fl'>1</span>
 
-<span class='kw'>time_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='kw'>t0</span>, <span class='kw'>t1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>time_grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='no'>t0</span>, <span class='no'>t1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
-<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='no'>Cov</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
 
-<span class='kw'>D1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ), Cov = <span class='kw'>Cov</span> )
-<span class='kw'>D2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='no'>D1</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='no'>D2</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
 
-<span class='kw'>fD1</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>time_grid</span>, <span class='kw'>D1</span> )
-<span class='kw'>fD2</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>time_grid</span>, <span class='kw'>D2</span> )
+<span class='no'>fD1</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>time_grid</span>, <span class='no'>D1</span> )
+<span class='no'>fD2</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>time_grid</span>, <span class='no'>D2</span> )
 
 <span class='co'># Computing the covariance function of fD1</span>
 
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'>cov_fun</span>( <span class='kw'>fD1</span> )
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='kw'>C</span> )</div><div class='output co'>#&gt; List of 5
+<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'>cov_fun</span>( <span class='no'>fD1</span> )
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='no'>C</span> )</div><div class='output co'>#&gt; List of 5
 #&gt;  $ t0    : num 0
 #&gt;  $ tP    : num 1
 #&gt;  $ h     : num 0.0101
@@ -239,8 +239,8 @@ correct implementation of the method.</p>
 #&gt;  $ values: num [1:100, 1:100] 0.287 0.287 0.286 0.284 0.285 ...
 #&gt;  - attr(*, "class")= chr "Cov"</div><div class='input'>
 <span class='co'># Computing the cross-covariance function of fD1 and fD2</span>
-<span class='kw'>CC</span> <span class='op'>=</span> <span class='fu'>cov_fun</span>( <span class='kw'>fD1</span>, <span class='kw'>fD2</span> )
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='kw'>CC</span> )</div><div class='output co'>#&gt; List of 5
+<span class='no'>CC</span> <span class='kw'>=</span> <span class='fu'>cov_fun</span>( <span class='no'>fD1</span>, <span class='no'>fD2</span> )
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='no'>CC</span> )</div><div class='output co'>#&gt; List of 5
 #&gt;  $ t0    : num 0
 #&gt;  $ tP    : num 1
 #&gt;  $ h     : num 0.0101
@@ -248,32 +248,32 @@ correct implementation of the method.</p>
 #&gt;  $ values: num [1:100, 1:100] -0.0153 -0.0152 -0.0141 -0.017 -0.0191 ...
 #&gt;  - attr(*, "class")= chr "Cov"</div><div class='input'>
 <span class='co'># Generating a multivariate functional dataset</span>
-<span class='kw'>L</span> <span class='op'>=</span> <span class='fl'>3</span>
+<span class='no'>L</span> <span class='kw'>=</span> <span class='fl'>3</span>
 
-<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
-<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.5</span> )
-<span class='kw'>C3</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>1</span> )
+<span class='no'>C1</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.2</span> )
+<span class='no'>C2</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.5</span> )
+<span class='no'>C3</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>1</span> )
 
-<span class='kw'>centerline</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ),
-                        <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='kw'>time_grid</span> ),
-                        <span class='fl'>10</span> <span class='op'>*</span> ( <span class='kw'>time_grid</span> <span class='op'>-</span> <span class='fl'>0.5</span> ) <span class='op'>*</span> <span class='kw'>time_grid</span> ),
-                     nrow = <span class='fl'>3</span>, byrow = <span class='fl'>TRUE</span> )
+<span class='no'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> ),
+                        <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>( <span class='no'>time_grid</span> ),
+                        <span class='fl'>10</span> * ( <span class='no'>time_grid</span> - <span class='fl'>0.5</span> ) * <span class='no'>time_grid</span> ),
+                     <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )
 
-<span class='kw'>D3</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
-                       correlations = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
-                       listCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>C1</span>, <span class='kw'>C2</span>, <span class='kw'>C3</span> ) )
+<span class='no'>D3</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='no'>N</span>, <span class='no'>L</span>, <span class='no'>centerline</span>,
+                       <span class='kw'>correlations</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
+                       <span class='kw'>listCov</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>C1</span>, <span class='no'>C2</span>, <span class='no'>C3</span> ) )
 
 <span class='co'># adding names for better readability of BC3's labels</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>( <span class='kw'>D3</span> ) <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='st'>'comp1'</span>, <span class='st'>'comp2'</span>, <span class='st'>'comp3'</span> )
-<span class='kw'>mfD3</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>time_grid</span>, <span class='kw'>D3</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>( <span class='no'>D3</span> ) <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='st'>'comp1'</span>, <span class='st'>'comp2'</span>, <span class='st'>'comp3'</span> )
+<span class='no'>mfD3</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>time_grid</span>, <span class='no'>D3</span> )
 
-<span class='kw'>D1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ),
-                              Cov = <span class='kw'>Cov</span> )
-<span class='kw'>fD1</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>time_grid</span>, <span class='kw'>D1</span> )
+<span class='no'>D1</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> ),
+                              <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='no'>fD1</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>time_grid</span>, <span class='no'>D1</span> )
 
 <span class='co'># Computing the block covariance function of mfD3</span>
-<span class='kw'>BC3</span> <span class='op'>=</span> <span class='fu'>cov_fun</span>( <span class='kw'>mfD3</span> )
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='kw'>BC3</span> )</div><div class='output co'>#&gt; List of 6
+<span class='no'>BC3</span> <span class='kw'>=</span> <span class='fu'>cov_fun</span>( <span class='no'>mfD3</span> )
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='no'>BC3</span> )</div><div class='output co'>#&gt; List of 6
 #&gt;  $ comp1_comp1:List of 5
 #&gt;   ..$ t0    : num 0
 #&gt;   ..$ tP    : num 1
@@ -317,8 +317,8 @@ correct implementation of the method.</p>
 #&gt;   ..$ values: num [1:100, 1:100] 0.231 0.229 0.226 0.223 0.221 ...
 #&gt;   ..- attr(*, "class")= chr "Cov"</div><div class='input'>
 <span class='co'># computing cross-covariance between mfData and fData objects</span>
-<span class='kw'>CC</span> <span class='op'>=</span> <span class='fu'>cov_fun</span>( <span class='kw'>mfD3</span>, <span class='kw'>fD1</span> )
-<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='kw'>CC</span> )</div><div class='output co'>#&gt; List of 3
+<span class='no'>CC</span> <span class='kw'>=</span> <span class='fu'>cov_fun</span>( <span class='no'>mfD3</span>, <span class='no'>fD1</span> )
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>( <span class='no'>CC</span> )</div><div class='output co'>#&gt; List of 3
 #&gt;  $ comp1:List of 5
 #&gt;   ..$ t0    : num 0
 #&gt;   ..$ tP    : num 1
@@ -339,7 +339,8 @@ correct implementation of the method.</p>
 #&gt;   ..$ h     : num 0.0101
 #&gt;   ..$ P     : int 100
 #&gt;   ..$ values: num [1:100, 1:100] -0.0299 -0.0389 -0.0407 -0.0374 -0.038 ...
-#&gt;   ..- attr(*, "class")= chr "Cov"</div><div class='input'></div></pre>
+#&gt;   ..- attr(*, "class")= chr "Cov"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -355,7 +356,7 @@ correct implementation of the method.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

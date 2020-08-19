@@ -134,7 +134,7 @@ with a desired mean and covariance function." />
 with a desired mean and covariance function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>generate_gauss_fdata</span>(<span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>NULL</span>, CholCov = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>generate_gauss_fdata</span>(<span class='no'>N</span>, <span class='no'>centerline</span>, <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>CholCov</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,24 +189,23 @@ dimensional grid of P points: \([a = t_0, t_1, \ldots, t_{P-1} = b]
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>30</span>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>30</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
 
-<span class='kw'>t0</span> <span class='op'>=</span> <span class='fl'>0</span>
-<span class='kw'>tP</span> <span class='op'>=</span> <span class='fl'>1</span>
+<span class='no'>t0</span> <span class='kw'>=</span> <span class='fl'>0</span>
+<span class='no'>tP</span> <span class='kw'>=</span> <span class='fl'>1</span>
 
-<span class='kw'>time_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='kw'>t0</span>, <span class='kw'>tP</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>time_grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='no'>t0</span>, <span class='no'>tP</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
+<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>time_grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.2</span> )
 
-<span class='kw'>CholC</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C</span> )
+<span class='no'>CholC</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='no'>C</span> )
 
-<span class='kw'>centerline</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> )
+<span class='no'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>time_grid</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>C</span> ))
+<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='no'>N</span>, <span class='no'>centerline</span>, <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> ))
 
-<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, CholCov = <span class='kw'>CholC</span> ))
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='no'>N</span>, <span class='no'>centerline</span>, <span class='kw'>CholCov</span> <span class='kw'>=</span> <span class='no'>CholC</span> ))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -222,7 +221,7 @@ dimensional grid of P points: \([a = t_0, t_1, \ldots, t_{P-1} = b]
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

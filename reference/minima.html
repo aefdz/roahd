@@ -136,7 +136,7 @@ univariate functional dataset, optionally returning also the value of the grid
 where they are fulfilled.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>minima</span>(<span class='kw'>fData</span>, <span class='kw'>...</span>, which = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>minima</span>(<span class='no'>fData</span>, <span class='no'>...</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,21 +170,22 @@ are reached.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>1e3</span>
+<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e3</span>
 
-<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
+<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
 
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span> <span class='op'>*</span> <span class='kw'>grid</span>,
-                  <span class='fl'>2</span> <span class='op'>*</span>  <span class='kw'>grid</span>,
-                  <span class='fl'>3</span> <span class='op'>*</span> ( <span class='fl'>0.5</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>( <span class='kw'>grid</span> <span class='op'>-</span> <span class='fl'>0.5</span> ) ) ),
-               nrow = <span class='fl'>3</span>, ncol = <span class='kw'>P</span>, byrow = <span class='fl'>TRUE</span> )
+<span class='no'>Data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span> * <span class='no'>grid</span>,
+                  <span class='fl'>2</span> *  <span class='no'>grid</span>,
+                  <span class='fl'>3</span> * ( <span class='fl'>0.5</span> - <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>( <span class='no'>grid</span> - <span class='fl'>0.5</span> ) ) ),
+               <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>P</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
 
-<span class='fu'>minima</span>( <span class='kw'>fD</span>, which = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;   grid value
+<span class='fu'>minima</span>( <span class='no'>fD</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;   grid value
 #&gt; 1    0     0
 #&gt; 2    0     0
-#&gt; 3    0     0</div><div class='input'></div></pre>
+#&gt; 3    0     0</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -200,7 +201,7 @@ are reached.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
