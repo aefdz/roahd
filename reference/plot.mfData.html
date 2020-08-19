@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Specialized method to plot <code>mfData</code> objects — plot.mfData • roahd</title>
+<title>Specialized method to plot mfData objects — plot.mfData • roahd</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Specialized method to plot <code>mfData</code> objects — plot.mfData" />
+<meta property="og:title" content="Specialized method to plot mfData objects — plot.mfData" />
 <meta property="og:description" content="This function performs the plot of a functional multivariate dataset stored
 in an object of class mfData. It is able to accept all the usual
 customizable graphical parameters, otherwise it will use the default ones." />
@@ -169,7 +169,7 @@ different strings (one for each of the <code>L</code> dimensions) that have to b
 used in the corresponding graphic.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/plot.fData.html'>plot.fData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mfData.html'>mfData</a></code>, <code><a href='fData.html'>fData</a></code>, <code><a href='plot.fData.html'>plot.fData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
@@ -184,17 +184,17 @@ used in the corresponding graphic.</p>
 
 <span class='co'># Generating an exponential covariance matrix to be used in the simulation of</span>
 <span class='co'># the functional datasets (see the related help for details)</span>
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
 
 <span class='co'># Simulating the measurements of two univariate functional datasets with</span>
 <span class='co'># required center and covariance function</span>
-<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
-<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
+<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
+<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ), Cov = <span class='kw'>C</span> )
 
 <span class='co'># Building the mfData object and plotting tt</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) ),
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) ),
       xlab = <span class='st'>'time'</span>, ylab = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'1st dim.'</span>, <span class='st'>'2nd dim.'</span> ),
-      main = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'An important plot here'</span>, <span class='st'>'And another one here'</span> ) )</div><div class='img'><img src='plot.mfData-1.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
+      main = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'An important plot here'</span>, <span class='st'>'And another one here'</span> ) )</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='img'><img src='plot.mfData-1.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -136,7 +136,7 @@ data with a desired mean and covariance function in each dimension and a
 desired correlation structure among components.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>(
+    <pre class="usage"><span class='fu'>generate_gauss_mfdata</span>(
   <span class='kw'>N</span>,
   <span class='kw'>L</span>,
   <span class='kw'>centerline</span>,
@@ -218,8 +218,8 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 \subset I \).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></code></p></div>
+    <div class='dont-index'><p><code><a href='exp_cov_function.html'>exp_cov_function</a></code>, <code><a href='mfData.html'>mfData</a></code>,
+<code><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -229,9 +229,9 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 
 <span class='kw'>time_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
 
-<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
-<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.5</span> )
-<span class='kw'>C3</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>1</span> )
+<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
+<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.5</span> )
+<span class='kw'>C3</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>1</span> )
 
 
 <span class='kw'>centerline</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> ),
@@ -239,7 +239,7 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
                         <span class='fl'>10</span> <span class='op'>*</span> ( <span class='kw'>time_grid</span> <span class='op'>-</span> <span class='fl'>0.5</span> ) <span class='op'>*</span> <span class='kw'>time_grid</span> ),
                      nrow = <span class='fl'>3</span>, byrow = <span class='fl'>TRUE</span> )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
+<span class='fu'>generate_gauss_mfdata</span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
                        correlations = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
                        listCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>C1</span>, <span class='kw'>C2</span>, <span class='kw'>C3</span> ) )</div><div class='output co'>#&gt; [[1]]
 #&gt;               [,1]         [,2]        [,3]        [,4]        [,5]
@@ -1801,7 +1801,7 @@ dimensional grid of P points: \([ a = t_0, t_1, \ldots, t_{P-1} = b]
 <span class='kw'>CholC2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C2</span> )
 <span class='kw'>CholC3</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C3</span> )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
+<span class='fu'>generate_gauss_mfdata</span>( <span class='kw'>N</span>, <span class='kw'>L</span>, <span class='kw'>centerline</span>,
                        correlations = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.5</span>, <span class='fl'>0.5</span>, <span class='fl'>0.5</span> ),
                       listCholCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>CholC1</span>, <span class='kw'>CholC2</span>, <span class='kw'>CholC3</span> ) )</div><div class='output co'>#&gt; [[1]]
 #&gt;               [,1]        [,2]          [,3]        [,4]         [,5]

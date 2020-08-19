@@ -85,7 +85,7 @@
       <h1 data-toc-skip>roahd</h1>
                         <h4 class="author">Nicholas Tarabelloni</h4>
             
-            <h4 class="date">2020-07-06</h4>
+            <h4 class="date">2020-08-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/astamm/roahd/blob/master/vignettes/roahd-overview.Rmd"><code>vignettes/roahd-overview.Rmd</code></a></small>
       <div class="hidden name"><code>roahd-overview.Rmd</code></div>
@@ -189,7 +189,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] 0.7261 0.6737 0.9609 -0.0697 0.9982 ...
+##   .. ..$ values: num [1:10, 1:100] 0.161 -0.609 0.523 0.928 0.825 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##   ..$ :List of 6
 ##   .. ..$ t0    : num 0
@@ -197,7 +197,7 @@
 ##   .. ..$ h     : num 0.0101
 ##   .. ..$ P     : int 100
 ##   .. ..$ N     : int 10
-##   .. ..$ values: num [1:10, 1:100] -0.244 -2.472 1.243 0.809 -3.03 ...
+##   .. ..$ values: num [1:10, 1:100] 1.022 0.649 0.801 0.774 -0.315 ...
 ##   .. ..- attr(*, "class")= chr "fData"
 ##  - attr(*, "class")= chr "mfData"</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit">
@@ -209,14 +209,20 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">mfD</span>, lwd = <span class="fl">2</span>, main = <span class="st">'Multivariate FD'</span>,
       xlab = <span class="st">'time'</span>, ylab = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'Values 1'</span>, <span class="st">'Values 2'</span> ))
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/mfData-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>The fact that <code>mfData</code> components are <code>fData</code> objects is indeed conceptually very natural, but also allows for a seamless application of <code>S3</code> methods meant for <code>fData</code> on multivariate functional data components, making the exploration and manipulation of multivariate datasets rather easy:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
+<div class="sourceCode" id="cb15"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">mfD</span><span class="op">$</span><span class="kw">fDList</span>[[ <span class="fl">1</span> ]], main = <span class="st">'First component'</span>, 
       xlab = <span class="st">'time'</span>, ylab = <span class="st">'Values'</span>, lwd = <span class="fl">2</span> )
 </pre></div>
 <p>Moreover, <code>mfData</code> objects can be obtained also from a set of homogeneous <code>fData</code> objects, i.e. of equal sample size and defined on the same grid:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
+<div class="sourceCode" id="cb16"><pre class="downlit">
 <span class="kw">fD_1</span> <span class="op">=</span> <span class="fu"><a href="../reference/fData.html">fData</a></span>( <span class="kw">grid</span>, <span class="kw">Data_1</span> )
 
 <span class="kw">fD_2</span> <span class="op">=</span> <span class="fu"><a href="../reference/fData.html">fData</a></span>( <span class="kw">grid</span>, <span class="kw">Data_2</span> )
@@ -230,7 +236,7 @@
 <h2 class="hasAnchor">
 <a href="#subsetting-fdata" class="anchor"></a>Subsetting fData</h2>
 <p><code>fData</code> objects can be subset using a suitably overloaded operator <code>[.fData</code>, that allows for the use of standard slices of <code>matrix</code> and <code>array</code> classes also for <code>fData</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
+<div class="sourceCode" id="cb17"><pre class="downlit">
 <span class="co"># Subsetting fData and returning result in matrix form</span>
 <span class="kw">fD</span>[ <span class="fl">1</span> , <span class="fl">1</span>, as_fData = <span class="fl">FALSE</span> ]
 
@@ -241,9 +247,11 @@
 <span class="kw">fD</span>[ , <span class="fl">10</span>, as_fData = <span class="fl">FALSE</span> ]
 
 <span class="co"># As default behavior the subset is returned in fData form</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>( mfrow = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">2</span>) )
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">fD</span>, main = <span class="st">'Original dataset'</span>, lwd = <span class="fl">2</span> )
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">fD</span>[ , <span class="fl">1</span> <span class="op">:</span> <span class="fl">20</span> ], main = <span class="st">'Zooming in'</span>, lwd = <span class="fl">2</span> )
+<span class="kw">oldpar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(mfrow = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>))
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">fD</span>, main = <span class="st">"Original dataset"</span>, lwd = <span class="fl">2</span>)
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">fD</span>[, <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>], main = <span class="st">"Zooming in"</span>, lwd = <span class="fl">2</span>)
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">oldpar</span>)
 </pre></div>
 </div>
 <div id="algebra" class="section level2">
@@ -251,7 +259,7 @@
 <a href="#algebra" class="anchor"></a>Algebra</h2>
 <p>An algebra of <code>fData</code> objects is also implemented, making it easy to sum, subtract, multiply and divide these objects by meaningful and compliant structures.</p>
 <p><strong>Sums</strong> and <strong>subtractions</strong>, available through <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> and <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> operators (see help at <code>+-.fData</code>), allow to sum an <code>fData</code> on the left hand side and a compliant structure on the right hand side. This can be either another <code>fData</code> of the same sample size and defined over the same grid, or a 1D/2D data structure with a number of columns equal <code>fData</code>’s grid length (i.e. <code>P</code>), and number of rows equal to <code>fData</code>’s sample size (i.e. <code>N</code>) or equal to one (in this case the only observation available is recycled <code>N</code> times). The operations are then performed element-wise between the lhs and rhs.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
+<div class="sourceCode" id="cb18"><pre class="downlit">
 <span class="kw">fD</span> <span class="op">+</span> <span class="kw">fD</span>
 
 <span class="kw">fD</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>( <span class="fl">1</span>, nrow = <span class="kw">N</span>, ncol = <span class="kw">P</span> )
@@ -261,7 +269,7 @@
 <span class="kw">fD</span> <span class="op">+</span> <span class="fl">1</span> <span class="op">:</span> <span class="kw">P</span> 
 </pre></div>
 <p><strong>Multiplication</strong> and <strong>division</strong>, instead, is implemented only for an <code>fData</code> left hand side and a numeric variable or numeric vector right hand side. In the first case, each function in the functional dataset is multiplied/divided by the specified quantity; in the second case, specifying a vector of length <code>N</code>, the multiplication/division of each functional observation is carried out by the corresponding quantity in the vector, in an element-wise way:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
+<div class="sourceCode" id="cb19"><pre class="downlit">
 <span class="kw">fD</span> <span class="op">*</span> <span class="fl">2</span>
 
 <span class="kw">fD</span> <span class="op">/</span> <span class="fl">3</span>
@@ -287,7 +295,7 @@
 <a href="#depths" class="anchor"></a>Depths</h2>
 <p><code>roahd</code> provides a number of depth definitions, that are exploited by the visualization functions but can also be used by themselves. These are based on the notion of <strong>Band Depth</strong> <span class="citation">(López-Pintado and Romo 2007, 2009)</span>.</p>
 <p><strong>Band Depth</strong> and <strong>Modified Band Depth</strong> are implemented in the functions <code>BD</code> and <code>MBD</code>. Both of them can work with either an <code>fData</code> object, specifying the univariate functional dataset whose depths must be computed, or a matrix of data values (e.g. in the form of <code>fData$values</code> output). <code>MBD</code> can be called with the additional parameters <code>manage_ties</code> (defaulting to <code>FALSE</code>), specifying whether a check for the presence of tied data must be made prior to computing depths, and therefore a suitable computing strategy must be used. The implementation of <code>MBD</code> exploits the recommendations of <span class="citation">(Sun, Genton, and Nychka 2012)</span>, but extends them in order to accommodate for the possible presence of ties.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
+<div class="sourceCode" id="cb20"><pre class="downlit">
   <span class="fu"><a href="../reference/BD.html">BD</a></span>( <span class="kw">fD</span> )
   <span class="fu"><a href="../reference/BD.html">BD</a></span>( <span class="kw">fD</span><span class="op">$</span><span class="kw">values</span> )
   
@@ -298,7 +306,7 @@
   <span class="fu"><a href="../reference/MBD.html">MBD</a></span>( <span class="kw">fD</span><span class="op">$</span><span class="kw">values</span>, manage_ties = <span class="fl">TRUE</span> )
 </pre></div>
 <p>Another definition available is the <strong>Half Region Depth</strong> (along with its modified version), that is built on top of the <strong>Epigraph</strong> and <strong>Hypograph</strong> indexes <span class="citation">(see López-Pintado and Romo 2011)</span>:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
+<div class="sourceCode" id="cb21"><pre class="downlit">
 <span class="fu"><a href="../reference/HRD.html">HRD</a></span>( <span class="kw">fD</span> )
 <span class="fu"><a href="../reference/HRD.html">HRD</a></span>( <span class="kw">fD</span><span class="op">$</span><span class="kw">values</span> )
 
@@ -307,7 +315,7 @@
 </pre></div>
 <p>A generalization of MBD to multivariate functional data, implementing the ideas of <span class="citation">Ieva and Paganoni (2013)</span>, is also available through the functions <code>multiBD</code> and <code>multiMBD</code>. These functions accept either a <code>mfData</code> object, specifying the multivariate functional dataset whose depths have to be computed, or a list of matrices of data values (see example below).</p>
 <p>The function computes the BD or MBD for each component of the multivariate functional dataset and then averages them according to a set of weights. These can be specified in two ways: either with the flag <code>uniform</code>, that is turned into <code><a href="https://rdrr.io/r/base/rep.html">rep( 1/L, L )</a></code> (where <code>L</code> stands for the number of components in the multivariate dataset), or by providing the actual set of weights to be used. The latter option allows to use ad-hoc set of weights, like in <span class="citation">(Tarabelloni et al. 2015)</span>.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
+<div class="sourceCode" id="cb22"><pre class="downlit">
   <span class="fu"><a href="../reference/multiMBD.html">multiBD</a></span>( <span class="kw">mfD</span>, weights = <span class="st">'uniform'</span> )
   <span class="fu"><a href="../reference/multiMBD.html">multiMBD</a></span>( <span class="kw">mfD</span>, weights = <span class="st">'uniform'</span>, manage_ties = <span class="fl">FALSE</span> )
 
@@ -336,7 +344,7 @@
   \widehat{m}( t_j ) = \left(\text{arg}\max_{i=1, \ldots, N} MBD( X_i )\right)( t_j), \qquad j = 0, \ldots, P-1.
 \]</span></p>
 <p>The sample mean is implemented in the <code>S3</code> methods <code><a href="../reference/mean.fData.html">mean.fData( x, ... )</a></code> and <code><a href="../reference/mean.mfData.html">mean.mfData( x, ... )</a></code>, that can be invoked directly on <code>fData</code> and <code>mfData</code> objects. These methods can be called directly without the <code>.fData</code> or <code>.mfData</code> suffix, due to their <code>S3</code> nature and call, that allows them to be dispatched from the standard <code>mean</code> function. The sample median, instead, is implemented in the functions <code><a href="../reference/median_fData.html">median_fData( fData, type = 'MBD', ... )</a></code> and <code><a href="../reference/median_mfData.html">median_mfData( mfData, type = 'multiMBD', ... )</a></code>. Here, the <code>type</code> flag can take any name of functions (available in the caller’s environment) that can be used to compute the depths defining the sample median, taking respectively a 2D matrix of data values and a list of 2D matrix of data values as argument (plus, optionally, the dots arguments).</p>
-<div class="sourceCode" id="cb17"><pre class="downlit">
+<div class="sourceCode" id="cb23"><pre class="downlit">
   <span class="co"># Exploiting the S3 nature of these functions and the dispatching from the </span>
   <span class="co"># standard `mean` function</span>
   <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>( <span class="kw">fD</span> )
@@ -345,12 +353,16 @@
   <span class="fu"><a href="../reference/median_fData.html">median_fData</a></span>( <span class="kw">fD</span>, type = <span class="st">'MBD'</span> )
   <span class="fu"><a href="../reference/median_fData.html">median_fData</a></span>( <span class="kw">fD</span>, type = <span class="st">'MHRD'</span> )
 
-  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>( mfrow = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">2</span>) )
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">fD</span>, main = <span class="st">'Mean'</span>, lwd = <span class="fl">2</span> )
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>( <span class="kw">fD</span> ), add = <span class="fl">TRUE</span>, lwd = <span class="fl">2</span>, col = <span class="st">'black'</span>, lty = <span class="fl">2</span> )
+  <span class="kw">oldpar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>()
+  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(mfrow = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>))
   
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">fD</span>, main = <span class="st">'Median'</span>, lwd = <span class="fl">2</span> )
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="fu"><a href="../reference/median_fData.html">median_fData</a></span>( <span class="kw">fD</span>, type = <span class="st">'MBD'</span> ), add = <span class="fl">TRUE</span>, lwd = <span class="fl">2</span>, lty = <span class="fl">2</span>, col = <span class="st">'black'</span> )
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">fD</span>, main = <span class="st">"Mean"</span>, lwd = <span class="fl">2</span>)
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="kw">fD</span>), add = <span class="fl">TRUE</span>, lwd = <span class="fl">2</span>, col = <span class="st">"black"</span>, lty = <span class="fl">2</span>)
+  
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">fD</span>, main = <span class="st">"Median"</span>, lwd = <span class="fl">2</span>)
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="fu"><a href="../reference/median_fData.html">median_fData</a></span>(<span class="kw">fD</span>, type = <span class="st">"MBD"</span>), add = <span class="fl">TRUE</span>, lwd = <span class="fl">2</span>, lty = <span class="fl">2</span>, col = <span class="st">"black"</span>)
+  
+  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="kw">oldpar</span>)
 </pre></div>
 </div>
 <div id="covariance-and-cross-covariance-functions" class="section level2">
@@ -361,7 +373,7 @@
 <p>Given a multivariate functional dataset with observations of <span class="math inline">\(L\)</span> components, <span class="math inline">\(X_1, X_2,\ldots, X_N\)</span>, the covariance function has the following block structure: <span class="math inline">\(C^{k,l} = [ Cov(X_k(t_i),X_l(t_j))]_{i,j=1}^{P}\)</span>, for <span class="math inline">\(k,l = 1, \ldots, L\)</span>. Of course, it is <span class="math inline">\(C^{k,l} = [C^{l,k}]^T\)</span>. Analogously, the cross-covariance between two multivariate datasets is given by the cross covariances of the components.</p>
 <p>When <code>X</code> is a univariate functional dataset, and if <code>Y</code> is <code>NULL</code>, <code>cov_fun</code> returns the sample covariance function of the functional dataset, defined over the tensorized grid where <code>X</code> is defined. If <code>Y</code> is a univariate functional dataset (in form of <code>fData</code> object), the method returns the cross-covariance function of <code>X</code> and <code>Y</code>.</p>
 <p>When <code>X</code> is a multivariate dataset, <code>Y</code> can be <code>NULL</code>, an <code>fData</code> or a <code>mfData</code> object. In the first case the method returns the covariance function of <code>X</code>, in form of a list of <em>only</em> the upper-triangular blocks. The blocks are sorted in the list by row, therefore the first is the covariance of the first component, then the cross-covariance of the first component with the second, etc. In the second case, the method returns the list of cross-covariances between <code>X</code>’s components and <code>Y</code>. In the third case, the method returns the list of upper-triangular blocks of cross-covariances between <code>X</code>’s and <code>Y</code>’s components.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit">
+<div class="sourceCode" id="cb24"><pre class="downlit">
     <span class="co"># Simple covariance function</span>
     <span class="kw">C1</span> <span class="op">=</span> <span class="fu"><a href="../reference/cov_fun.html">cov_fun</a></span>( <span class="kw">fD</span> )
 
@@ -373,7 +385,7 @@
 </pre></div>
 <p>Each covariance function estimate (the elements of the list in the multivariate case, too) is returned as an instance of the <code>S3</code> class <code>Cov</code>, that stores the values of the covariance matrix as well as the grid parameters.</p>
 <p><code>plot.Cov</code>, an <code>S3</code> specialization of <code>plot</code> is available as plotting method for <code>Cov</code> objects. It is built around <code><a href="https://rdrr.io/r/graphics/image.html">graphics::image</a></code>, hence all the additional parameters of <code>image</code> can be used to customize it.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit">
+<div class="sourceCode" id="cb25"><pre class="downlit">
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">C1</span>, main = <span class="st">'Covariance function'</span>, xlab = <span class="st">'time'</span>, ylab = <span class="st">'time'</span> )
 </pre></div>
 </div>
@@ -383,7 +395,7 @@
 <p><code>roahd</code> collects the implementation of some useful indexes that can be used to describe and summarize functional datasets.</p>
 <p><code>EI</code> and <code>MEI</code> implement the <strong>Epigraph Index</strong> and the <strong>Modified Epigraph Index</strong>, while <code>HI</code> and <code>MHI</code> implement the <strong>Hypograph Index</strong> and the <strong>Modified Hypograph Index</strong> <span class="citation">(see López-Pintado and Romo 2011; Arribas-Gil and Romo 2014)</span>. These indexes can be used to sort data in a top-down and bottom-up fashion, and are used to define the HRD/MHRD and to build the outliergram.</p>
 <p>These <code>S3</code> methods can be called on univariate functional datasets, provided either in form of a <code>fData</code> object or a 2D matrix of values.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit">
+<div class="sourceCode" id="cb26"><pre class="downlit">
   <span class="co"># Calling on fData objects</span>
   <span class="fu"><a href="../reference/EI.html">EI</a></span>( <span class="kw">fD</span> )
   <span class="fu"><a href="../reference/MEI.html">MEI</a></span>( <span class="kw">fD</span> )
@@ -402,7 +414,7 @@
 <p>When dealing with multivariate functional data, in particular in case of <strong>bivariate</strong> data, it is possible to compute correlation coefficients between data components that generalize the Kendall’s tau and Spearman’s coefficients <span class="citation">(Valencia, Romo, and Lillo 2015a, 2015b)</span>.</p>
 <p>The function <code><a href="../reference/cor_kendall.html">cor_kendall( mfD, ordering = 'max' )</a></code> allows to compute the Kendall’s tau correlation coefficient between components of a bivariate dataset. The function accepts a <code>mfData</code> object and a criterion to perform the ordering of functional data (this ordering is used to determine the concordances and discordances between pairs in the definition of the coefficient).</p>
 <p>Two criteria are available so far, that directly reflect those proposed in the reference paper: <code>max</code>, for the ordering between maxima of functions, and <code>area</code>, for the ordering between area-under-the-curve of functions.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit">
+<div class="sourceCode" id="cb27"><pre class="downlit">
   <span class="kw">N</span> <span class="op">=</span> <span class="fl">10</span>
   <span class="kw">P</span> <span class="op">=</span> <span class="fl">1e3</span>
 
@@ -417,18 +429,24 @@
   
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">mfD</span>, main = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'Comp. 1'</span>, <span class="st">'Comp. 2'</span>) )  
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/cor_kendall_1-1.png" width="700"></p>
-<div class="sourceCode" id="cb22"><pre class="downlit">
+<div class="sourceCode" id="cb34"><pre class="downlit">
   <span class="co"># Kendall correlation of monotonically dependent data is exactly 1</span>
   <span class="fu"><a href="../reference/cor_kendall.html">cor_kendall</a></span>( <span class="kw">mfD</span>, ordering = <span class="st">'max'</span> )
 </pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb24"><pre class="downlit">
+<div class="sourceCode" id="cb36"><pre class="downlit">
   <span class="fu"><a href="../reference/cor_kendall.html">cor_kendall</a></span>( <span class="kw">mfD</span>, ordering = <span class="st">'area'</span> )
 </pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>The function <code><a href="../reference/cor_spearman.html">cor_spearman( mfD, ordering = 'MEI', ... )</a></code> can be used to compute the Spearman correlation coefficient for a bivariate <code>mfData</code> object, tuning the ordering policy specified by <code>ordering</code> (defaulting to <code>MEI</code>) to rank univariate components and then compute the correlation coefficient. Besides <code>MEI</code>, also <code>MHI</code> can be used to rank univariate components.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit">
+<div class="sourceCode" id="cb38"><pre class="downlit">
 <span class="co"># Spearman correlation of monotonically dependent data is exactly 1</span>
   <span class="fu"><a href="../reference/cor_spearman.html">cor_spearman</a></span>( <span class="kw">mfD</span>, ordering = <span class="st">'MEI'</span> )
 <span class="co">## [1] 1</span>
@@ -448,7 +466,7 @@
 <p>The function <code><a href="../reference/generate_gauss_fdata.html">generate_gauss_fdata(N, centerline, Cov = NULL, CholCov = NULL)</a></code> can be used to simulate a population of such gaussian functional data. The required arguments are: <code>N</code> the number of elements to be generated; <code>centerline</code>, the center of the distribution (mean or median); <code>Cov</code>, a matrix representation of the desired covariance function, intended as the measurements of such function over a tensor grid whose marginal must be the grid where the functional data will be defined (i.e. the argument <code>grid</code> in <code>fData</code>); <code>CholCov</code> the Cholesky factor of the discrete representation of the covariance function over the tensor grid (optional and alternative to the argument <code>Cov</code>). The inner procedure to generate the synthetic population of gaussian functional data makes use of the Cholesky factor of <code>Cov</code>, hence by providing its Cholesky factor, if already present in the caller’s scope, can save computing time.</p>
 <p>A built-in function can be used to generate exponential-like covariance functions, namely <code><a href="../reference/exp_cov_function.html">exp_cov_function( grid, alpha, beta )</a></code>, generating the discretized version of a covariance of the form <span class="math inline">\(C(s,t) = \alpha e^{-\beta | s - t | }\)</span> over a lattice given by the tensorization of grid in <code>grid</code>.</p>
 <p>A comprehensive example is the following:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit">
+<div class="sourceCode" id="cb39"><pre class="downlit">
   <span class="kw">N</span> <span class="op">=</span> <span class="fl">50</span>
   <span class="kw">P</span> <span class="op">=</span> <span class="fl">1e3</span>
 
@@ -473,7 +491,7 @@
 <p>where <span class="math inline">\(Cor( \epsilon_j(t),\epsilon_l(t))=\rho_{j,l}\)</span> specifies a (<em>synchronous</em>) correlation structure among the components of the functional dataset.</p>
 <p>In order to use the function one should provide: <code>N</code>, the number of elements to simulate; <code>L</code>, the number of components of the multivariate functional data; <code>centerline</code>, a matrix containing (by rows) the centerline for each component; <code>correlations</code>, a vector of length <code>1/2 * L * ( L - 1 )</code>, containing all the correlation coefficients among the components; either <code>listCov</code> or <code>listCholCov</code>, a list containing either the discretized covariance functions over the tensorized grid where functional data will be defined), or their Cholesky factor.</p>
 <p>A comprehensive example is the following:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit">
+<div class="sourceCode" id="cb40"><pre class="downlit">
   <span class="kw">N</span> <span class="op">=</span> <span class="fl">10</span>
   <span class="kw">P</span> <span class="op">=</span> <span class="fl">1e3</span>
 
@@ -490,6 +508,12 @@
   <span class="kw">mfD</span> <span class="op">=</span> <span class="fu"><a href="../reference/mfData.html">mfData</a></span>( <span class="kw">grid</span>, <span class="kw">Data</span> )
   
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>( <span class="kw">mfD</span>, main = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'Comp.1'</span>, <span class="st">'Comp. 2'</span>), xlab = <span class="st">'grid'</span>, lwd = <span class="fl">2</span>)
+<span class="co">## Warning in par(oldpar): graphical parameter "cin" cannot be set</span>
+<span class="co">## Warning in par(oldpar): graphical parameter "cra" cannot be set</span>
+<span class="co">## Warning in par(oldpar): graphical parameter "csi" cannot be set</span>
+<span class="co">## Warning in par(oldpar): graphical parameter "cxy" cannot be set</span>
+<span class="co">## Warning in par(oldpar): graphical parameter "din" cannot be set</span>
+<span class="co">## Warning in par(oldpar): graphical parameter "page" cannot be set</span>
 </pre></div>
 <p><img src="roahd-overview_files/figure-html/simulation_multivariate-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
@@ -505,7 +529,7 @@
 <p>The functional boxplot is obtained by ranking functions from the center of the distribution outwards thanks to a depth definition, computing the region of 50% most central functions and inflating such region by a factor <code>F</code>. Any function crossing these boundaries is flagged as outlier. The default value for <code>F</code> is <code>1.5</code>, otherwise it can be set with the argument <code>Fvalue</code>.</p>
 <p>The argument <code>Depths</code> can take either the name of the function to call in order to compute the depths (default is <code>MBD</code>), or a vector containing the depth values for the provided dataset.</p>
 <p>An example is:</p>
-<div class="sourceCode" id="cb29"><pre class="downlit">
+<div class="sourceCode" id="cb41"><pre class="downlit">
   <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1618</span>)
 
   <span class="kw">N</span> <span class="op">=</span> <span class="fl">1e2</span>
@@ -526,9 +550,15 @@
   <span class="fu"><a href="../reference/fbplot.html">fbplot</a></span>( <span class="kw">fD</span>, main = <span class="st">'Fbplot'</span>, Fvalue = <span class="fl">3.5</span> )
 </pre></div>
 <p><img src="roahd-overview_files/figure-html/fbplot_fData-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb30"><pre class="downlit">
+<div class="sourceCode" id="cb42"><pre class="downlit">
   <span class="fu"><a href="../reference/fbplot.html">fbplot</a></span>( <span class="kw">mfD</span>, main = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( <span class="st">'Comp. 1'</span>, <span class="st">'Comp. 2'</span> ), Fvalue = <span class="fl">3.5</span> )
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/fbplot_fData-2.png" width="672" style="display: block; margin: auto;"></p>
 <p>The method <code>fboplot.fData</code> also allows to automatically compute the best adjustment factor <code>F</code> that yields a desired proportion of outliers (True Positive Rate, <code>TPR</code>) out of a Gaussian dataset with same center and covariance function as the <code>fData</code> object <span class="citation">(see Sun and Genton 2012)</span>.</p>
 <p>Such automatic tuning involves the simulation of a number <code>N_trials</code> of populations of Gaussian functional data with same center and covariance as the original dataset (the covariance is robustly estimated with <code><a href="https://rdrr.io/pkg/robustbase/man/covOGK.html">robustbase::covOGK</a></code>) of size <code>trial_size</code>, and the computation of <code>N_trials</code> values for <code>Fvalue</code> such that the desired proportion <code>TPR</code> of observations is flagged as outliers. The optimal value of <code>Fvalue</code> for the original population is then found as the average of the previously computed values <code>Fvalue</code>. The computation of the optimal <code>Fvalue</code> at each iteration of the procedure is carried out exploiting the zero-finding algorithm in <code><a href="https://rdrr.io/r/stats/uniroot.html">stats::uniroot</a></code> (Brent’s method).</p>
@@ -552,7 +582,7 @@
 <code>VERBOSE</code>: a parameter controlling the verbosity of the adjustment process;</li>
 </ul>
 <p><em>Suggestion</em>: Try and select a sufficiently high value for <code>adjust$trial_size</code>, in fact too small values (the default is <code>8 * adjust$N</code>) will result in the impossibility to carry out the optimization since the TPR percentage is too small compared to the sample size.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit">
+<div class="sourceCode" id="cb49"><pre class="downlit">
   <span class="fu"><a href="../reference/fbplot.html">fbplot</a></span>( <span class="kw">fD</span>, adjust = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( N_trials = <span class="fl">20</span>, trial_size = <span class="kw">N</span>, TPR = <span class="fl">0.007</span>, F_min = <span class="fl">0.1</span>, F_max = <span class="fl">20</span> ), xlab = <span class="st">'grid'</span>, ylab = <span class="st">'values'</span>, main = <span class="st">'Adjusted functional boxplot'</span> )
 </pre></div>
 <p><img src="roahd-overview_files/figure-html/fbplot_fData_adjust-1.png" width="672" style="display: block; margin: auto;"></p>
@@ -586,7 +616,7 @@
 <a href="#outliergram" class="anchor"></a>Outliergram</h2>
 <p>A method that can be used to detect <strong>shape outliers</strong> is the outliergram <span class="citation">(see Arribas-Gil and Romo 2014)</span>, based on the computation of MBD and MEI of univariate functional data. Such pairs are compared to a limiting parabola, where they should be placed in case of non-crossing data, and outliers are then identified applying a thresholding rule.</p>
 <p>The function <code>outliergram</code> displays the outliergram of a univariate functional dataset of class <code>fData</code>, and returns a vector of IDs indicating the shape outlying observations in the dataset.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit">
+<div class="sourceCode" id="cb51"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>( <span class="fl">1618</span> )
 
 <span class="kw">N</span> <span class="op">=</span> <span class="fl">100</span>
@@ -613,6 +643,12 @@
 
 <span class="fu"><a href="../reference/outliergram.html">outliergram</a></span>( <span class="kw">fD</span>, display = <span class="fl">TRUE</span> )
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/outliergram-1.png" width="672" style="display: block; margin: auto;"></p>
 <pre><code>## $Fvalue
 ## [1] 1.5
@@ -642,9 +678,15 @@
 ## 
 ## $ID_outliers
 ## [1]  56  74 101 102 103 104</code></pre>
-<div class="sourceCode" id="cb35"><pre class="downlit">
+<div class="sourceCode" id="cb59"><pre class="downlit">
 <span class="fu"><a href="../reference/outliergram.html">outliergram</a></span>( <span class="kw">fD</span>, Fvalue = <span class="fl">5</span>, display = <span class="fl">TRUE</span> )
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/outliergram-2.png" width="672" style="display: block; margin: auto;"></p>
 <pre><code>## $Fvalue
 ## [1] 5
@@ -693,9 +735,15 @@
 <li>
 <code>VERBOSE</code> a parameter controlling the verbosity of the adjustment process;</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="downlit">
+<div class="sourceCode" id="cb67"><pre class="downlit">
 <span class="fu"><a href="../reference/outliergram.html">outliergram</a></span>( <span class="kw">fD</span>, adjust = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>( N_trials = <span class="fl">5</span>, trial_size = <span class="fl">5</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>( <span class="kw">Data</span> ), TPR = <span class="fl">0.01</span>, VERBOSE = <span class="fl">FALSE</span> ), display = <span class="fl">TRUE</span> )
 </pre></div>
+<pre><code>## Warning in par(oldpar): graphical parameter "cin" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cra" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "csi" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "cxy" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "din" cannot be set</code></pre>
+<pre><code>## Warning in par(oldpar): graphical parameter "page" cannot be set</code></pre>
 <p><img src="roahd-overview_files/figure-html/outliergram_adjusted-1.png" width="672"></p>
 <pre><code>## $Fvalue
 ## [1] 2.677161

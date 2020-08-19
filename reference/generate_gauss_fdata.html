@@ -134,7 +134,7 @@ with a desired mean and covariance function." />
 with a desired mean and covariance function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(<span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>NULL</span>, CholCov = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>generate_gauss_fdata</span>(<span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>NULL</span>, CholCov = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,8 +184,8 @@ dimensional grid of P points: \([a = t_0, t_1, \ldots, t_{P-1} = b]
 \subset I \).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></code></p></div>
+    <div class='dont-index'><p><code><a href='exp_cov_function.html'>exp_cov_function</a></code>, <code><a href='fData.html'>fData</a></code>,
+<code><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -197,15 +197,15 @@ dimensional grid of P points: \([a = t_0, t_1, \ldots, t_{P-1} = b]
 
 <span class='kw'>time_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='kw'>t0</span>, <span class='kw'>tP</span>, length.out = <span class='kw'>P</span> )
 
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
+<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>time_grid</span>, alpha = <span class='fl'>0.1</span>, beta = <span class='fl'>0.2</span> )
 
 <span class='kw'>CholC</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>( <span class='kw'>C</span> )
 
 <span class='kw'>centerline</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>time_grid</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>C</span> ))
+<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, Cov = <span class='kw'>C</span> ))
 
-<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, CholCov = <span class='kw'>CholC</span> ))
+<span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='fu'>generate_gauss_fdata</span>( <span class='kw'>N</span>, <span class='kw'>centerline</span>, CholCov = <span class='kw'>CholC</span> ))
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -136,7 +136,7 @@ possibly with an adjustment of the true positive rate of outliers discovered
 under assumption of gaussianity.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>(
+    <pre class="usage"><span class='fu'>outliergram</span>(
   <span class='kw'>fData</span>,
   MBD_data = <span class='kw'>NULL</span>,
   MEI_data = <span class='kw'>NULL</span>,
@@ -275,48 +275,58 @@ problem is solved using <code><a href='https://rdrr.io/r/stats/uniroot.html'>sta
 for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MBD.html'>MBD</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></code></p></div>
+    <div class='dont-index'><p><code><a href='fData.html'>fData</a></code>, <code><a href='MEI.html'>MEI</a></code>, <code><a href='MBD.html'>MBD</a></code>,
+<code><a href='fbplot.html'>fbplot</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1618</span>)
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>( <span class='fl'>1618</span> )
+<span class='kw'>N</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='kw'>P</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='kw'>N_extra</span> <span class='op'>&lt;-</span> <span class='fl'>4</span>
 
-<span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>200</span>
-<span class='kw'>P</span> <span class='op'>=</span> <span class='fl'>200</span>
-<span class='kw'>N_extra</span> <span class='op'>=</span> <span class='fl'>4</span>
+<span class='kw'>grid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span>)
 
-<span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
+<span class='kw'>Cov</span> <span class='op'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>(<span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span>)
 
-<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
+<span class='kw'>Data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  N = <span class='kw'>N</span>,
+  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span>),
+  Cov = <span class='kw'>Cov</span>
+)
 
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
-                             centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
-                             Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_extra</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>0</span>, dim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>N_extra</span>, <span class='kw'>P</span>))
 
-<span class='kw'>Data_extra</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>( <span class='fl'>0</span>, dim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='kw'>N_extra</span>, <span class='kw'>P</span> ) )
+<span class='kw'>Data_extra</span>[<span class='fl'>1</span>, ] <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  N = <span class='fl'>1</span>,
+  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span>),
+  Cov = <span class='kw'>Cov</span>
+)
 
-<span class='kw'>Data_extra</span>[ <span class='fl'>1</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span> ),
-                                         Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_extra</span>[<span class='fl'>2</span>, ] <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  N = <span class='fl'>1</span>,
+  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span>),
+  Cov = <span class='kw'>Cov</span>
+)
 
-<span class='kw'>Data_extra</span>[ <span class='fl'>2</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>2</span> ),
-                                         Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_extra</span>[<span class='fl'>3</span>, ] <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  N = <span class='fl'>1</span>,
+  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>3</span>),
+  Cov = <span class='kw'>Cov</span>
+)
 
-<span class='kw'>Data_extra</span>[ <span class='fl'>3</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>+</span> <span class='kw'>pi</span><span class='op'>/</span> <span class='fl'>3</span> ),
-                                         Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_extra</span>[<span class='fl'>4</span>, ] <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
+  N = <span class='fl'>1</span>,
+  centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>3</span>),
+  Cov = <span class='kw'>Cov</span>
+)
 
-<span class='kw'>Data_extra</span>[ <span class='fl'>4</span>, ] <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='fl'>1</span>,
-                                         <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>4</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> <span class='op'>-</span> <span class='kw'>pi</span> <span class='op'>/</span> <span class='fl'>3</span>),
-                                         Cov = <span class='kw'>Cov</span> )
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>( <span class='kw'>Data</span>, <span class='kw'>Data_extra</span> )
+<span class='kw'>Data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(<span class='kw'>Data</span>, <span class='kw'>Data_extra</span>)
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='kw'>fD</span> <span class='op'>&lt;-</span> <span class='fu'><a href='fData.html'>fData</a></span>(<span class='kw'>grid</span>, <span class='kw'>Data</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>, display = <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='co'># Outliergram with default Fvalue = 1.5</span>
+<span class='fu'>outliergram</span>(<span class='kw'>fD</span>, display = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 1.5
 #&gt; 
 #&gt; $d
@@ -365,7 +375,8 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; $ID_outliers
 #&gt;  [1]  31  78 117 122 152 183 201 202 203 204
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>, Fvalue = <span class='fl'>2.5</span>, display = <span class='fl'>TRUE</span> )</div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='co'># Outliergram with Fvalue enforced to 2.5</span>
+<span class='fu'>outliergram</span>(<span class='kw'>fD</span>, Fvalue = <span class='fl'>2.5</span>, display = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 2.5
 #&gt; 
 #&gt; $d
@@ -413,14 +424,67 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; 
 #&gt; $ID_outliers
 #&gt; [1]  78 117 183 201 202 203 204
-#&gt; </div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/outliergram.html'>outliergram</a></span>( <span class='kw'>fD</span>,
-             adjust = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( N_trials = <span class='fl'>10</span>,
-                            trial_size = <span class='fl'>5</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>( <span class='kw'>Data</span> ),
-                            TPR = <span class='fl'>0.01</span>,
-                            VERBOSE = <span class='fl'>FALSE</span> ),
-             display = <span class='fl'>TRUE</span> )
-}
+#&gt; </div><div class='input'>
+<span class='co'># \donttest{</span>
+<span class='co'># Outliergram with estimated Fvalue to ensure TPR of 1%</span>
+<span class='fu'>outliergram</span>(
+  fData = <span class='kw'>fD</span>,
+  adjust = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    N_trials = <span class='fl'>10</span>,
+    trial_size = <span class='fl'>5</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>Data</span>),
+    TPR = <span class='fl'>0.01</span>,
+    VERBOSE = <span class='fl'>FALSE</span>
+  ),
+  display = <span class='fl'>TRUE</span>
+)</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='img'><img src='outliergram-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+#&gt; [1] 2.474683
+#&gt; 
+#&gt; $d
+#&gt;   [1] 0.0176114544 0.0435426917 0.0412298416 0.0514984256 0.0077678825
+#&gt;   [6] 0.1050423923 0.1148547172 0.0209557568 0.0256050951 0.0502039976
+#&gt;  [11] 0.0756444690 0.0957069255 0.0955864955 0.0242157817 0.0586735137
+#&gt;  [16] 0.0521609727 0.0385210808 0.0291574616 0.0033550662 0.0249060707
+#&gt;  [21] 0.0027138800 0.0110386313 0.0369225104 0.0235194135 0.0663697672
+#&gt;  [26] 0.0122081027 0.0323289373 0.0047425867 0.1221622911 0.0127359690
+#&gt;  [31] 0.1273363747 0.0640854716 0.0130654689 0.0896622609 0.0008577115
+#&gt;  [36] 0.0121720226 0.0571897952 0.0082277782 0.0199523037 0.0144423404
+#&gt;  [41] 0.0151378151 0.0468399449 0.0157327152 0.0008372018 0.0157999807
+#&gt;  [46] 0.0152336328 0.0385340372 0.0173677388 0.0503822068 0.0643135130
+#&gt;  [51] 0.0029821682 0.0830116379 0.0294097122 0.0154149715 0.0059378622
+#&gt;  [56] 0.0265120207 0.0190215397 0.1096481165 0.0582267169 0.0105365401
+#&gt;  [61] 0.0529575534 0.0302322890 0.0379700075 0.0143013124 0.0608756290
+#&gt;  [66] 0.0568058099 0.0438073940 0.0378637001 0.0278497525 0.0695197902
+#&gt;  [71] 0.0185139271 0.1072170856 0.0321988300 0.0481022397 0.0395259526
+#&gt;  [76] 0.0729589249 0.0201002560 0.2081087306 0.0137075908 0.0540464491
+#&gt;  [81] 0.0141294492 0.0598529702 0.0002333611 0.0454489713 0.0212358302
+#&gt;  [86] 0.0150530655 0.0247384224 0.0347266493 0.0594439667 0.0610557314
+#&gt;  [91] 0.0871014730 0.0028619675 0.0029285895 0.0653213936 0.0235917125
+#&gt;  [96] 0.0225797547 0.0709666172 0.0589656609 0.0399139271 0.0332606865
+#&gt; [101] 0.0596849995 0.0927871148 0.0334329711 0.0531944895 0.0621790483
+#&gt; [106] 0.0251286475 0.0374558051 0.0189191539 0.0584951596 0.0622928994
+#&gt; [111] 0.0908447201 0.0634798802 0.0088101565 0.1152498201 0.0248140623
+#&gt; [116] 0.1155564559 0.1963871148 0.0298872742 0.0373160243 0.0209620098
+#&gt; [121] 0.0437059596 0.1281782466 0.0849571030 0.0205120243 0.0633598184
+#&gt; [126] 0.0499718427 0.1043016505 0.0235167572 0.0209989556 0.0084202345
+#&gt; [131] 0.0290659603 0.0223782430 0.0616137726 0.0816347146 0.0271277299
+#&gt; [136] 0.1160831402 0.0514680177 0.0240108845 0.0393020272 0.0386456088
+#&gt; [141] 0.0690514815 0.0312561564 0.0398580122 0.0828859159 0.0406998829
+#&gt; [146] 0.0582855211 0.0458848148 0.0228874674 0.0871308691 0.0260329325
+#&gt; [151] 0.0832803584 0.1377272180 0.0578802811 0.0421784797 0.0166601903
+#&gt; [156] 0.0400398327 0.0351458708 0.0212783239 0.0488423211 0.0551136856
+#&gt; [161] 0.0310677473 0.0408971784 0.0293353569 0.0689828021 0.1011523218
+#&gt; [166] 0.0520131834 0.0631049503 0.0197210422 0.0300590360 0.0302012448
+#&gt; [171] 0.0220787103 0.0388785666 0.0213618939 0.0689322890 0.0453167186
+#&gt; [176] 0.0244730561 0.0422584939 0.0420099247 0.0774596240 0.0068152420
+#&gt; [181] 0.0112290822 0.0553901659 0.1800951113 0.0124814064 0.0392902492
+#&gt; [186] 0.0044056686 0.0880005602 0.0088245871 0.0463041039 0.0346741416
+#&gt; [191] 0.0016150379 0.0093634200 0.0007821392 0.0071868045 0.0264287839
+#&gt; [196] 0.0436299515 0.0247155788 0.0500915665 0.0978481587 0.0120163769
+#&gt; [201] 0.2184629757 0.3764946924 0.3347489423 0.2682646467
+#&gt; 
+#&gt; $ID_outliers
+#&gt; [1]  78 117 183 201 202 203 204
+#&gt; </div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -161,6 +161,7 @@
 <a href="#minor-fixes" class="anchor"></a>Minor fixes</h3>
 <ul>
 <li>Fixed typos in doc, vignette and README.</li>
+<li>Fixed bug in <code><a href="../reference/fbplot.html">fbplot()</a></code> display.</li>
 </ul>
 </div>
 </div>
@@ -216,7 +217,7 @@
 <h3 class="hasAnchor">
 <a href="#major-fixes-1" class="anchor"></a>Major fixes</h3>
 <ul>
-<li>Fixed bug in <code><a href="https://rdrr.io/pkg/roahd/man/cor_spearman.html">cor_spearman()</a></code> function. Now the standard Spearman correlation is not computed on ranks of MHI/MEI, but on MHI/MEI itself. The difference is very small, but allows for full reproducibility of the results in the original paper.</li>
+<li>Fixed bug in <code><a href="../reference/cor_spearman.html">cor_spearman()</a></code> function. Now the standard Spearman correlation is not computed on ranks of MHI/MEI, but on MHI/MEI itself. The difference is very small, but allows for full reproducibility of the results in the original paper.</li>
 </ul>
 </div>
 <div id="minor-fixes-2" class="section level3">
@@ -240,7 +241,7 @@
 <h3 class="hasAnchor">
 <a href="#major-fixes-2" class="anchor"></a>Major fixes</h3>
 <ul>
-<li>Removed check for uniformity in the grid of <code><a href="https://rdrr.io/pkg/roahd/man/fData.html">fData()</a></code> and <code><a href="https://rdrr.io/pkg/roahd/man/mfData.html">mfData()</a></code> constructor.</li>
+<li>Removed check for uniformity in the grid of <code><a href="../reference/fData.html">fData()</a></code> and <code><a href="../reference/mfData.html">mfData()</a></code> constructor.</li>
 <li>Added the possibility to subset <code>fData</code> in time with logical vectors.</li>
 <li>Fixes in methods <code>BD</code>, <code>BD_relative</code>, <code>HI</code> and <code>EI</code>: the previous computational technique was based on arguments from the popular reference “Exact fast computation of band depth for large functional datasets: How quickly can one million curves be ranked?” by Sun, Genton and Nychka, which in the case of BD, and HI/EI are wrong. Now the implementation exploited sticks to the definition, at the cost of a higher computational burden (and thus, time to complete the computation).</li>
 </ul>

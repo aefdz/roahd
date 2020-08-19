@@ -134,7 +134,7 @@ functional datasets with the plot methods." />
 functional datasets with the <code>plot</code> methods.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fDColorPalette.html'>fDColorPalette</a></span>(<span class='kw'>N</span>, hue_range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>360</span>), alpha = <span class='fl'>0.8</span>, <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>fDColorPalette</span>(<span class='kw'>N</span>, hue_range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>360</span>), alpha = <span class='fl'>0.8</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,15 +164,15 @@ HCL parameters of the set of colors desired, and besides to set up the
 alpha channel value.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/plot.fData.html'>plot.fData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/plot.mfData.html'>plot.mfData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='plot.fData.html'>plot.fData</a></code>, <code><a href='plot.mfData.html'>plot.mfData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
 <span class='kw'>angular_grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>359</span>, length.out = <span class='kw'>N</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots578.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>angular_grid</span>, <span class='kw'>angular_grid</span>,
-      col = <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fDColorPalette.html'>fDColorPalette</a></span>( <span class='kw'>N</span>, hue_range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>359</span> ), alpha = <span class='fl'>1</span> ),
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots642.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>angular_grid</span>, <span class='kw'>angular_grid</span>,
+      col = <span class='fu'>fDColorPalette</span>( <span class='kw'>N</span>, hue_range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0</span>, <span class='fl'>359</span> ), alpha = <span class='fl'>1</span> ),
       pch = <span class='fl'>16</span>, cex = <span class='fl'>3</span> )
 </div></pre>
   </div>

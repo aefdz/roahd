@@ -136,7 +136,7 @@ univariate functional dataset, optionally returning also the value of the grid
 where they are fulfilled.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/minima.html'>minima</a></span>(<span class='kw'>fData</span>, <span class='kw'>...</span>, which = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>minima</span>(<span class='kw'>fData</span>, <span class='kw'>...</span>, which = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,7 +166,7 @@ the values of minima, and <code>grid</code> contains the grid points where minim
 are reached.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/maxima.html'>maxima</a></code></p></div>
+    <div class='dont-index'><p><code><a href='maxima.html'>maxima</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -179,9 +179,9 @@ are reached.</p>
                   <span class='fl'>3</span> <span class='op'>*</span> ( <span class='fl'>0.5</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span>( <span class='kw'>grid</span> <span class='op'>-</span> <span class='fl'>0.5</span> ) ) ),
                nrow = <span class='fl'>3</span>, ncol = <span class='kw'>P</span>, byrow = <span class='fl'>TRUE</span> )
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/minima.html'>minima</a></span>( <span class='kw'>fD</span>, which = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;   grid value
+<span class='fu'>minima</span>( <span class='kw'>fD</span>, which = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;   grid value
 #&gt; 1    0     0
 #&gt; 2    0     0
 #&gt; 3    0     0</div><div class='input'></div></pre>

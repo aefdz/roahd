@@ -134,21 +134,21 @@ elements of a multivariate functional dataset." />
 elements of a multivariate functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>multiMBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
+<span class='fu'>multiMBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
+<span class='fu'>multiMBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>, manage_ties = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
+<span class='fu'>multiBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
+<span class='fu'>multiBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)</pre>
+<span class='fu'>multiBD</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,8 +202,8 @@ Application to Electrocardiograph Signals, <em>International Journal of
 Biostatistics</em>, 11.2, 189-201.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/MBD.html'>MBD</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/BD.html'>BD</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/toListOfValues.html'>toListOfValues</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='MBD.html'>MBD</a></code>, <code><a href='BD.html'>BD</a></code>, <code><a href='toListOfValues.html'>toListOfValues</a></code>,
+<code><a href='mfData.html'>mfData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -214,30 +214,30 @@ Biostatistics</em>, 11.2, 189-201.</p>
 
 <span class='co'># Generating an exponential covariance function to be used to simulate gaussian</span>
 <span class='co'># functional data</span>
-<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
+<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
 
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )
+<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span> )</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
-#&gt; [20] 0.1</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span>, manage_ties = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;  [1] 0.3968211 0.3919579 0.3666263 0.4175474 0.3614158 0.3642842 0.4203421
+<span class='fu'>multiBD</span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span> )</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+#&gt; [20] 0.1</div><div class='input'><span class='fu'>multiMBD</span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span>, manage_ties = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;  [1] 0.3968211 0.3919579 0.3666263 0.4175474 0.3614158 0.3642842 0.4203421
 #&gt;  [8] 0.4199632 0.3970421 0.3997579 0.3948158 0.3854737 0.3524158 0.4073263
 #&gt; [15] 0.4184368 0.4222526 0.4080526 0.4482632 0.3568474 0.4703579</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ))</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
-#&gt; [20] 0.1</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ), manage_ties = <span class='fl'>FALSE</span> )</div><div class='output co'>#&gt;  [1] 0.4068877 0.3874211 0.3753895 0.4290877 0.3473579 0.3716491 0.4218702
+<span class='fu'>multiBD</span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ))</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+#&gt; [20] 0.1</div><div class='input'><span class='fu'>multiMBD</span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ), manage_ties = <span class='fl'>FALSE</span> )</div><div class='output co'>#&gt;  [1] 0.4068877 0.3874211 0.3753895 0.4290877 0.3473579 0.3716491 0.4218702
 #&gt;  [8] 0.4211579 0.3774912 0.3864491 0.3976737 0.3787965 0.3600561 0.4094737
 #&gt; [15] 0.4181860 0.4212035 0.4094737 0.4304035 0.3719719 0.4780000</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='st'>'uniform'</span>)</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
-#&gt; [20] 0.1</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='st'>'uniform'</span>, manage_ties = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;  [1] 0.3968211 0.3919579 0.3666263 0.4175474 0.3614158 0.3642842 0.4203421
+<span class='fu'>multiBD</span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='st'>'uniform'</span>)</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+#&gt; [20] 0.1</div><div class='input'><span class='fu'>multiMBD</span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='st'>'uniform'</span>, manage_ties = <span class='fl'>TRUE</span> )</div><div class='output co'>#&gt;  [1] 0.3968211 0.3919579 0.3666263 0.4175474 0.3614158 0.3642842 0.4203421
 #&gt;  [8] 0.4199632 0.3970421 0.3997579 0.3948158 0.3854737 0.3524158 0.4073263
 #&gt; [15] 0.4184368 0.4222526 0.4080526 0.4482632 0.3568474 0.4703579</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ))</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
-#&gt; [20] 0.1</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ), manage_ties = <span class='fl'>FALSE</span> )</div><div class='output co'>#&gt;  [1] 0.4068877 0.3874211 0.3753895 0.4290877 0.3473579 0.3716491 0.4218702
+<span class='fu'>multiBD</span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ))</div><div class='output co'>#&gt;  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+#&gt; [20] 0.1</div><div class='input'><span class='fu'>multiMBD</span>( <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ), weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span> ), manage_ties = <span class='fl'>FALSE</span> )</div><div class='output co'>#&gt;  [1] 0.4068877 0.3874211 0.3753895 0.4290877 0.3473579 0.3716491 0.4218702
 #&gt;  [8] 0.4211579 0.3774912 0.3864491 0.3976737 0.3787965 0.3600561 0.4094737
 #&gt; [15] 0.4181860 0.4212035 0.4094737 0.4304035 0.3719719 0.4780000</div><div class='input'></div></pre>
   </div>

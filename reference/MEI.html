@@ -134,13 +134,13 @@ univariate functional dataset." />
 univariate functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></span>(<span class='kw'>Data</span>)
+    <pre class="usage"><span class='fu'>MEI</span>(<span class='kw'>Data</span>)
 
 <span class='co'># S3 method for fData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></span>(<span class='kw'>Data</span>)
+<span class='fu'>MEI</span>(<span class='kw'>Data</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></span>(<span class='kw'>Data</span>)</pre>
+<span class='fu'>MEI</span>(<span class='kw'>Data</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,8 +175,8 @@ visualization for functional data: the outliergram, <em>Biostatistics</em>,
 15(4), 603-619.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/EI.html'>EI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MHI.html'>MHI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/HI.html'>HI</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='EI.html'>EI</a></code>, <code><a href='MHI.html'>MHI</a></code>, <code><a href='HI.html'>HI</a></code>,
+<code><a href='fData.html'>fData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -185,18 +185,18 @@ visualization for functional data: the outliergram, <em>Biostatistics</em>,
 
 <span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='kw'>P</span> )
 
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.3</span> )
+<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.3</span> )
 
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
+<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>,
                              centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
                              <span class='kw'>C</span> )
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></span>( <span class='kw'>fD</span> )</div><div class='output co'>#&gt;  [1] 0.2210 0.5585 0.4755 0.6200 0.3690 0.7475 0.1220 0.9630 0.9820 0.0875
-#&gt; [11] 0.1840 0.7480 0.3065 0.3165 0.5675 0.7865 0.8540 0.7560 0.5950 0.2400</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></span>( <span class='kw'>Data</span> )</div><div class='output co'>#&gt;  [1] 0.2210 0.5585 0.4755 0.6200 0.3690 0.7475 0.1220 0.9630 0.9820 0.0875
-#&gt; [11] 0.1840 0.7480 0.3065 0.3165 0.5675 0.7865 0.8540 0.7560 0.5950 0.2400</div><div class='input'></div></pre>
+<span class='fu'>MEI</span>( <span class='kw'>fD</span> )</div><div class='output co'>#&gt;  [1] 0.4760 0.2900 0.2480 0.1545 0.8980 0.4775 0.2970 0.3885 0.7515 0.7395
+#&gt; [11] 0.5365 0.7580 0.9800 0.4790 0.0940 0.8430 0.9380 0.0565 0.6515 0.4430</div><div class='input'>
+<span class='fu'>MEI</span>( <span class='kw'>Data</span> )</div><div class='output co'>#&gt;  [1] 0.4760 0.2900 0.2480 0.1545 0.8980 0.4775 0.2970 0.3885 0.7515 0.7395
+#&gt; [11] 0.5365 0.7580 0.9800 0.4790 0.0940 0.8430 0.9380 0.0565 0.6515 0.4430</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

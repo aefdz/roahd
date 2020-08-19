@@ -134,7 +134,7 @@ based on a definition of depth for multivariate functional data." />
 based on a definition of depth for multivariate functional data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/median_mfData.html'>median_mfData</a></span>(<span class='kw'>mfData</span>, type = <span class='st'>"multiMBD"</span>, <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>median_mfData</span>(<span class='kw'>mfData</span>, type = <span class='st'>"multiMBD"</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,8 +171,8 @@ cross-sectional median of the sample of the point-by-point measurements on
 the grid. Hence, the sample median is a member of the dataset provided.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/mean.mfData.html'>mean.mfData</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/median_fData.html'>median_fData</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mfData.html'>mfData</a></code>, <code><a href='mean.mfData.html'>mean.mfData</a></code>,
+<code><a href='median_fData.html'>median_fData</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -184,12 +184,12 @@ the grid. Hence, the sample median is a member of the dataset provided.</p>
 <span class='co'># Generating a gaussian functional sample with desired mean</span>
 <span class='co'># Being the distribution symmetric, the sample mean and median are coincident</span>
 <span class='kw'>target_median</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> )
-<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.2</span> )
+<span class='kw'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.2</span> )
 
 <span class='co'># Strongly dependent components</span>
 <span class='kw'>correlations</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>0.9</span>, <span class='fl'>0.9</span>, <span class='fl'>0.9</span> )
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></span>( <span class='kw'>grid</span>,
-              <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>,
+<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>,
+              <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>,
                                      correlations = <span class='kw'>correlations</span>,
                                      centerline = <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='kw'>target_median</span>,
                                                           nrow = <span class='fl'>3</span>,
@@ -198,17 +198,24 @@ the grid. Hence, the sample median is a member of the dataset provided.</p>
                                      listCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>C</span>, <span class='kw'>C</span>, <span class='kw'>C</span> ) )
 )
 
-<span class='kw'>med_mfD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/median_mfData.html'>median_mfData</a></span>( <span class='kw'>mfD</span>, type = <span class='st'>'multiMBD'</span>, weights = <span class='st'>'uniform'</span> )
+<span class='kw'>med_mfD</span> <span class='op'>=</span> <span class='fu'>median_mfData</span>( <span class='kw'>mfD</span>, type = <span class='st'>'multiMBD'</span>, weights = <span class='st'>'uniform'</span> )
 
 <span class='co'># Graphical representation of the mean</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( mfrow = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='fl'>1</span>, <span class='fl'>3</span> ) )
+<span class='kw'>oldpar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(mfrow = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='kw'>L</span>))
 
-<span class='co'>for</span>( <span class='kw'>iL</span> <span class='co'>in</span> <span class='fl'>1</span> <span class='op'>:</span> <span class='kw'>L</span> )
+<span class='co'>for</span>(<span class='kw'>iL</span> <span class='co'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='kw'>L</span>)
 {
-  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>mfD</span><span class='op'>$</span><span class='kw'>fDList</span>[[ <span class='fl'>1</span> ]] )
-  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>med_mfD</span><span class='op'>$</span><span class='kw'>fDList</span>[[ <span class='fl'>1</span> ]], col = <span class='st'>'black'</span>,
-        lwd = <span class='fl'>2</span>, lty = <span class='fl'>2</span>, add = <span class='fl'>TRUE</span> )
-}</div><div class='img'><img src='median_mfData-1.png' alt='' width='700' height='433' /></div></pre>
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>mfD</span><span class='op'>$</span><span class='kw'>fDList</span>[[<span class='kw'>iL</span>]])
+  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(
+    <span class='kw'>med_mfD</span><span class='op'>$</span><span class='kw'>fDList</span>[[<span class='kw'>iL</span>]],
+    col = <span class='st'>'black'</span>,
+    lwd = <span class='fl'>2</span>,
+    lty = <span class='fl'>2</span>,
+    add = <span class='fl'>TRUE</span>
+  )
+}</div><div class='img'><img src='median_mfData-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>oldpar</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

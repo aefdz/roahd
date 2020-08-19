@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Operator <code>*</code> and <code>/</code> for <code>fData</code> objects — times-.fData • roahd</title>
+<title>Operator * and / for fData objects — times-.fData • roahd</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Operator <code>*</code> and <code>/</code> for <code>fData</code> objects — times-.fData" />
+<meta property="og:title" content="Operator * and / for fData objects — times-.fData" />
 <meta property="og:description" content="These methods provide operators * and / to perform products
 or divisions between an fData object and either a number or a
 compliant 1D data structure, like numeric vector, array or
@@ -176,7 +176,7 @@ equal to the number of observations in <code>fD</code>.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>11</span>
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>10</span> ),
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>10</span> ),
             values = <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>1</span>, <span class='fl'>10</span> ),
                              nrow = <span class='kw'>N</span>, ncol = <span class='fl'>10</span>, byrow = <span class='fl'>TRUE</span> ) )
 <span class='kw'>fD</span> <span class='op'>*</span> <span class='fl'>2</span></div><div class='output co'>#&gt; $t0
@@ -243,7 +243,7 @@ equal to the number of observations in <code>fD</code>.</p>
 #&gt; [1] "fData"</div><div class='input'>
 
 <span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>11</span>
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>10</span> ),
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>10</span> ),
             values = <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>1</span>, <span class='fl'>10</span> ),
                              nrow = <span class='kw'>N</span>, ncol = <span class='fl'>10</span>, byrow = <span class='fl'>TRUE</span> ) )
 <span class='kw'>fD</span> <span class='op'>/</span> <span class='fl'>2</span></div><div class='output co'>#&gt; $t0

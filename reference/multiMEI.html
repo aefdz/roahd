@@ -134,13 +134,13 @@ elements of a multivariate functional dataset." />
 elements of a multivariate functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMEI.html'>multiMEI</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
+    <pre class="usage"><span class='fu'>multiMEI</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMEI.html'>multiMEI</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
+<span class='fu'>multiMEI</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMEI.html'>multiMEI</a></span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)</pre>
+<span class='fu'>multiMEI</span>(<span class='kw'>Data</span>, weights = <span class='st'>"uniform"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,7 +177,7 @@ dataset, namely:</p>
 j = 1, \ldots N.$$</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MEI.html'>MEI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MHI.html'>MHI</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/multiMHI.html'>multiMHI</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mfData.html'>mfData</a></code>, <code><a href='MEI.html'>MEI</a></code>, <code><a href='MHI.html'>MHI</a></code>, <code><a href='multiMHI.html'>multiMHI</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>20</span>
@@ -187,22 +187,22 @@ j = 1, \ldots N.$$</p>
 
 <span class='co'># Generating an exponential covariance function to be used to simulate gaussian</span>
 <span class='co'># functional data</span>
-<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
+<span class='kw'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.2</span>, beta = <span class='fl'>0.8</span> )
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
+<span class='kw'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='kw'>P</span> ), Cov = <span class='kw'>Cov</span> )
 
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )
+<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>Data_1</span>, <span class='kw'>Data_2</span> ) )
 
 <span class='co'># Uniform weights</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMEI.html'>multiMEI</a></span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span> )</div><div class='output co'>#&gt;  [1] 0.392375 0.460150 0.557175 0.605350 0.440975 0.467275 0.469650 0.484725
+<span class='fu'>multiMEI</span>( <span class='kw'>mfD</span>, weights = <span class='st'>'uniform'</span> )</div><div class='output co'>#&gt;  [1] 0.392375 0.460150 0.557175 0.605350 0.440975 0.467275 0.469650 0.484725
 #&gt;  [9] 0.533675 0.510700 0.566550 0.644900 0.586125 0.636600 0.587100 0.592850
 #&gt; [17] 0.401675 0.610700 0.468975 0.482475</div><div class='input'>
 <span class='co'># Non-uniform, custom weights</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/multiMEI.html'>multiMEI</a></span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>) )</div><div class='output co'>#&gt;  [1] 0.4254167 0.5021667 0.5586333 0.6119333 0.4388333 0.4186167 0.4686333
+<span class='fu'>multiMEI</span>( <span class='kw'>mfD</span>, weights = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>) )</div><div class='output co'>#&gt;  [1] 0.4254167 0.5021667 0.5586333 0.6119333 0.4388333 0.4186167 0.4686333
 #&gt;  [8] 0.4743667 0.5116667 0.4520333 0.5224333 0.7040167 0.6215833 0.6776500
 #&gt; [15] 0.5466500 0.5892833 0.3786167 0.6069500 0.4426833 0.5478333</div><div class='input'></div></pre>
   </div>

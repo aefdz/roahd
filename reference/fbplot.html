@@ -134,7 +134,7 @@ multivariate functional data." />
 multivariate functional data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>(
+    <pre class="usage"><span class='fu'>fbplot</span>(
   <span class='kw'>Data</span>,
   Depths = <span class='st'>"MBD"</span>,
   Fvalue = <span class='fl'>1.5</span>,
@@ -147,7 +147,7 @@ multivariate functional data.</p>
 )
 
 <span class='co'># S3 method for fData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>(
+<span class='fu'>fbplot</span>(
   <span class='kw'>Data</span>,
   Depths = <span class='st'>"MBD"</span>,
   Fvalue = <span class='fl'>1.5</span>,
@@ -160,7 +160,7 @@ multivariate functional data.</p>
 )
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>(
+<span class='fu'>fbplot</span>(
   <span class='kw'>Data</span>,
   Depths = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(def = <span class='st'>"MBD"</span>, weights = <span class='st'>"uniform"</span>),
   Fvalue = <span class='fl'>1.5</span>,
@@ -304,8 +304,8 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/MBD.html'>MBD</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/BD.html'>BD</a></code>,
-<code><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiMBD</a></code>, <code><a href='https://rdrr.io/pkg/roahd/man/multiMBD.html'>multiBD</a></code></p></div>
+    <div class='dont-index'><p><code><a href='fData.html'>fData</a></code>, <code><a href='MBD.html'>MBD</a></code>, <code><a href='BD.html'>BD</a></code>,
+<code><a href='mfData.html'>mfData</a></code>, <code><a href='multiMBD.html'>multiMBD</a></code>, <code><a href='multiMBD.html'>multiBD</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -326,13 +326,15 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 <span class='co'># c( 0, 1 : (( N - 1 )/2), -( ( ( N - 1 ) / 2 ) : 1 ) )^4</span>
 
 
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>D</span> )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>D</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots581.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>( mfrow = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>) )
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots645.pdf")</span></div><div class='input'><span class='kw'>oldpar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(mfrow = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>))
+
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>( <span class='kw'>fD</span>, lwd = <span class='fl'>2</span>, main = <span class='st'>'Functional dataset'</span>,
       xlab = <span class='st'>'time'</span>, ylab = <span class='st'>'values'</span> )
 
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>( <span class='kw'>fD</span>, main = <span class='st'>'Functional boxplot'</span>, xlab = <span class='st'>'time'</span>, ylab = <span class='st'>'values'</span>, Fvalue = <span class='fl'>1.5</span> )</div><div class='output co'>#&gt; $Depth
+<span class='fu'>fbplot</span>( <span class='kw'>fD</span>, main = <span class='st'>'Functional boxplot'</span>, xlab = <span class='st'>'time'</span>, ylab = <span class='st'>'values'</span>, Fvalue = <span class='fl'>1.5</span> )</div><div class='output co'>#&gt; $Depth
 #&gt;   [1] 0.506666667 0.446517413 0.189054726 0.181044776 0.435621891 0.067860697
 #&gt;   [7] 0.435621891 0.471194030 0.496268657 0.196965174 0.372935323 0.507263682
 #&gt;  [13] 0.423830846 0.019850746 0.468457711 0.473830846 0.256666667 0.496268657
@@ -376,6 +378,7 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 #&gt; </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span>(<span class='kw'>fD</span><span class='op'>$</span><span class='kw'>values</span>[,<span class='fl'>1</span>], ylim = <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='kw'>fD</span><span class='op'>$</span><span class='kw'>values</span>), main = <span class='st'>'Boxplot of functional dataset at t_0 '</span> )
 
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>oldpar</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='input'>
 <span class='co'># UNIVARIATE FUNCTIONAL BOXPLOT - WITH ADJUSTMENT</span>
 
 
@@ -387,19 +390,71 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 <span class='kw'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
 
 <span class='co'># Generating a univariate synthetic gaussian dataset</span>
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
-                             Cov = <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>,
+<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='kw'>N</span>, centerline = <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
+                             Cov = <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>,
                                                      alpha = <span class='fl'>0.3</span>,
                                                      beta  = <span class='fl'>0.4</span> ) )
-<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='kw'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots582.pdf")</span></div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>( <span class='kw'>fD</span>, adjust = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( N_trials = <span class='fl'>10</span>,
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots646.pdf")</span></div><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>fbplot</span>( <span class='kw'>fD</span>, adjust = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( N_trials = <span class='fl'>10</span>,
                            trial_size = <span class='fl'>5</span> <span class='op'>*</span> <span class='kw'>N</span>,
                            VERBOSE = <span class='fl'>TRUE</span> ),
                      xlab = <span class='st'>'time'</span>, ylab = <span class='st'>'Values'</span>,
-                     main = <span class='st'>'My adjusted functional boxplot'</span> )
-}
+                     main = <span class='st'>'My adjusted functional boxplot'</span> )</div><div class='output co'>#&gt;  * * * Iteration  1  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  2  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  3  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  4  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  5  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  6  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  7  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  8  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  9  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.
+#&gt;  * * * Iteration  10  /  10 
+#&gt;  * * * * beginning optimization
+#&gt;  * * * * optimization finished.</div><div class='output co'>#&gt; $Depth
+#&gt;   [1] 0.30070101 0.44452323 0.36620606 0.45850303 0.37377980 0.48135354
+#&gt;   [7] 0.38181818 0.02659596 0.13369899 0.42945859 0.06214949 0.47510707
+#&gt;  [13] 0.30211111 0.23325253 0.17038384 0.12049495 0.42031313 0.49717778
+#&gt;  [19] 0.33230101 0.44418990 0.48692525 0.48365657 0.35160404 0.40534141
+#&gt;  [25] 0.39773131 0.42371515 0.22158586 0.36634141 0.14679192 0.39269293
+#&gt;  [31] 0.46537778 0.23329495 0.34899596 0.36024646 0.16920606 0.44801616
+#&gt;  [37] 0.11143434 0.46201818 0.28396162 0.46948687 0.08282020 0.13537576
+#&gt;  [43] 0.36103636 0.38312323 0.24703030 0.48692121 0.46313131 0.44435556
+#&gt;  [49] 0.22941616 0.49802424 0.12830505 0.31013333 0.23446263 0.20488081
+#&gt;  [55] 0.48862424 0.28376768 0.37487475 0.44553131 0.38107071 0.42778182
+#&gt;  [61] 0.46742828 0.43395758 0.17490101 0.46710303 0.43027879 0.38315152
+#&gt;  [67] 0.49235758 0.48834949 0.05709293 0.44494949 0.40256566 0.19737778
+#&gt;  [73] 0.46515152 0.30163030 0.46011111 0.43029495 0.46189091 0.33044242
+#&gt;  [79] 0.40226263 0.35060202 0.48137374 0.04209091 0.25347273 0.27454747
+#&gt;  [85] 0.25617778 0.28562424 0.39055152 0.34064242 0.38934141 0.32964040
+#&gt;  [91] 0.48462828 0.37410303 0.46637778 0.23939394 0.46542626 0.28972727
+#&gt;  [97] 0.29029697 0.46380606 0.41843434 0.39590101
+#&gt; 
+#&gt; $Fvalue
+#&gt; [1] 0.8693445
+#&gt; 
+#&gt; $ID_outliers
+#&gt; [1]  8 11 41 42 51 69 82
+#&gt; </div><div class='input'><span class='co'># }</span>
 
 <span class='co'># MULTIVARIATE FUNCTIONAL BOXPLOT - NO ADJUSTMENT</span>
 
@@ -411,23 +466,23 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 
 <span class='kw'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, length.out = <span class='fl'>1e2</span> )
 
-<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
-<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='kw'>C1</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
+<span class='kw'>C2</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='kw'>grid</span>, alpha = <span class='fl'>0.3</span>, beta = <span class='fl'>0.4</span> )
 
 <span class='co'># Generating a bivariate functional dataset of gaussian data with partially</span>
 <span class='co'># correlated components</span>
-<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>,
+<span class='kw'>Data</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='kw'>N</span>, <span class='kw'>L</span>,
                               centerline = <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> <span class='op'>*</span> <span class='kw'>pi</span> <span class='op'>*</span> <span class='kw'>grid</span> ),
                                                    nrow = <span class='fl'>2</span>, ncol = <span class='kw'>P</span>,
                                                    byrow = <span class='fl'>TRUE</span> ),
                               correlations = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0.5</span>, <span class='fl'>1</span> ),
                               listCov = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>C1</span>, <span class='kw'>C2</span> ) )
 
-<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/roahd/man/mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
+<span class='kw'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='kw'>grid</span>, <span class='kw'>Data</span> )
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots583.pdf")</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/roahd/man/fbplot.html'>fbplot</a></span>( <span class='kw'>mfD</span>, Fvalue = <span class='fl'>2.5</span>, xlab = <span class='st'>'time'</span>, ylab = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'Values 1'</span>,
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots647.pdf")</span></div><div class='input'><span class='fu'>fbplot</span>( <span class='kw'>mfD</span>, Fvalue = <span class='fl'>2.5</span>, xlab = <span class='st'>'time'</span>, ylab = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'Values 1'</span>,
                                                        <span class='st'>'Values 2'</span> ),
-        main = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'First component'</span>, <span class='st'>'Second component'</span> ) )</div><div class='output co'>#&gt; $Depth
+        main = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'First component'</span>, <span class='st'>'Second component'</span> ) )</div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cin" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cra" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "csi" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "cxy" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "din" cannot be set</span></div><div class='output co'>#&gt; <span class='warning'>Warning: graphical parameter "page" cannot be set</span></div><div class='output co'>#&gt; $Depth
 #&gt;   [1] 0.43254949 0.39116364 0.35335556 0.39053131 0.08351313 0.16953131
 #&gt;   [7] 0.43867677 0.20252121 0.21967273 0.45222828 0.41967879 0.25533333
 #&gt;  [13] 0.42095758 0.35050101 0.38179192 0.35996364 0.29859798 0.20294747
