@@ -8,6 +8,13 @@
 
 <title>Modified Hypograph Index for multivariate functional data — multiMHI • roahd</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -42,6 +49,7 @@
 <meta property="og:title" content="Modified Hypograph Index for multivariate functional data — multiMHI" />
 <meta property="og:description" content="These functions compute the Modified Hypograph Index of
 elements of a multivariate functional dataset." />
+<meta property="og:image" content="https://astamm.github.io/roahd/logo.png" />
 
 
 
@@ -81,7 +89,7 @@ elements of a multivariate functional dataset." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +115,7 @@ elements of a multivariate functional dataset." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/astamm/roahd/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,13 +142,13 @@ elements of a multivariate functional dataset." />
 elements of a multivariate functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>multiMHI</span>(<span class='no'>Data</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='st'>"uniform"</span>)
+    <pre class="usage"><span class='fu'>multiMHI</span><span class='op'>(</span><span class='va'>Data</span>, weights <span class='op'>=</span> <span class='st'>"uniform"</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'>multiMHI</span>(<span class='no'>Data</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='st'>"uniform"</span>)
+<span class='fu'>multiMHI</span><span class='op'>(</span><span class='va'>Data</span>, weights <span class='op'>=</span> <span class='st'>"uniform"</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>multiMHI</span>(<span class='no'>Data</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='st'>"uniform"</span>)</pre>
+<span class='fu'>multiMHI</span><span class='op'>(</span><span class='va'>Data</span>, weights <span class='op'>=</span> <span class='st'>"uniform"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,29 +188,31 @@ j = 1, \ldots N.$$</p>
     <div class='dont-index'><p><code><a href='mfData.html'>mfData</a></code>, <code><a href='MHI.html'>MHI</a></code>, <code><a href='MEI.html'>MEI</a></code>, <code><a href='multiMEI.html'>multiMEI</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>20</span>
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e3</span>
+    <pre class="examples"><div class='input'><span class='va'>N</span> <span class='op'>=</span> <span class='fl'>20</span>
+<span class='va'>P</span> <span class='op'>=</span> <span class='fl'>1e3</span>
 
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>10</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='va'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='fl'>10</span>, length.out <span class='op'>=</span> <span class='va'>P</span> <span class='op'>)</span>
 
 <span class='co'># Generating an exponential covariance function to be used to simulate gaussian</span>
 <span class='co'># functional data</span>
-<span class='no'>Cov</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.8</span> )
+<span class='va'>Cov</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span> <span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.2</span>, beta <span class='op'>=</span> <span class='fl'>0.8</span> <span class='op'>)</span>
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='no'>Data_1</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='no'>P</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='va'>Data_1</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span> <span class='va'>N</span>, centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='va'>P</span> <span class='op'>)</span>, Cov <span class='op'>=</span> <span class='va'>Cov</span> <span class='op'>)</span>
 
 <span class='co'># First component of the multivariate guassian functional dataset</span>
-<span class='no'>Data_2</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0</span>, <span class='no'>P</span> ), <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span> )
+<span class='va'>Data_2</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span> <span class='va'>N</span>, centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='va'>P</span> <span class='op'>)</span>, Cov <span class='op'>=</span> <span class='va'>Cov</span> <span class='op'>)</span>
 
-<span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>Data_1</span>, <span class='no'>Data_2</span> ) )
+<span class='va'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span><span class='op'>(</span> <span class='va'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='va'>Data_1</span>, <span class='va'>Data_2</span> <span class='op'>)</span> <span class='op'>)</span>
 
 <span class='co'># Uniform weights</span>
-<span class='fu'>multiMHI</span>( <span class='no'>mfD</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='st'>'uniform'</span> )</div><div class='output co'>#&gt;  [1] 0.508550 0.599975 0.532575 0.543450 0.499125 0.595325 0.450600 0.566575
+<span class='fu'>multiMHI</span><span class='op'>(</span> <span class='va'>mfD</span>, weights <span class='op'>=</span> <span class='st'>'uniform'</span> <span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 0.508550 0.599975 0.532575 0.543450 0.499125 0.595325 0.450600 0.566575
 #&gt;  [9] 0.473450 0.510500 0.662300 0.324650 0.450850 0.425575 0.694425 0.431325
 #&gt; [17] 0.637375 0.453175 0.530950 0.609250</div><div class='input'>
 <span class='co'># Non-uniform, custom weights</span>
-<span class='fu'>multiMHI</span>( <span class='no'>mfD</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>/<span class='fl'>3</span>, <span class='fl'>1</span>/<span class='fl'>3</span>) )</div><div class='output co'>#&gt;  [1] 0.5284667 0.5915833 0.4847500 0.5567000 0.4866500 0.5467667 0.4461000
+<span class='fu'>multiMHI</span><span class='op'>(</span> <span class='va'>mfD</span>, weights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>/</span><span class='fl'>3</span>, <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 0.5284667 0.5915833 0.4847500 0.5567000 0.4866500 0.5467667 0.4461000
 #&gt;  [8] 0.5997833 0.4619500 0.5591000 0.6759167 0.3116167 0.4522667 0.4352500
 #&gt; [15] 0.6506167 0.4267333 0.6572000 0.4591000 0.5674167 0.6020333</div><div class='input'>
 </div></pre>
@@ -221,7 +231,7 @@ j = 1, \ldots N.$$</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -8,6 +8,13 @@
 
 <title>Outliergram for univariate functional datasets — outliergram • roahd</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -43,6 +50,7 @@
 <meta property="og:description" content="This function performs the outliergram of a univariate functional dataset,
 possibly with an adjustment of the true positive rate of outliers discovered
 under assumption of gaussianity." />
+<meta property="og:image" content="https://astamm.github.io/roahd/logo.png" />
 
 
 
@@ -82,7 +90,7 @@ under assumption of gaussianity." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -108,7 +116,7 @@ under assumption of gaussianity." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/astamm/roahd/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -136,19 +144,19 @@ possibly with an adjustment of the true positive rate of outliers discovered
 under assumption of gaussianity.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>outliergram</span>(
-  <span class='no'>fData</span>,
-  <span class='kw'>MBD_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>MEI_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>p_check</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>outliergram</span><span class='op'>(</span>
+  <span class='va'>fData</span>,
+  MBD_data <span class='op'>=</span> <span class='cn'>NULL</span>,
+  MEI_data <span class='op'>=</span> <span class='cn'>NULL</span>,
+  p_check <span class='op'>=</span> <span class='fl'>0.05</span>,
+  Fvalue <span class='op'>=</span> <span class='fl'>1.5</span>,
+  adjust <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  display <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  xlab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ylab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  main <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -279,54 +287,55 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 <code><a href='fbplot.html'>fbplot</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1618</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1618</span><span class='op'>)</span>
 
-<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
-<span class='no'>P</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
-<span class='no'>N_extra</span> <span class='kw'>&lt;-</span> <span class='fl'>4</span>
+<span class='va'>N</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='va'>P</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='va'>N_extra</span> <span class='op'>&lt;-</span> <span class='fl'>4</span>
 
-<span class='no'>grid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span>)
+<span class='va'>grid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='va'>P</span><span class='op'>)</span>
 
-<span class='no'>Cov</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>(<span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.8</span>)
+<span class='va'>Cov</span> <span class='op'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span><span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.2</span>, beta <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span>
 
-<span class='no'>Data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='va'>N</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
-<span class='no'>Data_extra</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>0</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>N_extra</span>, <span class='no'>P</span>))
+<span class='va'>Data_extra</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fl'>0</span>, dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>N_extra</span>, <span class='va'>P</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='no'>Data_extra</span>[<span class='fl'>1</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> + <span class='no'>pi</span> / <span class='fl'>2</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data_extra</span><span class='op'>[</span><span class='fl'>1</span>, <span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='fl'>1</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>+</span> <span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
-<span class='no'>Data_extra</span>[<span class='fl'>2</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> - <span class='no'>pi</span> / <span class='fl'>2</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data_extra</span><span class='op'>[</span><span class='fl'>2</span>, <span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='fl'>1</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>-</span> <span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
-<span class='no'>Data_extra</span>[<span class='fl'>3</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> + <span class='no'>pi</span> / <span class='fl'>3</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data_extra</span><span class='op'>[</span><span class='fl'>3</span>, <span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='fl'>1</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>+</span> <span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>3</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
-<span class='no'>Data_extra</span>[<span class='fl'>4</span>, ] <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span> - <span class='no'>pi</span> / <span class='fl'>3</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data_extra</span><span class='op'>[</span><span class='fl'>4</span>, <span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='fl'>1</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>-</span> <span class='va'>pi</span> <span class='op'>/</span> <span class='fl'>3</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
-<span class='no'>Data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span>(<span class='no'>Data</span>, <span class='no'>Data_extra</span>)
+<span class='va'>Data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>Data</span>, <span class='va'>Data_extra</span><span class='op'>)</span>
 
-<span class='no'>fD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='fData.html'>fData</a></span>(<span class='no'>grid</span>, <span class='no'>Data</span>)
+<span class='va'>fD</span> <span class='op'>&lt;-</span> <span class='fu'><a href='fData.html'>fData</a></span><span class='op'>(</span><span class='va'>grid</span>, <span class='va'>Data</span><span class='op'>)</span>
 
 <span class='co'># Outliergram with default Fvalue = 1.5</span>
-<span class='fu'>outliergram</span>(<span class='no'>fD</span>, <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='fu'>outliergram</span><span class='op'>(</span><span class='va'>fD</span>, display <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='img'><img src='outliergram-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 1.5
 #&gt; 
 #&gt; $d
@@ -376,7 +385,8 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt;  [1]  31  78 117 122 152 183 201 202 203 204
 #&gt; </div><div class='input'>
 <span class='co'># Outliergram with Fvalue enforced to 2.5</span>
-<span class='fu'>outliergram</span>(<span class='no'>fD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='fu'>outliergram</span><span class='op'>(</span><span class='va'>fD</span>, Fvalue <span class='op'>=</span> <span class='fl'>2.5</span>, display <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='img'><img src='outliergram-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 2.5
 #&gt; 
 #&gt; $d
@@ -427,16 +437,17 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; </div><div class='input'>
 <span class='co'># \donttest{</span>
 <span class='co'># Outliergram with estimated Fvalue to ensure TPR of 1%</span>
-<span class='fu'>outliergram</span>(
-  <span class='kw'>fData</span> <span class='kw'>=</span> <span class='no'>fD</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>N_trials</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-    <span class='kw'>trial_size</span> <span class='kw'>=</span> <span class='fl'>5</span> * <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>Data</span>),
-    <span class='kw'>TPR</span> <span class='kw'>=</span> <span class='fl'>0.01</span>,
-    <span class='kw'>VERBOSE</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-  ),
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</div><div class='img'><img src='outliergram-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
+<span class='fu'>outliergram</span><span class='op'>(</span>
+  fData <span class='op'>=</span> <span class='va'>fD</span>,
+  adjust <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    N_trials <span class='op'>=</span> <span class='fl'>10</span>,
+    trial_size <span class='op'>=</span> <span class='fl'>5</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>Data</span><span class='op'>)</span>,
+    TPR <span class='op'>=</span> <span class='fl'>0.01</span>,
+    VERBOSE <span class='op'>=</span> <span class='cn'>FALSE</span>
+  <span class='op'>)</span>,
+  display <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
+</div><div class='img'><img src='outliergram-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $Fvalue
 #&gt; [1] 2.474683
 #&gt; 
 #&gt; $d
@@ -484,7 +495,7 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 #&gt; 
 #&gt; $ID_outliers
 #&gt; [1]  78 117 183 201 202 203 204
-#&gt; </div><div class='input'># }
+#&gt; </div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>
@@ -502,7 +513,7 @@ for functional data: the outliergram, <em>Biostatistics</em>, 15(4), 603-619.</p
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

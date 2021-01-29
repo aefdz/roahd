@@ -8,6 +8,13 @@
 
 <title>Cross-sectional mean of of a fData object. — mean.fData • roahd</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -44,6 +51,7 @@
 univariate functional dataset stored in a fData object, i.e. the
 mean computed point-by-point along the grid over which the dataset is
 defined." />
+<meta property="og:image" content="https://astamm.github.io/roahd/logo.png" />
 
 
 
@@ -83,7 +91,7 @@ defined." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,7 +117,7 @@ defined." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/astamm/roahd/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +147,7 @@ defined.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for fData</span>
-<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,19 +176,21 @@ desired cross-sectional mean.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='va'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='va'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='va'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='va'>P</span> <span class='op'>)</span>
 
 <span class='co'># Generating a gaussian functional sample with desired mean</span>
-<span class='no'>target_mean</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> )
-<span class='no'>C</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.2</span> )
-<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>,
-                                      <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='no'>target_mean</span>,
-                                       <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>C</span> ) )
+<span class='va'>target_mean</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>)</span>
+<span class='va'>C</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span> <span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.2</span>, beta <span class='op'>=</span> <span class='fl'>0.2</span> <span class='op'>)</span>
+<span class='va'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span><span class='op'>(</span> <span class='va'>grid</span>, <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span> <span class='va'>N</span>,
+                                      centerline <span class='op'>=</span> <span class='va'>target_mean</span>,
+                                       Cov <span class='op'>=</span> <span class='va'>C</span> <span class='op'>)</span> <span class='op'>)</span>
 
 <span class='co'># Graphical representation of the mean</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span> )</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>( <span class='no'>fD</span> ), <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>'black'</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )</div><div class='img'><img src='mean.fData-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span> <span class='va'>fD</span> <span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span> <span class='va'>fD</span> <span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>'black'</span>, lwd <span class='op'>=</span> <span class='fl'>2</span>, lty <span class='op'>=</span> <span class='fl'>2</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span> <span class='op'>)</span>
+</div><div class='img'><img src='mean.fData-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></pre>
   </div>
@@ -198,7 +208,7 @@ desired cross-sectional mean.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

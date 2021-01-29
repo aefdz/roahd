@@ -8,6 +8,13 @@
 
 <title>Bootstrap Confidence Interval on Spearman's Correlation Coefficient of a Multivariate Functional Dataset — BCIntervalSpearmanMultivariate • roahd</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -42,6 +49,7 @@
 <meta property="og:title" content="Bootstrap Confidence Interval on Spearman's Correlation Coefficient of a Multivariate Functional Dataset — BCIntervalSpearmanMultivariate" />
 <meta property="og:description" content="This function computes the bootstrap confidence intervals of coverage probability
 \(1 - \alpha\) for the Spearman correlation coefficients within a multivariate functional dataset." />
+<meta property="og:image" content="https://astamm.github.io/roahd/logo.png" />
 
 
 
@@ -81,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +115,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/astamm/roahd/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,13 +142,13 @@
 \(1 - \alpha\) for the Spearman correlation coefficients within a multivariate functional dataset.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>BCIntervalSpearmanMultivariate</span>(
-  <span class='no'>mfD</span>,
-  <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"MEI"</span>,
-  <span class='kw'>bootstrap_iterations</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>BCIntervalSpearmanMultivariate</span><span class='op'>(</span>
+  <span class='va'>mfD</span>,
+  ordering <span class='op'>=</span> <span class='st'>"MEI"</span>,
+  bootstrap_iterations <span class='op'>=</span> <span class='fl'>1000</span>,
+  alpha <span class='op'>=</span> <span class='fl'>0.05</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,37 +192,38 @@ intervals for its Spearman correlation coefficients.</p>
 <code><a href='mfData.html'>mfData</a></code>, <code><a href='BCIntervalSpearman.html'>BCIntervalSpearman</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
 
-<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fl'>200</span>
-<span class='no'>P</span> <span class='kw'>&lt;-</span> <span class='fl'>100</span>
-<span class='no'>grid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span>)
+<span class='va'>N</span> <span class='op'>&lt;-</span> <span class='fl'>200</span>
+<span class='va'>P</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>
+<span class='va'>grid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='va'>P</span><span class='op'>)</span>
 
 <span class='co'># Creating an exponential covariance function to simulate Gaussian data</span>
-<span class='no'>Cov</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>(<span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span>)
+<span class='va'>Cov</span> <span class='op'>&lt;-</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span><span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span>, beta <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span>
 
 <span class='co'># Simulating (independent) Gaussian functional data with given center and covariance function</span>
-<span class='no'>Data_1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
-<span class='no'>Data_2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>4</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
-<span class='no'>Data_3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>(
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='no'>N</span>,
-  <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='fl'>6</span> * <span class='no'>pi</span> * <span class='no'>grid</span>),
-  <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='no'>Cov</span>
-)
+<span class='va'>Data_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='va'>N</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
+<span class='va'>Data_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='va'>N</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>4</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
+<span class='va'>Data_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span>
+  N <span class='op'>=</span> <span class='va'>N</span>,
+  centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span><span class='fl'>6</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span><span class='op'>)</span>,
+  Cov <span class='op'>=</span> <span class='va'>Cov</span>
+<span class='op'>)</span>
 
 <span class='co'># Using the simulated data as (independent) components of a multivariate functional dataset</span>
-<span class='no'>mfD</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mfData.html'>mfData</a></span>(<span class='no'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>Data_1</span>, <span class='no'>Data_2</span>, <span class='no'>Data_3</span>))
+<span class='va'>mfD</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mfData.html'>mfData</a></span><span class='op'>(</span><span class='va'>grid</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>Data_1</span>, <span class='va'>Data_2</span>, <span class='va'>Data_3</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># \donttest{</span>
-<span class='fu'>BCIntervalSpearmanMultivariate</span>(<span class='no'>mfD</span>, <span class='kw'>ordering</span> <span class='kw'>=</span> <span class='st'>"MEI"</span>)</div><div class='output co'>#&gt; $lower
+<span class='fu'>BCIntervalSpearmanMultivariate</span><span class='op'>(</span><span class='va'>mfD</span>, ordering <span class='op'>=</span> <span class='st'>"MEI"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $lower
 #&gt;             [,1]        [,2]       [,3]
 #&gt; [1,]  1.00000000 -0.09398461 -0.2570364
 #&gt; [2,] -0.09398461  1.00000000 -0.3056464
@@ -225,9 +234,9 @@ intervals for its Spearman correlation coefficients.</p>
 #&gt; [1,] 1.00000000  0.15779563  0.02262386
 #&gt; [2,] 0.15779563  1.00000000 -0.02878122
 #&gt; [3,] 0.02262386 -0.02878122  1.00000000
-#&gt; </div><div class='input'># }
+#&gt; </div><div class='input'><span class='co'># }</span>
 
-# BC intervals contain zero since the functional samples are uncorrelated.
+<span class='co'># BC intervals contain zero since the functional samples are uncorrelated.</span>
 
 </div></pre>
   </div>
@@ -245,7 +254,7 @@ intervals for its Spearman correlation coefficients.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

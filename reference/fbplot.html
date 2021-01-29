@@ -8,6 +8,13 @@
 
 <title>Functional boxplot of univariate and multivariate functional data — fbplot • roahd</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -42,6 +49,7 @@
 <meta property="og:title" content="Functional boxplot of univariate and multivariate functional data — fbplot" />
 <meta property="og:description" content="This function can be used to perform the functional boxplot of univariate or
 multivariate functional data." />
+<meta property="og:image" content="https://astamm.github.io/roahd/logo.png" />
 
 
 
@@ -81,7 +89,7 @@ multivariate functional data." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +115,7 @@ multivariate functional data." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/astamm/roahd/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,43 +142,43 @@ multivariate functional data." />
 multivariate functional data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fbplot</span>(
-  <span class='no'>Data</span>,
-  <span class='kw'>Depths</span> <span class='kw'>=</span> <span class='st'>"MBD"</span>,
-  <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>fbplot</span><span class='op'>(</span>
+  <span class='va'>Data</span>,
+  Depths <span class='op'>=</span> <span class='st'>"MBD"</span>,
+  Fvalue <span class='op'>=</span> <span class='fl'>1.5</span>,
+  adjust <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  display <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  xlab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ylab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  main <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for fData</span>
-<span class='fu'>fbplot</span>(
-  <span class='no'>Data</span>,
-  <span class='kw'>Depths</span> <span class='kw'>=</span> <span class='st'>"MBD"</span>,
-  <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>fbplot</span><span class='op'>(</span>
+  <span class='va'>Data</span>,
+  Depths <span class='op'>=</span> <span class='st'>"MBD"</span>,
+  Fvalue <span class='op'>=</span> <span class='fl'>1.5</span>,
+  adjust <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  display <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  xlab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ylab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  main <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for mfData</span>
-<span class='fu'>fbplot</span>(
-  <span class='no'>Data</span>,
-  <span class='kw'>Depths</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>def</span> <span class='kw'>=</span> <span class='st'>"MBD"</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='st'>"uniform"</span>),
-  <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span>,
-  <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>display</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>fbplot</span><span class='op'>(</span>
+  <span class='va'>Data</span>,
+  Depths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>def <span class='op'>=</span> <span class='st'>"MBD"</span>, weights <span class='op'>=</span> <span class='st'>"uniform"</span><span class='op'>)</span>,
+  Fvalue <span class='op'>=</span> <span class='fl'>1.5</span>,
+  adjust <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  display <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  xlab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ylab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  main <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -311,30 +319,32 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
     <pre class="examples"><div class='input'>
 <span class='co'># UNIVARIATE FUNCTIONAL BOXPLOT - NO ADJUSTMENT</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
 
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>2</span> * <span class='fl'>100</span> + <span class='fl'>1</span>
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>2e2</span>
+<span class='va'>N</span> <span class='op'>=</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>100</span> <span class='op'>+</span> <span class='fl'>1</span>
+<span class='va'>P</span> <span class='op'>=</span> <span class='fl'>2e2</span>
 
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='va'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='va'>P</span> <span class='op'>)</span>
 
-<span class='no'>D</span> <span class='kw'>=</span> <span class='fl'>10</span> * <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='no'>N</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>P</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> )
+<span class='va'>D</span> <span class='op'>=</span> <span class='fl'>10</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>)</span>, nrow <span class='op'>=</span> <span class='va'>N</span>, ncol <span class='op'>=</span> <span class='va'>P</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span> <span class='op'>)</span>
 
-<span class='no'>D</span> <span class='kw'>=</span> <span class='no'>D</span> + <span class='fu'><a href='https://rdrr.io/r/stats/Exponential.html'>rexp</a></span>(<span class='no'>N</span>, <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='va'>D</span> <span class='op'>=</span> <span class='va'>D</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Exponential.html'>rexp</a></span><span class='op'>(</span><span class='va'>N</span>, rate <span class='op'>=</span> <span class='fl'>0.05</span><span class='op'>)</span>
 
 
 <span class='co'># c( 0, 1 : (( N - 1 )/2), -( ( ( N - 1 ) / 2 ) : 1 ) )^4</span>
 
 
-<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>D</span> )
+<span class='va'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span><span class='op'>(</span> <span class='va'>grid</span>, <span class='va'>D</span> <span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots773.pdf")</span></div><div class='input'><span class='no'>oldpar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>))
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>))
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>oldpar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>( <span class='no'>fD</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Functional dataset'</span>,
-      <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'values'</span> )
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span> <span class='va'>fD</span>, lwd <span class='op'>=</span> <span class='fl'>2</span>, main <span class='op'>=</span> <span class='st'>'Functional dataset'</span>,
+      xlab <span class='op'>=</span> <span class='st'>'time'</span>, ylab <span class='op'>=</span> <span class='st'>'values'</span> <span class='op'>)</span>
 
-<span class='fu'>fbplot</span>( <span class='no'>fD</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Functional boxplot'</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'values'</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>1.5</span> )</div><div class='output co'>#&gt; $Depth
+<span class='fu'>fbplot</span><span class='op'>(</span> <span class='va'>fD</span>, main <span class='op'>=</span> <span class='st'>'Functional boxplot'</span>, xlab <span class='op'>=</span> <span class='st'>'time'</span>, ylab <span class='op'>=</span> <span class='st'>'values'</span>, Fvalue <span class='op'>=</span> <span class='fl'>1.5</span> <span class='op'>)</span>
+</div><div class='output co'>#&gt; $Depth
 #&gt;   [1] 0.506666667 0.446517413 0.189054726 0.181044776 0.435621891 0.067860697
 #&gt;   [7] 0.435621891 0.471194030 0.496268657 0.196965174 0.372935323 0.507263682
 #&gt;  [13] 0.423830846 0.019850746 0.468457711 0.473830846 0.256666667 0.496268657
@@ -376,33 +386,35 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 #&gt; $ID_outliers
 #&gt; [1]   6  14  28  53  65  73 127 154
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span>(<span class='no'>fD</span>$<span class='no'>values</span>[,<span class='fl'>1</span>], <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>fD</span>$<span class='no'>values</span>), <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'Boxplot of functional dataset at t_0 '</span> )
+<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>fD</span><span class='op'>$</span><span class='va'>values</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>]</span>, ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>fD</span><span class='op'>$</span><span class='va'>values</span><span class='op'>)</span>, main <span class='op'>=</span> <span class='st'>'Boxplot of functional dataset at t_0 '</span> <span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>oldpar</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='va'>oldpar</span><span class='op'>)</span>
 
 <span class='co'># UNIVARIATE FUNCTIONAL BOXPLOT - WITH ADJUSTMENT</span>
 
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>( <span class='fl'>161803</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span> <span class='fl'>161803</span> <span class='op'>)</span>
 
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>2e2</span>
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>P</span> )
+<span class='va'>P</span> <span class='op'>=</span> <span class='fl'>2e2</span>
+<span class='va'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='va'>P</span> <span class='op'>)</span>
 
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
+<span class='va'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
 
 <span class='co'># Generating a univariate synthetic gaussian dataset</span>
-<span class='no'>Data</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span>( <span class='no'>N</span>, <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ),
-                             <span class='kw'>Cov</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>,
-                                                     <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>,
-                                                     <span class='kw'>beta</span>  <span class='kw'>=</span> <span class='fl'>0.4</span> ) )
-<span class='no'>fD</span> <span class='kw'>=</span> <span class='fu'><a href='fData.html'>fData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
+<span class='va'>Data</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_fdata.html'>generate_gauss_fdata</a></span><span class='op'>(</span> <span class='va'>N</span>, centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>)</span>,
+                             Cov <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span> <span class='va'>grid</span>,
+                                                     alpha <span class='op'>=</span> <span class='fl'>0.3</span>,
+                                                     beta  <span class='op'>=</span> <span class='fl'>0.4</span> <span class='op'>)</span> <span class='op'>)</span>
+<span class='va'>fD</span> <span class='op'>=</span> <span class='fu'><a href='fData.html'>fData</a></span><span class='op'>(</span> <span class='va'>grid</span>, <span class='va'>Data</span> <span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots774.pdf")</span></div><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>fbplot</span>( <span class='no'>fD</span>, <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='kw'>N_trials</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-                           <span class='kw'>trial_size</span> <span class='kw'>=</span> <span class='fl'>5</span> * <span class='no'>N</span>,
-                           <span class='kw'>VERBOSE</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> ),
-                     <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>'Values'</span>,
-                     <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>'My adjusted functional boxplot'</span> )</div><div class='output co'>#&gt;  * * * Iteration  1  /  10 
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='co'># \donttest{</span>
+<span class='fu'>fbplot</span><span class='op'>(</span> <span class='va'>fD</span>, adjust <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> N_trials <span class='op'>=</span> <span class='fl'>10</span>,
+                           trial_size <span class='op'>=</span> <span class='fl'>5</span> <span class='op'>*</span> <span class='va'>N</span>,
+                           VERBOSE <span class='op'>=</span> <span class='cn'>TRUE</span> <span class='op'>)</span>,
+                     xlab <span class='op'>=</span> <span class='st'>'time'</span>, ylab <span class='op'>=</span> <span class='st'>'Values'</span>,
+                     main <span class='op'>=</span> <span class='st'>'My adjusted functional boxplot'</span> <span class='op'>)</span>
+</div><div class='output co'>#&gt;  * * * Iteration  1  /  10 
 #&gt;  * * * * beginning optimization
 #&gt;  * * * * optimization finished.
 #&gt;  * * * Iteration  2  /  10 
@@ -459,31 +471,33 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 
 <span class='co'># MULTIVARIATE FUNCTIONAL BOXPLOT - NO ADJUSTMENT</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>( <span class='fl'>1618033</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span> <span class='fl'>1618033</span> <span class='op'>)</span>
 
-<span class='no'>P</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
-<span class='no'>N</span> <span class='kw'>=</span> <span class='fl'>1e2</span>
-<span class='no'>L</span> <span class='kw'>=</span> <span class='fl'>2</span>
+<span class='va'>P</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='va'>N</span> <span class='op'>=</span> <span class='fl'>1e2</span>
+<span class='va'>L</span> <span class='op'>=</span> <span class='fl'>2</span>
 
-<span class='no'>grid</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>( <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>1e2</span> )
+<span class='va'>grid</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span> <span class='fl'>0</span>, <span class='fl'>1</span>, length.out <span class='op'>=</span> <span class='fl'>1e2</span> <span class='op'>)</span>
 
-<span class='no'>C1</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
-<span class='no'>C2</span> <span class='kw'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span>( <span class='no'>grid</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>beta</span> <span class='kw'>=</span> <span class='fl'>0.4</span> )
+<span class='va'>C1</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span> <span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span>, beta <span class='op'>=</span> <span class='fl'>0.4</span> <span class='op'>)</span>
+<span class='va'>C2</span> <span class='op'>=</span> <span class='fu'><a href='exp_cov_function.html'>exp_cov_function</a></span><span class='op'>(</span> <span class='va'>grid</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span>, beta <span class='op'>=</span> <span class='fl'>0.4</span> <span class='op'>)</span>
 
 <span class='co'># Generating a bivariate functional dataset of gaussian data with partially</span>
 <span class='co'># correlated components</span>
-<span class='no'>Data</span> <span class='kw'>=</span> <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span>( <span class='no'>N</span>, <span class='no'>L</span>,
-                              <span class='kw'>centerline</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>( <span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>grid</span> ),
-                                                   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>P</span>,
-                                                   <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span> ),
-                              <span class='kw'>correlations</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>( <span class='fl'>0.5</span>, <span class='fl'>1</span> ),
-                              <span class='kw'>listCov</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>C1</span>, <span class='no'>C2</span> ) )
+<span class='va'>Data</span> <span class='op'>=</span> <span class='fu'><a href='generate_gauss_mfdata.html'>generate_gauss_mfdata</a></span><span class='op'>(</span> <span class='va'>N</span>, <span class='va'>L</span>,
+                              centerline <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span><span class='op'>(</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>grid</span> <span class='op'>)</span>,
+                                                   nrow <span class='op'>=</span> <span class='fl'>2</span>, ncol <span class='op'>=</span> <span class='va'>P</span>,
+                                                   byrow <span class='op'>=</span> <span class='cn'>TRUE</span> <span class='op'>)</span>,
+                              correlations <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span> <span class='fl'>0.5</span>, <span class='fl'>1</span> <span class='op'>)</span>,
+                              listCov <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='va'>C1</span>, <span class='va'>C2</span> <span class='op'>)</span> <span class='op'>)</span>
 
-<span class='no'>mfD</span> <span class='kw'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span>( <span class='no'>grid</span>, <span class='no'>Data</span> )
+<span class='va'>mfD</span> <span class='op'>=</span> <span class='fu'><a href='mfData.html'>mfData</a></span><span class='op'>(</span> <span class='va'>grid</span>, <span class='va'>Data</span> <span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span>()</div><div class='output co'>#&gt; <span class='message'>dev.new(): using pdf(file="Rplots775.pdf")</span></div><div class='input'><span class='fu'>fbplot</span>( <span class='no'>mfD</span>, <span class='kw'>Fvalue</span> <span class='kw'>=</span> <span class='fl'>2.5</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>'time'</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'Values 1'</span>,
-                                                       <span class='st'>'Values 2'</span> ),
-        <span class='kw'>main</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='st'>'First component'</span>, <span class='st'>'Second component'</span> ) )</div><div class='output co'>#&gt; $Depth
+<span class='fu'><a href='https://rdrr.io/r/grDevices/dev.html'>dev.new</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>fbplot</span><span class='op'>(</span> <span class='va'>mfD</span>, Fvalue <span class='op'>=</span> <span class='fl'>2.5</span>, xlab <span class='op'>=</span> <span class='st'>'time'</span>, ylab <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='st'>'Values 1'</span>,
+                                                       <span class='st'>'Values 2'</span> <span class='op'>)</span>,
+        main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span> <span class='st'>'First component'</span>, <span class='st'>'Second component'</span> <span class='op'>)</span> <span class='op'>)</span>
+</div><div class='output co'>#&gt; $Depth
 #&gt;   [1] 0.43254949 0.39116364 0.35335556 0.39053131 0.08351313 0.16953131
 #&gt;   [7] 0.43867677 0.20252121 0.21967273 0.45222828 0.41967879 0.25533333
 #&gt;  [13] 0.42095758 0.35050101 0.38179192 0.35996364 0.29859798 0.20294747
@@ -526,7 +540,7 @@ spatio-temporal data visualization and outlier detection. Environmetrics,
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
